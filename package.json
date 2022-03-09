@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dantenetwork/cross-chain-demo#readme",
   "dependencies": {
+    "commander": "^9.0.0",
     "fs": "^0.0.1-security",
     "web3": "^1.7.1"
   }
