@@ -43,7 +43,7 @@ node avalancheToPlatON.js --compute 1,2,3,4,5
 
 Send greeting from PlatON to Avalanche
 ```
-node platONToAvalanche.js
+node platONToAvalanche.js --greet
 ```
 Send outsourcing computing task from PlatON to Avalanche
 ```
