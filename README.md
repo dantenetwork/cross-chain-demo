@@ -1,8 +1,23 @@
 # cross-chain-demo
 
-This is a `greeting` smart contract based on DANTE from Avalanche to PlatON.
+This `repo` is for demos with the development of Dante Network. 
 
-### Work flow
+## Currently
+Currently, the demo smart contract to test the `service expression protocol` used for basic communication between different chains, including cross-chain message delivering and cross-chain contract invocations. 
+
+## Coming soon
+The development of the verification for multi-nodes has just been completed in [Near](https://github.com/dantenetwork/Trustless_Bridge/tree/main/near), and we're testing it now. After we finish our internal test in Near, the `solidity` version will be developed. 
+The Demo of the verification on Near will be published soon(within 4 weeks).
+
+The `SQoS` is under development. We will update the demo as soon as we finish it.
+
+Besides, we will make `npm packages` for contract developers along with our SDK for `easy cross-chain DApps`'s development.
+
+The test network is planning to be online in early Q3(2022).
+
+# Current Work flow
+
+**This chapter will be updated as the project progresses.**
 
 * User A sends a greeting message to the smart contract of Avalanche.
 * Greeting contract call cross-chain contract of DANTE.
@@ -10,12 +25,12 @@ This is a `greeting` smart contract based on DANTE from Avalanche to PlatON.
 * User A query greeting message on PlatON.
 
 
-### Install
+## Install
 ```
 npm install -d
 ```
 
-### Test script
+## Test script
 
 Send greeting from Avalanche to PlatON
 ```
@@ -27,7 +42,7 @@ Send greeting from PlatON to Avalanche
 node platONToAvalanche.js
 ```
 
-### The [source code](https://github.com/dantenetwork/dante-cross-chain/blob/main/avalanche/contracts/examples/Greetings.sol) of greeting smart contract: 
+## The [source code](https://github.com/dantenetwork/dante-cross-chain/blob/main/avalanche/contracts/examples/Greetings.sol) of greeting smart contract: 
 ```
 contract Greetings is ConsumerBase {
     struct Greeting {

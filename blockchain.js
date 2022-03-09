@@ -35,11 +35,11 @@ function getCurrentDate() {
 
 module.exports = {
   async sendMessageToAvalanche() {
-    // Send greeting to smart contract of Avalanche
+    // Cross-chain message delivering from `PlatON` to `Avalanche`. Send greeting to smart contract of `Avalanche`. 
     await avalanche.sendTransaction(avalancheContract, 'sendGreeting', testAccountPrivateKey, ['PlatONEVMDEV', 'Greetings', 'Greeting from Avalanche', getCurrentDate()]);
   },
   async sendMessageToPlatON() {
-    // Send greeting to smart contract of PlatON
+    // Cross-chain message delivering from `Avalanche` to `PlatON`. Send greeting to smart contract of `PlatON`
     await platon.sendTransaction(platonContract, 'sendGreeting', testAccountPrivateKey, ['AVALANCHE', 'Greetings', 'Greeting from PlatON', getCurrentDate()]);
   },
   async queryMessageFromAvalanche() {
