@@ -50,4 +50,4 @@ Send outsourcing computing task from PlatON to Avalanche
 node platONToAvalanche.js --compute 1,2,3,4,5
 ```
 
-## You can find the [source code](https://github.com/dantenetwork/dante-cross-chain/blob/main/avalanche/contracts/examples/Greetings.sol) of greeting smart contract here.
+## You can find the [source code](https://github.com/dantenetwork/dante-cross-chain/blob/demo/avalanche/contracts/examples/Greetings.sol) of greeting smart contract here.
