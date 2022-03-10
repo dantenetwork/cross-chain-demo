@@ -17,11 +17,11 @@ let greetingRawData = fs.readFileSync('./deploy/Greetings.json');
 let greetingAbi = JSON.parse(greetingRawData).abi;
 
 // Avalanche contract
-let avalancheContractAddress = '0xD9F804a8B2c00fAF2ccB175dE84516A7Aa010A9E';
+let avalancheContractAddress = '0x49766f787b1E184c5EeAEA36d1eC090Cf25BD72e';
 let avalancheContract = new avalancheWeb3.eth.Contract(greetingAbi, avalancheContractAddress);
 
 // PlatON contract
-let platonContractAddress = '0xD566cf8Fb4C049d5b923f677807cBadaA916BD06';
+let platonContractAddress = '0x9b50fA3A1f4C5efbbCCceCC906b153aeFFe98cAF';
 let platonContract = new platONWeb3.eth.Contract(greetingAbi, platonContractAddress);
 
 // Get current date
@@ -36,11 +36,27 @@ function getCurrentDate() {
 module.exports = {
   async sendMessageToAvalanche() {
     // Cross-chain message delivering from `PlatON` to `Avalanche`. Send greeting to smart contract of `Avalanche`. 
-    await avalanche.sendTransaction(avalancheContract, 'sendGreeting', testAccountPrivateKey, ['PlatONEVMDEV', 'Greetings', 'Greeting from Avalanche', getCurrentDate()]);
+    await platon.sendTransaction(platonContract, 'sendGreeting', testAccountPrivateKey, ['AVALANCHE', 'Greetings', 'Greeting from PlatON', getCurrentDate()]);
   },
   async sendMessageToPlatON() {
     // Cross-chain message delivering from `Avalanche` to `PlatON`. Send greeting to smart contract of `PlatON`
-    await platon.sendTransaction(platonContract, 'sendGreeting', testAccountPrivateKey, ['AVALANCHE', 'Greetings', 'Greeting from PlatON', getCurrentDate()]);
+    await avalanche.sendTransaction(avalancheContract, 'sendGreeting', testAccountPrivateKey, ['PlatONEVMDEV', 'Greetings', 'Greeting from Avalanche', getCurrentDate()]);
+  },
+  async sendOCTaskToAvalanche(nums) {
+    // Cross-chain call delivering from `PlatON` to `Avalanche`.
+    await platon.sendTransaction(platonContract, 'sendComputeTask', testAccountPrivateKey, ['AVALANCHE', nums]);
+  },
+  async sendOCTaskToPlatON(nums) {
+    // Cross-chain call delivering from `Avalanche` to `PlatON`.
+    await avalanche.sendTransaction(avalancheContract, 'sendComputeTask', testAccountPrivateKey, ['PlatONEVMDEV', nums]);
+  },
+  async queryOCResultFromAvalanche() {
+    const message = await avalanche.contractCall(avalancheContract, 'ocResult', []);
+    return message;
+  },
+  async queryOCResultFromPlatON() {
+    const message = await platon.contractCall(platonContract, 'ocResult', []);
+    return message;
   },
   async queryMessageFromAvalanche() {
     const message = await avalanche.contractCall(avalancheContract, 'getLastMessage', []);
