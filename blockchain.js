@@ -17,11 +17,11 @@ let greetingRawData = fs.readFileSync('./deploy/Greetings.json');
 let greetingAbi = JSON.parse(greetingRawData).abi;
 
 // Avalanche contract
-let avalancheContractAddress = '0x49766f787b1E184c5EeAEA36d1eC090Cf25BD72e';
+let avalancheContractAddress = '0x7F2607b6Cd8471377CAAF9b73C20936FFbf458CD';
 let avalancheContract = new avalancheWeb3.eth.Contract(greetingAbi, avalancheContractAddress);
 
 // PlatON contract
-let platonContractAddress = '0x9b50fA3A1f4C5efbbCCceCC906b153aeFFe98cAF';
+let platonContractAddress = '0x322C59efF021BcAd0c729Eacd02641aab0976a03';
 let platonContract = new platONWeb3.eth.Contract(greetingAbi, platonContractAddress);
 
 // Get current date
