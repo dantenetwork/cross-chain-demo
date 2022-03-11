@@ -10,7 +10,7 @@ testAccountPrivateKey = JSON.parse(testAccountPrivateKey).key;
 
 const avalancheGreetingContractAddress = '0x7F2607b6Cd8471377CAAF9b73C20936FFbf458CD';
 const platonGreetingContractAddress = '0x322C59efF021BcAd0c729Eacd02641aab0976a03';
-const crossChainContractAddress = '0xDAE81F275da02b8d78bc26D0C4355658Dd314aea';
+const crossChainContractAddress = '0xe0d1951E527190C446821DeA9ce774a3Bc7E443A';
 
 const greetingRawData = fs.readFileSync('./deploy/Greetings.json');
 const greetingAbi = JSON.parse(greetingRawData).abi;
@@ -21,7 +21,7 @@ const crossChainAbi = JSON.parse(crossChainRawData).abi;
 const crossChainContract = new web3.eth.Contract(crossChainAbi, crossChainContractAddress);
 
 async function init() {
-  await avalanche.sendTransaction(crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['PlatONEVMDEV']);
+  // await avalanche.sendTransaction(crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['PlatONEVMDEV']);
 
   // register porters
   await avalanche.sendTransaction(crossChainContract, 'changePortersAndRequirement', testAccountPrivateKey, [['0x30ad2981E83615001fe698b6fBa1bbCb52C19Dfa'], 1]);
@@ -30,7 +30,7 @@ async function init() {
   await avalanche.sendTransaction(greetingContract, 'registerPermittedContract', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveGreeting']);
   await avalanche.sendTransaction(greetingContract, 'registerPermittedContract', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeResult']);
   await avalanche.sendTransaction(greetingContract, 'registerPermittedContract', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeTask']);
-  // // set cross chain contract
+  // set cross chain contract
   await avalanche.sendTransaction(greetingContract, 'setCrossChainContract', testAccountPrivateKey, [crossChainContractAddress]);
   // register message abi
   await avalanche.sendTransaction(greetingContract, 'registerMessageABI', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveGreeting', 'string,string,string,string', 'fromChain,title,content,date']);

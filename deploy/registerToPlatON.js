@@ -21,7 +21,7 @@ const crossChainAbi = JSON.parse(crossChainRawData).abi;
 const crossChainContract = new web3.eth.Contract(crossChainAbi, crossChainContractAddress);
 
 async function init() {
-  await platon.sendTransaction(crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['AVALANCHE']);
+  // await platon.sendTransaction(crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['AVALANCHE']);
 
   // register porters
   await platon.sendTransaction(crossChainContract, 'changePortersAndRequirement', testAccountPrivateKey, [['0x30ad2981E83615001fe698b6fBa1bbCb52C19Dfa'], 1]);

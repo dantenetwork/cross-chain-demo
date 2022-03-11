@@ -15,7 +15,7 @@ async function sendGreeting() {
   setTimeout(async () => {
     const message = await blockchain.queryMessageFromAvalanche();
     console.log(message);
-  }, 20 * 1000);
+  }, 60 * 1000);
 };
 
 async function sendOCTask(nums) {

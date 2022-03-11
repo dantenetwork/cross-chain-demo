@@ -59,11 +59,11 @@ module.exports = {
     return message;
   },
   async queryMessageFromAvalanche() {
-    const message = await avalanche.contractCall(avalancheContract, 'getLastMessage', []);
+    const message = await avalanche.contractCall(avalancheContract, 'getContext', []);
     return message;
   },
   async queryMessageFromPlatON() {
-    const message = await platon.contractCall(platonContract, 'getLastMessage', []);
+    const message = await platon.contractCall(platonContract, 'getContext', []);
     return message;
   }
 }
