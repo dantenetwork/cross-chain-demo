@@ -6,8 +6,8 @@ async function sendGreeting() {
   ///////    Avalanche To PlatON     ////////////
   ///////////////////////////////////////////////
 
-  // send greeting to smart contract on Avalanche
-  await blockchain.sendMessageToAvalanche();
+  // send greeting to smart contract on PlatON
+  await blockchain.sendMessageToPlatON();
 
   // query greeting from smart contract on PlatON
   console.log('Wait for the message to be synchronized.');
@@ -15,7 +15,7 @@ async function sendGreeting() {
   setTimeout(async () => {
     const message = await blockchain.queryMessageFromPlatON();
     console.log(message);
-  }, 20 * 1000);
+  }, 30 * 1000);
 }
 
 async function sendOCTask(nums) {

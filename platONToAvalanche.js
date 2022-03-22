@@ -9,7 +9,7 @@ async function sendGreeting() {
   // send greeting to smart contract on Avalanche
   await blockchain.sendMessageToAvalanche();
 
-  // query greeting from smart contract on PlatON
+  // query greeting from smart contract on Avalanche
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {

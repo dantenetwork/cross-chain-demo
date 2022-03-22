@@ -17,11 +17,11 @@ let greetingRawData = fs.readFileSync('./deploy/Greetings.json');
 let greetingAbi = JSON.parse(greetingRawData).abi;
 
 // Avalanche contract
-let avalancheContractAddress = '0x7F2607b6Cd8471377CAAF9b73C20936FFbf458CD';
+let avalancheContractAddress = '0xE08e58eC8d78Bf4e68Eea4131F4a305002926EC3';
 let avalancheContract = new avalancheWeb3.eth.Contract(greetingAbi, avalancheContractAddress);
 
 // PlatON contract
-let platonContractAddress = '0x322C59efF021BcAd0c729Eacd02641aab0976a03';
+let platonContractAddress = '0xF31562eF36Ffa449CEbdD1eC97c94aFa9D2C6862';
 let platonContract = new platONWeb3.eth.Contract(greetingAbi, platonContractAddress);
 
 // Get current date
@@ -36,11 +36,11 @@ function getCurrentDate() {
 module.exports = {
   async sendMessageToAvalanche() {
     // Cross-chain message delivering from `PlatON` to `Avalanche`. Send greeting to smart contract of `Avalanche`. 
-    await platon.sendTransaction(platonContract, 'sendGreeting', testAccountPrivateKey, ['AVALANCHE', 'Greetings', 'Greeting from PlatON', getCurrentDate()]);
+    await platon.sendTransaction(platonContract, 'sendGreeting', testAccountPrivateKey, ['AVALANCHE', ['PlatONEVMDEV', 'Greetings', 'Greeting from PlatON', getCurrentDate()]]);
   },
   async sendMessageToPlatON() {
     // Cross-chain message delivering from `Avalanche` to `PlatON`. Send greeting to smart contract of `PlatON`
-    await avalanche.sendTransaction(avalancheContract, 'sendGreeting', testAccountPrivateKey, ['PlatONEVMDEV', 'Greetings', 'Greeting from Avalanche', getCurrentDate()]);
+    await avalanche.sendTransaction(avalancheContract, 'sendGreeting', testAccountPrivateKey, ['PlatONEVMDEV', ['AVALANCHE', 'Greetings', 'Greeting from Avalanche', getCurrentDate()]]);
   },
   async sendOCTaskToAvalanche(nums) {
     // Cross-chain call delivering from `PlatON` to `Avalanche`.
