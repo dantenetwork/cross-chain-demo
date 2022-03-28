@@ -13,15 +13,15 @@ const publicKey = avalancheWeb3.eth.accounts.privateKeyToAccount(testAccountPriv
 console.log('publicKey: ' + publicKey);
 
 // Load smart contract abi
-let greetingRawData = fs.readFileSync('./deploy/GreetingAdvanced.json');
+let greetingRawData = fs.readFileSync('./deploy/OCComputing.json');
 let greetingAbi = JSON.parse(greetingRawData).abi;
 
 // Avalanche contract
-let avalancheContractAddress = '0x2B8fa110bbe8a6A3E3bd65DDFa21666237589BeD';
+let avalancheContractAddress = '0xf0219D5cA612e311317C2D7A9909D669349CC736';
 let avalancheContract = new avalancheWeb3.eth.Contract(greetingAbi, avalancheContractAddress);
 
 // PlatON contract
-let platonContractAddress = '0x10022eADCE4569F15236E4182486b6AEc4174E09';
+let platonContractAddress = '0x4d9aE11dCf5378b2A14f6Ab3E6A225ED706A125E';
 let platonContract = new platONWeb3.eth.Contract(greetingAbi, platonContractAddress);
 
 // Get current date

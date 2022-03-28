@@ -42,14 +42,10 @@ async function sendOCTask(nums) {
 
   program
 	  .version('0.1.0')
-	  .option('-g, --greet', 'send greeting to PlatON')
 	  .option('-c, --compute <num1, ..., numn>', 'send outsourcing computing task to PlatON', list)
 	  .parse(process.argv);
 
-  if (program.opts().greet) {
-    await sendGreeting();
-  }
-  else if (program.opts().compute) {
+  if (program.opts().compute) {
     await sendOCTask(program.opts().compute);
   }
 })();
