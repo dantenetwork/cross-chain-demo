@@ -33,6 +33,21 @@ npm install -d
 
 ## Test script
 
+Send greeting from Avalanche to NEAR
+```
+node avalancheToNear.js --greet
+```
+
+Send greeting from NEAR to Avalanche
+```
+node nearToAvalanche.js --greet
+```
+
+Send outsourcing computing task from NEAR to Avalanche
+```
+node nearToAvalanche.js --compute 1,2,3,4,5,8
+```
+
 Send greeting from Avalanche to PlatON
 ```
 node avalancheToPlatON.js --greet
