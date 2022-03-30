@@ -20,10 +20,21 @@ The test network is planning to be online in early Q3(2022).
 
 **This chapter will be updated as the project progresses.**
 
-* User A sends a greeting message to the smart contract of Avalanche.
-* Greeting contract call cross-chain contract of DANTE.
-* DANTE cross-chain service sync message from Avalanche to PlatON.
-* User A query greeting message on PlatON.
+**Greetings**
+* User α sends a greeting message to the greeting contract on chain A.
+* Greeting contract call cross-chain contract of DANTE on chain A.
+* DANTE cross-chain service sync message from chain A to chain B.
+* User β query greeting message on chain B.
+
+
+**Computation**
+* User α sends a transaction for a simple computation to the calculation contract on chain A.
+* Calculation contract on chain A call cross-chain contract of DANTE on chain A.
+* DANTE cross-chain service sync the calling information from chain A to chain B.
+* Calculation contract on chain B make the real computation with its own mode(maybe it's a special mode like VC based on zk-snark).
+* Calculation contract on chain B call cross-chain contract of DANTE to return the result of the computation to chain A.
+* DANTE cross-chain service sync the result information from chain B to chain A.
+* User α query the result on chain A.
 
 
 ## Install
