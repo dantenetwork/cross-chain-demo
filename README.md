@@ -4,6 +4,7 @@ This `repo` is for demos with the development of Dante Network.
 
 ## Currently
 Currently, the demo smart contract to test the `service expression protocol` used for basic communication between different chains, including cross-chain message delivering and cross-chain contract invocations. 
+* Demo for interoperation between Near and EVM chains can be tried [here](https://github.com/dantenetwork/cross-chain-demo/tree/demo-video);
 
 ## Coming soon
 The development of the verification for multi-nodes has just been completed in [Near](https://github.com/dantenetwork/Trustless_Bridge/tree/main/near), and we're testing it now. After we finish our internal test in Near, the `solidity` version will be developed. We will deploy and test this point for ETH, Avalanche, PlatON, or other public chains with EVM soon.
