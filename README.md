@@ -4,6 +4,9 @@ This `repo` is for demos with the development of Dante Network.
 This is a "Nightly" branch for development. New features will be published here as soon as we make progresses.
 
 ## Currently
+
+**Demo for interoperation between Near and EVM chains can now be experienced!**
+
 Currently, the demo smart contract to test the `service expression protocol` used for basic communication between different chains, including cross-chain message delivering and cross-chain contract invocations. 
 
 ## Coming soon
