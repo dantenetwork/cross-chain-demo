@@ -26,6 +26,8 @@ let avalancheContractAddress = '0xE08e58eC8d78Bf4e68Eea4131F4a305002926EC3';
 let avalancheContract = new avalancheWeb3.eth.Contract(greetingAbi, avalancheContractAddress);
 
 let evmContracts = {};
+let evmProviders = {};
+evmProviders['RINKEBY'] = [ethereumWeb3, 4];
 
 // Ethereum contract
 let ethereumContractAddress = '0xF0e63AC2F2D17171C1235615b45D1EC8f9e792C4';
@@ -84,7 +86,7 @@ module.exports = {
 
   async sendMessageFromEthereumToNear(chainName) {
     // Cross-chain message delivering from `Avalanche` to `PlatON`. Send greeting to smart contract of `PlatON`
-    await ethereum.sendTransaction(evmContracts[chainName], 'sendGreeting', testAccountPrivateKey, ['NEAR', [chainName, 'Greetings', 'Greeting from ' + chainName, getCurrentDate()]]);
+    await ethereum.sendTransaction(evmProviders[chainName][0], evmProviders[chainName][1], evmContracts[chainName], 'sendGreeting', testAccountPrivateKey, ['NEAR', [chainName, 'Greetings', 'Greeting from ' + chainName, getCurrentDate()]]);
   },
 
   async sendMessageToPlatON() {
