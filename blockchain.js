@@ -4,7 +4,8 @@ const path = require('path');
 const homedir = require("os").homedir();
 const avalanche = require('./deploy/avalanche');
 const platon = require('./deploy/platon');
-const near = require('./deploy/near')
+const near = require('./deploy/near');
+const ethereum = require('./deploy/ethereum');
 
 const avalancheWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
 const platONWeb3 = new Web3('http://35.247.155.162:6789');
@@ -119,6 +120,10 @@ module.exports = {
   },
   async queryMessageFromPlatON() {
     const message = await platon.contractCall(platonContract, 'getContext', []);
+    return message;
+  },
+  async queryMessageFromEthereum(chainName) {
+    const message = await ethereum.contractCall(evmContracts[chainName], 'getContext', []);
     return message;
   }
 }
