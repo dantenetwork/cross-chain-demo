@@ -12,7 +12,7 @@ const near = require('./near');
 
 const avalancheGreetingContractAddress = '0xE08e58eC8d78Bf4e68Eea4131F4a305002926EC3';
 const platonGreetingContractAddress = '0xF31562eF36Ffa449CEbdD1eC97c94aFa9D2C6862';
-const ethereumGreetingContractAddress = '0xF0e63AC2F2D17171C1235615b45D1EC8f9e792C4';
+const ethereumGreetingContractAddress = '0x71F985781d5439E469384c483262b24085Fc08aC';
 const networkId = "testnet";
 const greetingContractId = "greeting.datlocker.testnet";
 const sumContractId = "sum.datlocker.testnet";

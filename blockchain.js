@@ -30,7 +30,7 @@ let evmProviders = {};
 evmProviders['RINKEBY'] = [ethereumWeb3, 4];
 
 // Ethereum contract
-let ethereumContractAddress = '0xF0e63AC2F2D17171C1235615b45D1EC8f9e792C4';
+let ethereumContractAddress = '0x71F985781d5439E469384c483262b24085Fc08aC';
 let ethereumContract = new ethereumWeb3.eth.Contract(greetingAbi, ethereumContractAddress);
 
 evmContracts['RINKEBY'] = ethereumContract;
