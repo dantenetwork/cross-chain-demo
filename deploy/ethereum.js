@@ -2,6 +2,7 @@ module.exports = {
   // 通过私钥签名交易
   async sendTransaction(
     provider, chainId, targetContract, methodName, accountPrivateKey, arguments) {
+    provider.eth.handleRevert = true;
     try {
       const account =
         provider.eth.accounts.privateKeyToAccount(accountPrivateKey)
