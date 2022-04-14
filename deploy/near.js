@@ -75,14 +75,15 @@ module.exports = {
   },
   
   async contractCall(contract_id, method, args) {
+    const serializedArgs = (Buffer.from(JSON.stringify(args))).toString('base64');
     const rawResult = await provider.query({
       request_type: "call_function",
       account_id: contract_id,
       method_name: method,
-      args_base64: args,
+      args_base64: serializedArgs,
       finality: "optimistic",
     });
     const res = JSON.parse(Buffer.from(rawResult.result).toString());
-    console.log(res);
+    return res;
   }
 }
