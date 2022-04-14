@@ -8,6 +8,7 @@ const near = require('./deploy/near')
 
 const avalancheWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
 const platONWeb3 = new Web3('http://35.247.155.162:6789');
+const ethereumWeb3 = new Web3('https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161');
 
 // Test account
 let testAccountPrivateKey = fs.readFileSync('.secret');
@@ -22,6 +23,14 @@ let greetingAbi = JSON.parse(greetingRawData).abi;
 // Avalanche contract
 let avalancheContractAddress = '0xE08e58eC8d78Bf4e68Eea4131F4a305002926EC3';
 let avalancheContract = new avalancheWeb3.eth.Contract(greetingAbi, avalancheContractAddress);
+
+let evmContracts = {};
+
+// Ethereum contract
+let ethereumContractAddress = '0xF0e63AC2F2D17171C1235615b45D1EC8f9e792C4';
+let ethereumContract = new ethereumWeb3.eth.Contract(greetingAbi, ethereumContractAddress);
+
+evmContracts['RINKEBY'] = ethereumContract;
 
 // PlatON contract
 let platonContractAddress = '0xF31562eF36Ffa449CEbdD1eC97c94aFa9D2C6862';
@@ -61,6 +70,20 @@ module.exports = {
   async sendOCTaskFromNearToAvalanche(nums) {
     // Cross-chain call delivering from `PlatON` to `Avalanche`.
     await near.sendTransaction(nearSumContractId, nearSender, SenderPrivateKey, 'sum', {to_chain: 'AVALANCHE', params_vector: nums});
+  },
+
+  async sendMessageFromNearToEthereum(chainName) {
+    await near.sendTransaction(nearContractId, nearSender, SenderPrivateKey, "send_greeting", {to_chain: chainName, title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
+  },
+
+  async sendOCTaskFromNearToEthereum(chainName, nums) {
+    // Cross-chain call delivering from `PlatON` to `Avalanche`.
+    await near.sendTransaction(nearSumContractId, nearSender, SenderPrivateKey, 'sum', {to_chain: chainName, params_vector: nums});
+  },
+
+  async sendMessageFromEthereumToNear(chainName) {
+    // Cross-chain message delivering from `Avalanche` to `PlatON`. Send greeting to smart contract of `PlatON`
+    await avalanche.sendTransaction(evmContracts[chainName], 'sendGreeting', testAccountPrivateKey, ['NEAR', [chainName, 'Greetings', 'Greeting from ' + chainName, getCurrentDate()]]);
   },
 
   async sendMessageToPlatON() {

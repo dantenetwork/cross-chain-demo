@@ -12,6 +12,7 @@ const near = require('./near');
 
 const avalancheGreetingContractAddress = '0xE08e58eC8d78Bf4e68Eea4131F4a305002926EC3';
 const platonGreetingContractAddress = '0xF31562eF36Ffa449CEbdD1eC97c94aFa9D2C6862';
+const ethereumGreetingContractAddress = '0xF0e63AC2F2D17171C1235615b45D1EC8f9e792C4';
 const networkId = "testnet";
 const greetingContractId = "greeting.datlocker.testnet";
 const sumContractId = "sum.datlocker.testnet";
@@ -44,9 +45,13 @@ async function init() {
   // await near.sendTransaction(greetingContractId, greetingContractId, greetingPrivateKey, "add_locker_info", {chain_name: "PlatON", locker_contract_account: platonGreetingContractAddress, locker_action_name: "receiveGreeting"});
 
     // register Avalanche greeting 
-  await near.sendTransaction(greetingContractId, greetingContractId, greetingPrivateKey, "add_locker_info", { chain_name: "AVALANCHE", locker_contract_account: avalancheGreetingContractAddress, locker_action_name: "receiveGreeting" });
+  // await near.sendTransaction(greetingContractId, greetingContractId, greetingPrivateKey, "add_locker_info", { chain_name: "AVALANCHE", locker_contract_account: avalancheGreetingContractAddress, locker_action_name: "receiveGreeting" });
 
-  await near.sendTransaction(sumContractId, sumContractId, sumPrivateKey, "add_locker_info", { chain_name: "AVALANCHE", locker_contract_account: avalancheGreetingContractAddress, locker_action_name: "receiveComputeTask" });
+  // await near.sendTransaction(sumContractId, sumContractId, sumPrivateKey, "add_locker_info", { chain_name: "AVALANCHE", locker_contract_account: avalancheGreetingContractAddress, locker_action_name: "receiveComputeTask" });
+
+  // register Ethereum greeting
+  await near.sendTransaction(greetingContractId, greetingContractId, greetingPrivateKey, "add_locker_info", {chain_name: "RINKEBY", locker_contract_account: ethereumGreetingContractAddress, locker_action_name: "receiveGreeting"});
+  await near.sendTransaction(sumContractId, sumContractId, sumPrivateKey, "add_locker_info", { chain_name: "RINKEBY", locker_contract_account: ethereumGreetingContractAddress, locker_action_name: "receiveComputeTask" });
 }
 
 (async function () {
