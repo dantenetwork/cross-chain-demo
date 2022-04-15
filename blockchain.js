@@ -120,6 +120,10 @@ module.exports = {
     const message = await platon.contractCall(platonContract, 'ocResult', []);
     return message;
   },
+  async queryOCResultFromEthereum(chainName) {
+    const message = await ethereum.contractCall(evmContracts[chainName], 'ocResult', []);
+    return message;
+  },
   async queryMessageFromAvalanche() {
     const message = await avalanche.contractCall(avalancheContract, 'getContext', []);
     return message;
