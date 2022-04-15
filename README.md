@@ -47,6 +47,21 @@ npm install -d
 
 ## Test script
 
+Send greeting from Ethereum to NEAR
+```
+node ethereumToNear.js --greet
+```
+
+Send greeting from NEAR to Ethereum
+```
+node nearToEthereum.js --greet
+```
+
+Send outsourcing computing task from NEAR to Ethereum
+```
+node nearToEthereum.js --compute 9,9,8
+```
+
 Send greeting from Avalanche to NEAR
 ```
 node avalancheToNear.js --greet
