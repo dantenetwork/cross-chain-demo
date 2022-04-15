@@ -3,17 +3,17 @@ const { program } = require('commander');
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
-  ///////    Avalanche To PlatON     ////////////
+  ///////     Ethereum To NEAR      ////////////
   ///////////////////////////////////////////////
 
-  // send greeting to smart contract on PlatON
+  // send greeting to smart contract on RINKEBY
   await blockchain.sendMessageFromEthereumToNear('RINKEBY');
 
-  // query greeting from smart contract on PlatON
+  // query greeting from smart contract on NEAR
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryMessageFromEthereum('RINKEBY');
+    const message = await blockchain.queryMessageFromNear('RINKEBY');
     console.log(message);
   }, 30 * 1000);
 }

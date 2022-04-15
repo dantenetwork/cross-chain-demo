@@ -112,12 +112,20 @@ module.exports = {
     const message = await avalanche.contractCall(avalancheContract, 'ocResult', []);
     return message;
   },
+  async queryOCResultFromNear() {
+    const message = await avalanche.contractCall(nearSumContractId, 'get', {});
+    return message;
+  },
   async queryOCResultFromPlatON() {
     const message = await platon.contractCall(platonContract, 'ocResult', []);
     return message;
   },
   async queryMessageFromAvalanche() {
     const message = await avalanche.contractCall(avalancheContract, 'getContext', []);
+    return message;
+  },
+  async queryMessageFromNear(chainName) {
+    const message = await near.contractCall(nearContractId, "get", { "from_chain": chainName });
     return message;
   },
   async queryMessageFromPlatON() {
