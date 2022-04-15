@@ -11,7 +11,7 @@ testAccountPrivateKey = JSON.parse(testAccountPrivateKey).key;
 
 const ethereumGreetingContractAddress = '0x71F985781d5439E469384c483262b24085Fc08aC';
 const nearGreetingContractAddress = 'greeting.datlocker.testnet';
-const crossChainContractAddress = '0xe39Cf46DA4E1567eF6b209e9c343803fA7143fa8';
+const crossChainContractAddress = '0x4B870Af8Ff3a338A7F2973c70024928cb5603FC3';
 
 const greetingRawData = fs.readFileSync('./deploy/Greetings.json');
 const greetingAbi = JSON.parse(greetingRawData).abi;
@@ -22,10 +22,10 @@ const crossChainAbi = JSON.parse(crossChainRawData).abi;
 const crossChainContract = new web3.eth.Contract(crossChainAbi, crossChainContractAddress);
 
 async function init() {
-  // await ethereum.sendTransaction(web3, CHAIN_ID, crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['NEAR']);
+  await ethereum.sendTransaction(web3, CHAIN_ID, crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['NEAR']);
 
   // register porters
-  // await ethereum.sendTransaction(web3, CHAIN_ID, crossChainContract, 'changePortersAndRequirement', testAccountPrivateKey, [['0x30ad2981E83615001fe698b6fBa1bbCb52C19Dfa'], 1]);
+  await ethereum.sendTransaction(web3, CHAIN_ID, crossChainContract, 'changePortersAndRequirement', testAccountPrivateKey, [['0x30ad2981E83615001fe698b6fBa1bbCb52C19Dfa'], 1]);
 
   // // register verify
   await ethereum.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerPermittedContract', testAccountPrivateKey, ['NEAR', nearGreetingContractAddress, 'receiveGreeting']);

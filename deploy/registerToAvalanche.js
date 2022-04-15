@@ -22,6 +22,7 @@ const crossChainAbi = JSON.parse(crossChainRawData).abi;
 const crossChainContract = new web3.eth.Contract(crossChainAbi, crossChainContractAddress);
 
 async function init() {
+  await avalanche.sendTransaction(crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['NEAR']);
   // await avalanche.sendTransaction(crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['PlatONEVMDEV']);
 
   // register porters
@@ -41,7 +42,7 @@ async function init() {
   // await avalanche.sendTransaction(greetingContract, 'registerMessageABI', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeResult', 'uint256', 'result']);
   // await avalanche.sendTransaction(greetingContract, 'registerMessageABI', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeTask', 'uint256[]', 'nums']);
   // await avalanche.sendTransaction(greetingContract, 'registerMessageABI', testAccountPrivateKey, ['NEAR', nearGreetingContractAddress, 'receive_greeting', 'tuple(string,string,string,string)', 'greeting']);
-  await avalanche.sendTransaction(greetingContract, 'registerMessageABI', testAccountPrivateKey, ['NEAR', 'sum.datlocker.testnet', 'cross_chain_vc_sum_callback', 'uint256', 'result']);
+  // await avalanche.sendTransaction(greetingContract, 'registerMessageABI', testAccountPrivateKey, ['NEAR', 'sum.datlocker.testnet', 'cross_chain_vc_sum_callback', 'uint256', 'result']);
   // // register contract abi
   // await avalanche.sendTransaction(greetingContract, 'registerContractABI', testAccountPrivateKey, ['receiveGreeting', '{"inputs":[{"components":[{"internalType":"string","name":"fromChain","type":"string"},{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"content","type":"string"},{"internalType":"string","name":"date","type":"string"}],"internalType":"struct Greeting","name":"greeting","type":"tuple"}],"name":"receiveGreeting","outputs":[],"stateMutability":"nonpayable","type":"function"}']);
   // await avalanche.sendTransaction(greetingContract, 'registerContractABI', testAccountPrivateKey, ['receiveComputeResult', '{"inputs":[{"internalType":"uint256","name":"result","type":"uint256"}],"name":"receiveComputeResult","outputs":[],"stateMutability":"nonpayable","type":"function"}']);
@@ -51,7 +52,7 @@ async function init() {
   // await avalanche.sendTransaction(greetingContract, 'registerDestnContract', testAccountPrivateKey, ['receiveComputeResult', 'PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeResult']);
   // await avalanche.sendTransaction(greetingContract, 'registerDestnContract', testAccountPrivateKey, ['receiveComputeTask', 'PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeTask']);
   // await avalanche.sendTransaction(greetingContract, 'registerDestnContract', testAccountPrivateKey, ['receiveGreeting', 'NEAR', nearGreetingContractAddress, 'receive_greeting']);
-  await avalanche.sendTransaction(greetingContract, 'registerDestnContract', testAccountPrivateKey, ['receiveComputeResult', 'NEAR', 'sum.datlocker.testnet', 'cross_chain_vc_sum_callback']);
+  // await avalanche.sendTransaction(greetingContract, 'registerDestnContract', testAccountPrivateKey, ['receiveComputeResult', 'NEAR', 'sum.datlocker.testnet', 'cross_chain_vc_sum_callback']);
 
 }
 
