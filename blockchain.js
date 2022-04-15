@@ -113,7 +113,7 @@ module.exports = {
     return message;
   },
   async queryOCResultFromNear() {
-    const message = await avalanche.contractCall(nearSumContractId, 'get', {});
+    const message = await near.contractCall(nearSumContractId, 'get', {});
     return message;
   },
   async queryOCResultFromPlatON() {
