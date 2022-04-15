@@ -30,7 +30,7 @@ async function sendOCTask(nums) {
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryOCResultFromPlatON();
+    const message = await blockchain.queryOCResultFromNear();
     console.log(message);
   }, 60 * 1000);
 };
