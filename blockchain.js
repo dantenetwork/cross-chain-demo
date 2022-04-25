@@ -10,8 +10,7 @@ const avalancheWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
 const platONWeb3 = new Web3('http://35.247.155.162:6789');
 
 // Test account
-let testAccountPrivateKey = fs.readFileSync('.secret');
-testAccountPrivateKey = JSON.parse(testAccountPrivateKey).key;
+let testAccountPrivateKey = fs.readFileSync('.secret').toString();
 const publicKey = avalancheWeb3.eth.accounts.privateKeyToAccount(testAccountPrivateKey).address;
 console.log('publicKey: ' + publicKey);
 

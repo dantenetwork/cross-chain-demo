@@ -5,8 +5,7 @@ const platon = require('./platon');
 const web3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
 
 // test account
-let testAccountPrivateKey = fs.readFileSync('.secret');
-testAccountPrivateKey = JSON.parse(testAccountPrivateKey).key;
+let testAccountPrivateKey = fs.readFileSync('.secret').toString();
 
 const avalancheGreetingContractAddress = '0xE08e58eC8d78Bf4e68Eea4131F4a305002926EC3';
 const platonGreetingContractAddress = '0xF31562eF36Ffa449CEbdD1eC97c94aFa9D2C6862';
