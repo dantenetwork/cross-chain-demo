@@ -2,7 +2,7 @@ const Web3 = require('web3');
 const fs = require('fs');
 const platon = require('./platon');
 
-const web3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
+const web3 = new Web3('http://35.247.155.162:6789');
 
 // test account
 let testAccountPrivateKey = fs.readFileSync('.secret');
