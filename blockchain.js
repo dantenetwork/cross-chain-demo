@@ -4,9 +4,11 @@ const path = require('path');
 const homedir = require("os").homedir();
 const evm = require('./deploy/evm');
 const platon = require('./deploy/platon');
-const near = require('./deploy/near')
+const near = require('./deploy/near');
+const ethereum = require('./deploy/ethereum');
 
 const platONWeb3 = new Web3('http://35.247.155.162:6789');
+const ethereumWeb3 = new Web3('https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161');
 
 const avalancheWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
 
@@ -20,6 +22,16 @@ let greetingAbi = JSON.parse(greetingRawData).abi;
 // Avalanche contract
 let avalancheContractAddress = '0xE08e58eC8d78Bf4e68Eea4131F4a305002926EC3';
 let avalancheContract = new avalancheWeb3.eth.Contract(greetingAbi, avalancheContractAddress);
+
+let evmContracts = {};
+let evmProviders = {};
+evmProviders['RINKEBY'] = [ethereumWeb3, 4];
+
+// Ethereum contract
+let ethereumContractAddress = '0x71F985781d5439E469384c483262b24085Fc08aC';
+let ethereumContract = new ethereumWeb3.eth.Contract(greetingAbi, ethereumContractAddress);
+
+evmContracts['RINKEBY'] = ethereumContract;
 
 // PlatON contract
 let platonContractAddress = '0xF31562eF36Ffa449CEbdD1eC97c94aFa9D2C6862';
@@ -35,8 +47,8 @@ let nearNetworkId = "testnet";
 //   `./.near-credentials/${nearNetworkId}/${nearSender}.json`
 // );
 // const keyFile = require(keyFilePath);
-const SenderPrivateKey = "ed25519:2ujXoT1SktY2tspiAMimY5ZEji1MNdP1fRCUPqzrpdzkkQ7JkPVDg9nS5BV5Yefb2GgHqaE8anC1KfhGLJmmU3Af";
-
+const callGreetingPrivateKey = "ed25519:2ujXoT1SktY2tspiAMimY5ZEji1MNdP1fRCUPqzrpdzkkQ7JkPVDg9nS5BV5Yefb2GgHqaE8anC1KfhGLJmmU3Af";
+const callSumPrivateKey = "ed25519:4RPNB4FkrqtEMAm6obq184R5dPrkjRqHBRNuzm1qM1qHMcaxNgbfMcuHyvSVx3HWjxF2hwkrqaGVKMVV5hYj1jV3";
 // Get current date
 function getCurrentDate() {
   var today = new Date();
@@ -53,12 +65,26 @@ module.exports = {
   },
   
   async sendMessageFromNearToAvalance() {
-    await near.sendTransaction(nearContractId, nearSender, SenderPrivateKey, "send_greeting", {to_chain: 'AVALANCHE', title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
+    await near.sendTransaction(nearContractId, nearSender, callGreetingPrivateKey, "send_greeting", {to_chain: 'AVALANCHE', title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
   },
 
   async sendOCTaskFromNearToAvalanche(nums) {
     // Cross-chain call delivering from `PlatON` to `Avalanche`.
-    await near.sendTransaction(nearSumContractId, nearSender, SenderPrivateKey, 'sum', {to_chain: 'AVALANCHE', params_vector: nums});
+    await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: 'AVALANCHE', params_vector: nums});
+  },
+
+  async sendMessageFromNearToEthereum(chainName) {
+    await near.sendTransaction(nearContractId, nearSender, callGreetingPrivateKey, "send_greeting", {to_chain: chainName, title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
+  },
+
+  async sendOCTaskFromNearToEthereum(chainName, nums) {
+    // Cross-chain call delivering from `PlatON` to `Avalanche`.
+    await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: chainName, params_vector: nums});
+  },
+
+  async sendMessageFromEthereumToNear(chainName) {
+    // Cross-chain message delivering from `Avalanche` to `PlatON`. Send greeting to smart contract of `PlatON`
+    await ethereum.sendTransaction(evmProviders[chainName][0], evmProviders[chainName][1], evmContracts[chainName], 'sendGreeting', testAccountPrivateKey, ['NEAR', [chainName, 'Greetings', 'Greeting from ' + chainName, getCurrentDate()]]);
   },
 
   async sendMessageToPlatON(provider, chainId) {
@@ -84,12 +110,24 @@ module.exports = {
     const message = await evm.contractCall(avalancheContract, 'ocResult', []);
     return message;
   },
+  async queryOCResultFromNear() {
+    const message = await near.contractCall(nearSumContractId, 'get', {});
+    return message;
+  },
   async queryOCResultFromPlatON() {
     const message = await platon.contractCall(platonContract, 'ocResult', []);
     return message;
   },
+  async queryOCResultFromEthereum(chainName) {
+    const message = await ethereum.contractCall(evmContracts[chainName], 'ocResult', []);
+    return message;
+  },
   async queryMessageFromAvalanche() {
     const message = await evm.contractCall(avalancheContract, 'getContext', []);
+    return message;
+  },
+  async queryMessageFromNear(chainName) {
+    const message = await near.contractCall(nearContractId, "get", { "from_chain": chainName });
     return message;
   },
   async queryMessageFromPlatON() {
@@ -98,6 +136,9 @@ module.exports = {
   },
   async queryMessageFromEvm(contract) {
     const message = await platon.contractCall(contract, 'getContext', []);
+  },
+  async queryMessageFromEthereum(chainName) {
+    const message = await ethereum.contractCall(evmContracts[chainName], 'getContext', []);
     return message;
   }
 }

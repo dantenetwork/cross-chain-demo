@@ -4,6 +4,9 @@ This `repo` is for demos with the development of Dante Network.
 This is a "Nightly" branch for development. New features will be published here as soon as we make progresses.
 
 ## Currently
+
+**Demo for interoperation between Near and EVM chains can now be experienced!**
+
 Currently, the demo smart contract to test the `service expression protocol` used for basic communication between different chains, including cross-chain message delivering and cross-chain contract invocations. 
 
 ## Coming soon
@@ -43,6 +46,21 @@ npm install -d
 ```
 
 ## Test script
+
+Send greeting from Ethereum to NEAR
+```
+node ethereumToNear.js --greet
+```
+
+Send greeting from NEAR to Ethereum
+```
+node nearToEthereum.js --greet
+```
+
+Send outsourcing computing task from NEAR to Ethereum
+```
+node nearToEthereum.js --compute 9,9,8
+```
 
 Send greeting from Avalanche to NEAR
 ```

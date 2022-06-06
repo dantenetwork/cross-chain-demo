@@ -13,11 +13,11 @@ async function sendGreeting() {
   // send greeting to smart contract on PlatON
   await blockchain.sendMessageFromEvmToNear(web3, CHAIN_ID);
 
-  // query greeting from smart contract on PlatON
+  // query greeting from smart contract on NEAR
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryMessageFromPlatON();
+    const message = await blockchain.queryMessageFromNear("AVALANCHE");
     console.log(message);
   }, 30 * 1000);
 }
@@ -34,7 +34,7 @@ async function sendOCTask(nums) {
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryOCResultFromAvalanche();
+    const message = await blockchain.queryOCResultFromNear();
     console.log(message);
   }, 60 * 1000);
 }
