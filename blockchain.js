@@ -8,10 +8,10 @@ const near = require('./deploy/near')
 
 const platONWeb3 = new Web3('http://35.247.155.162:6789');
 
+const avalancheWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
+
 // Test account
 let testAccountPrivateKey = fs.readFileSync('.secret').toString();
-const publicKey = avalancheWeb3.eth.accounts.privateKeyToAccount(testAccountPrivateKey).address;
-console.log('publicKey: ' + publicKey);
 
 // Load smart contract abi
 let greetingRawData = fs.readFileSync('./deploy/Greetings.json');
@@ -66,9 +66,9 @@ module.exports = {
     await evm.sendTransaction(provider, chainId, avalancheContract, 'sendGreeting', testAccountPrivateKey, ['PlatONEVMDEV', ['AVALANCHE', 'Greetings', 'Greeting from Avalanche', getCurrentDate()]]);
   },
 
-  async sendMessageFromEvmToNear(provider, chainId) {
+  async sendMessageFromEvmToNear(provider, chainId, contract, chainName) {
     // Cross-chain message delivering from `Avalanche` to `PlatON`. Send greeting to smart contract of `PlatON`
-    await evm.sendTransaction(provider, chainId, avalancheContract, 'sendGreeting', testAccountPrivateKey, ['NEAR', ['AVALANCHE', 'Greetings', 'Greeting from Avalanche', getCurrentDate()]]);
+    await evm.sendTransaction(provider, chainId, contract, 'sendGreeting', testAccountPrivateKey, ['NEAR', [chainName, 'Greetings', 'Greeting from ' + chainName, getCurrentDate()]]);
   },
 
   async sendOCTaskToAvalanche(nums) {

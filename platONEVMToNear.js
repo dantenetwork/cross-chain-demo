@@ -1,5 +1,6 @@
 const blockchain = require('./blockchain.js');
 const { program } = require('commander');
+const fs = require('fs');
 
 const Web3 = require('web3');
 const web3 = new Web3('wss://devnetopenapi2.platon.network/ws');
@@ -19,7 +20,7 @@ async function sendGreeting() {
   ///////////////////////////////////////////////
 
   // send greeting to smart contract on PlatON
-  await blockchain.sendMessageFromEvmToNear(web3, CHAIN_ID);
+  await blockchain.sendMessageFromEvmToNear(web3, CHAIN_ID, contract, 'PLATON');
 
   // query greeting from smart contract on PlatON
   console.log('Wait for the message to be synchronized.');
