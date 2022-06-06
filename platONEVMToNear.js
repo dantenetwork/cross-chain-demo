@@ -2,8 +2,16 @@ const blockchain = require('./blockchain.js');
 const { program } = require('commander');
 
 const Web3 = require('web3');
-const web3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
-const CHAIN_ID = 43113;
+const web3 = new Web3('wss://devnetopenapi2.platon.network/ws');
+const CHAIN_ID = 2203181;
+
+// Load smart contract abi
+let greetingRawData = fs.readFileSync('./deploy/Greetings.json');
+let greetingAbi = JSON.parse(greetingRawData).abi;
+
+// Greeting contract
+let contractAddress = '0xdf8f763936aa996Ad1FAC4CcF0b0153952dB617b';
+let contract = new web3.eth.Contract(greetingAbi, contractAddress);
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
@@ -17,7 +25,7 @@ async function sendGreeting() {
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryMessageFromPlatON();
+    const message = await blockchain.queryMessageFromEvm(contract);
     console.log(message);
   }, 30 * 1000);
 }
