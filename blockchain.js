@@ -49,8 +49,8 @@ evmComputeContracts['PLATONEVM'] = platonComputeContract;
 
 
 // NEAR contract
-let nearContractId = 'greeting.datlocker.testnet';
-let nearSumContractId = "sum.datlocker.testnet";
+let nearContractId = '9f9350eb575cae7aac7f85a8c62b08d94dcac70a84e3c765464ff87c669fa4e5';
+let nearSumContractId = "a7d1736372266477e0d0295d34ae47622ba50d007031a009976348f954e681fe";
 let nearSender = "shanks.testnet";
 let nearNetworkId = "testnet";
 // const keyFilePath = path.resolve(
@@ -81,7 +81,8 @@ module.exports = {
 
   async sendOCTaskFromNearToAvalanche(nums) {
     // Cross-chain call delivering from `PlatON` to `Avalanche`.
-    await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: 'AVALANCHE', params_vector: nums});
+    let ret = await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: 'AVALANCHE', params_vector: nums});
+    console.log('ret', ret);
   },
 
   async sendMessageFromNearToEthereum(chainName) {
@@ -124,7 +125,7 @@ module.exports = {
     return message;
   },
   async queryOCResultFromNear() {
-    const message = await near.contractCall(nearSumContractId, 'get', {});
+    const message = await near.contractCall(nearSumContractId, 'get_compute_task', {});
     return message;
   },
   async queryOCResultFromPlatON() {
@@ -140,7 +141,7 @@ module.exports = {
     return message;
   },
   async queryMessageFromNear(chainName) {
-    const message = await near.contractCall(nearContractId, "get", { "from_chain": chainName });
+    const message = await near.contractCall(nearContractId, "get_greeting", { "from_chain": chainName });
     return message;
   },
   async queryMessageFromPlatON() {
