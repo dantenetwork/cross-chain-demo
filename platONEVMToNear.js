@@ -15,7 +15,7 @@ async function sendGreeting() {
   setTimeout(async () => {
     const message = await blockchain.queryMessageFromNear('PLATONEVMDEV');
     console.log(message);
-  }, 30 * 1000);
+  }, 40 * 1000);
 }
 
 async function sendOCTask(nums) {
@@ -32,7 +32,7 @@ async function sendOCTask(nums) {
   setTimeout(async () => {
     const message = await blockchain.queryOCResultFromEthereum('PLATONEVMDEV', id);
     console.log(message);
-  }, 60 * 1000);
+  }, 75 * 1000);
 }
 
 (async function() {

@@ -18,6 +18,7 @@ let evmProviders = {};
 
 evmProviders['RINKEBY'] = [ethereumWeb3, 4];
 evmProviders['PLATONEVMDEV'] = [platONEvmWeb3, 2203181];
+evmProviders['AVALANCHETEST'] = [avalancheWeb3, 43113];
 
 // Test account
 let testAccountPrivateKey = fs.readFileSync('.secret').toString();
@@ -30,8 +31,9 @@ let ocComputeRawData = fs.readFileSync('./deploy/OCComputing.json');
 let ocComputeAbi = JSON.parse(ocComputeRawData).abi;
 
 // Avalanche contract
-let avalancheContractAddress = '0xE08e58eC8d78Bf4e68Eea4131F4a305002926EC3';
+let avalancheContractAddress = '0x5f789d3698846c9F80b5a44696C0583719d4cE37';
 let avalancheContract = new avalancheWeb3.eth.Contract(greetingAbi, avalancheContractAddress);
+evmGreetingContracts['AVALANCHETEST'] = avalancheContract;
 
 // Ethereum contract
 let ethereumContractAddress = '0x71F985781d5439E469384c483262b24085Fc08aC';
@@ -63,10 +65,9 @@ const callSumPrivateKey = "ed25519:4RPNB4FkrqtEMAm6obq184R5dPrkjRqHBRNuzm1qM1qHM
 // Get current date
 function getCurrentDate() {
   var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0');
-  var yyyy = today.getFullYear();
-  return yyyy + '-' + mm + '-' + dd;
+  let ret = JSON.stringify(today);
+  console.log('date', ret);
+  return ret;
 }
 
 module.exports = {

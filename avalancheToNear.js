@@ -1,25 +1,21 @@
 const blockchain = require('./blockchain.js');
 const { program } = require('commander');
 
-const Web3 = require('web3');
-const web3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
-const CHAIN_ID = 43113;
-
 async function sendGreeting() {
   ///////////////////////////////////////////////
   ///////    Avalanche To PlatON     ////////////
   ///////////////////////////////////////////////
 
   // send greeting to smart contract on PlatON
-  await blockchain.sendMessageFromEvmToNear(web3, CHAIN_ID);
+  await blockchain.sendMessageFromEthereumToNear('AVALANCHETEST');
 
-  // query greeting from smart contract on NEAR
+  // query greeting from smart contract on PlatON
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryMessageFromNear("AVALANCHE");
+    const message = await blockchain.queryMessageFromNear('AVALANCHETEST');
     console.log(message);
-  }, 30 * 1000);
+  }, 40 * 1000);
 }
 
 async function sendOCTask(nums) {
@@ -28,13 +24,13 @@ async function sendOCTask(nums) {
   ///////////////////////////////////////////////
 
   // send outsourcing computing task to smart contract from Avalanche to PlatON
-  await blockchain.sendOCTaskToPlatON(web3, CHAIN_ID, nums);
+  let id = await blockchain.sendOCTaskFromEthereumToNear('AVALANCHETEST', nums);
 
   // query greeting from smart contract on Avalanche
-  console.log('Wait for the message to be synchronized.');
+  console.log('Wait for the message to be synchronized.', id);
 
   setTimeout(async () => {
-    const message = await blockchain.queryOCResultFromNear();
+    const message = await blockchain.queryOCResultFromEthereum('AVALANCHETEST', id);
     console.log(message);
   }, 60 * 1000);
 }
