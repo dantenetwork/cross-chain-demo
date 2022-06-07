@@ -47,19 +47,9 @@ npm install -d
 
 ## Test script
 
-Send greeting from Ethereum to NEAR
+Send greeting from PlatON to NEAR
 ```
-node ethereumToNear.js --greet
-```
-
-Send greeting from NEAR to Ethereum
-```
-node nearToEthereum.js --greet
-```
-
-Send outsourcing computing task from NEAR to Ethereum
-```
-node nearToEthereum.js --compute 9,9,8
+node platONEVMToNear.js --greet
 ```
 
 Send greeting from Avalanche to NEAR
@@ -67,32 +57,9 @@ Send greeting from Avalanche to NEAR
 node avalancheToNear.js --greet
 ```
 
-Send greeting from NEAR to Avalanche
+Send outsourcing computing task from PlatON to NEAR
 ```
-node nearToAvalanche.js --greet
-```
-
-Send outsourcing computing task from NEAR to Avalanche
-```
-node nearToAvalanche.js --compute 1,2,3,4,5,8
-```
-
-Send greeting from Avalanche to PlatON
-```
-node avalancheToPlatON.js --greet
-```
-Send outsourcing computing task from Avalanche to PlatON
-```
-node avalancheToPlatON.js --compute 1,2,3,4,5
-```
-
-Send greeting from PlatON to Avalanche
-```
-node platONToAvalanche.js --greet
-```
-Send outsourcing computing task from PlatON to Avalanche
-```
-node platONToAvalanche.js --compute 1,2,3,4,5
+node platONEVMToNear.js --compute 9,9,8
 ```
 
 ## You can find the [source code](https://github.com/dantenetwork/solidity-contract-template/blob/demo-video/contracts/Greetings.sol) of greeting smart contract here.
