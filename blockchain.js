@@ -17,7 +17,7 @@ let evmComputeContracts = {};
 let evmProviders = {};
 
 evmProviders['RINKEBY'] = [ethereumWeb3, 4];
-evmProviders['PLATONEVM'] = [platONEvmWeb3, 2203181];
+evmProviders['PLATONEVMDEV'] = [platONEvmWeb3, 2203181];
 
 // Test account
 let testAccountPrivateKey = fs.readFileSync('.secret').toString();
@@ -41,11 +41,11 @@ evmGreetingContracts['RINKEBY'] = ethereumContract;
 // PlatON contracts
 let platonGreetingContractAddress = '0xdf8f763936aa996Ad1FAC4CcF0b0153952dB617b';
 let platonGreetingContract = new platONWeb3.eth.Contract(greetingAbi, platonGreetingContractAddress);
-evmGreetingContracts['PLATONEVM'] = platonGreetingContract;
+evmGreetingContracts['PLATONEVMDEV'] = platonGreetingContract;
 
 let platonComputeContractAddress = '0xCA466a2BA01733F8FC8bE9A076037a9a0b3f9bfC';
 let platonComputeContract = new platONWeb3.eth.Contract(ocComputeAbi, platonComputeContractAddress);
-evmComputeContracts['PLATONEVM'] = platonComputeContract;
+evmComputeContracts['PLATONEVMDEV'] = platonComputeContract;
 
 
 // NEAR contract
@@ -81,8 +81,7 @@ module.exports = {
 
   async sendOCTaskFromNearToAvalanche(nums) {
     // Cross-chain call delivering from `PlatON` to `Avalanche`.
-    let ret = await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: 'AVALANCHE', params_vector: nums});
-    console.log('ret', ret);
+    await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: 'AVALANCHE', params_vector: nums});
   },
 
   async sendMessageFromNearToEthereum(chainName) {
@@ -91,7 +90,7 @@ module.exports = {
 
   async sendOCTaskFromNearToEthereum(chainName, nums) {
     // Cross-chain call delivering from `PlatON` to `Avalanche`.
-    await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: chainName, params_vector: nums});
+    return await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: chainName, params_vector: nums});
   },
 
   async sendOCTaskFromEthereumToNear(chainName, nums) {
@@ -124,8 +123,8 @@ module.exports = {
     const message = await evm.contractCall(avalancheContract, 'ocResult', []);
     return message;
   },
-  async queryOCResultFromNear() {
-    const message = await near.contractCall(nearSumContractId, 'get_compute_task', {});
+  async queryOCResultFromNear(id) {
+    const message = await near.contractCall(nearSumContractId, 'get_compute_task', {id: id});
     return message;
   },
   async queryOCResultFromPlatON() {

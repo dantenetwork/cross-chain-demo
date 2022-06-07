@@ -7,13 +7,13 @@ async function sendGreeting() {
   ///////////////////////////////////////////////
 
   // send greeting to smart contract on PlatON
-  await blockchain.sendMessageFromEthereumToNear('PLATONEVM');
+  await blockchain.sendMessageFromEthereumToNear('PLATONEVMDEV');
 
   // query greeting from smart contract on PlatON
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryMessageFromNear('PLATONEVM');
+    const message = await blockchain.queryMessageFromNear('PLATONEVMDEV');
     console.log(message);
   }, 30 * 1000);
 }
@@ -24,13 +24,13 @@ async function sendOCTask(nums) {
   ///////////////////////////////////////////////
 
   // send outsourcing computing task to smart contract from Avalanche to PlatON
-  let id = await blockchain.sendOCTaskFromEthereumToNear('PLATONEVM', nums);
+  let id = await blockchain.sendOCTaskFromEthereumToNear('PLATONEVMDEV', nums);
 
   // query greeting from smart contract on Avalanche
   console.log('Wait for the message to be synchronized.', id);
 
   setTimeout(async () => {
-    const message = await blockchain.queryOCResultFromEthereum('PLATONEVM', id);
+    const message = await blockchain.queryOCResultFromEthereum('PLATONEVMDEV', id);
     console.log(message);
   }, 60 * 1000);
 }
