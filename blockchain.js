@@ -94,16 +94,15 @@ module.exports = {
     return await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: chainName, params_vector: nums});
   },
 
-  async sendOCTaskFromEthereumToNear(chainName, nums) {
-    await ethereum.sendTransaction(evmProviders[chainName][0], evmProviders[chainName][1], evmComputeContracts[chainName], 'sendComputeTask', testAccountPrivateKey, ['NEAR', nums]);
+  async sendOCTaskFromEthereum(fromChain, toChain, nums) {
+    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmComputeContracts[fromChain], 'sendComputeTask', testAccountPrivateKey, [toChain, nums]);
     await utils.sleep(5);
-    let id = await ethereum.contractCall(evmComputeContracts[chainName], 'currentId', []);
+    let id = await ethereum.contractCall(evmComputeContracts[fromChain], 'currentId', []);
     return id;
   },
 
-  async sendMessageFromEthereumToNear(chainName) {
-    // Cross-chain message delivering from `Avalanche` to `PlatON`. Send greeting to smart contract of `PlatON`
-    await ethereum.sendTransaction(evmProviders[chainName][0], evmProviders[chainName][1], evmGreetingContracts[chainName], 'sendGreeting', testAccountPrivateKey, ['NEAR', [chainName, 'Greetings', 'Greeting from ' + chainName, getCurrentDate()]]);
+  async sendMessageFromEthereum(fromChain, toChain) {
+    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccountPrivateKey, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
   },
 
   async sendMessageToPlatON(provider, chainId) {

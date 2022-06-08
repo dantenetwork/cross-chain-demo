@@ -7,7 +7,7 @@ async function sendGreeting() {
   ///////////////////////////////////////////////
 
   // send greeting to smart contract on RINKEBY
-  await blockchain.sendMessageFromEthereumToNear('RINKEBY');
+  await blockchain.sendMessageFromEthereum('RINKEBY', 'NEAR');
 
   // query greeting from smart contract on NEAR
   console.log('Wait for the message to be synchronized.');

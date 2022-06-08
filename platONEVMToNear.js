@@ -7,7 +7,7 @@ async function sendGreeting() {
   ///////////////////////////////////////////////
 
   // send greeting to smart contract on PlatON
-  await blockchain.sendMessageFromEthereumToNear('PLATONEVMDEV');
+  await blockchain.sendMessageFromEthereum('PLATONEVMDEV', 'NEAR');
 
   // query greeting from smart contract on PlatON
   console.log('Wait for the message to be synchronized.');
@@ -24,7 +24,7 @@ async function sendOCTask(nums) {
   ///////////////////////////////////////////////
 
   // send outsourcing computing task to smart contract from Avalanche to PlatON
-  let id = await blockchain.sendOCTaskFromEthereumToNear('PLATONEVMDEV', nums);
+  let id = await blockchain.sendOCTaskFromEthereum('PLATONEVMDEV', 'NEAR', nums);
 
   // query greeting from smart contract on Avalanche
   console.log('Wait for the message to be synchronized.', id);
