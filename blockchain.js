@@ -31,7 +31,7 @@ let ocComputeRawData = fs.readFileSync('./deploy/OCComputing.json');
 let ocComputeAbi = JSON.parse(ocComputeRawData).abi;
 
 // Avalanche contract
-let avalancheContractAddress = '0x5f789d3698846c9F80b5a44696C0583719d4cE37';
+let avalancheContractAddress = '0x56391eF812379CF4c1b2d47933bf7431E0e714A1';
 let avalancheContract = new avalancheWeb3.eth.Contract(greetingAbi, avalancheContractAddress);
 evmGreetingContracts['AVALANCHETEST'] = avalancheContract;
 
@@ -41,7 +41,7 @@ let ethereumContract = new ethereumWeb3.eth.Contract(greetingAbi, ethereumContra
 evmGreetingContracts['RINKEBY'] = ethereumContract;
 
 // PlatON contracts
-let platonGreetingContractAddress = '0xdf8f763936aa996Ad1FAC4CcF0b0153952dB617b';
+let platonGreetingContractAddress = '0x533db5453F0fc9791f08d052EE1903BE45b1A07d';
 let platonGreetingContract = new platONWeb3.eth.Contract(greetingAbi, platonGreetingContractAddress);
 evmGreetingContracts['PLATONEVMDEV'] = platonGreetingContract;
 
@@ -102,7 +102,8 @@ module.exports = {
   },
 
   async sendMessageFromEthereum(fromChain, toChain) {
-    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccountPrivateKey, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
+    let sign = "sign";
+    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccountPrivateKey, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate(), sign]]);
   },
 
   async sendMessageToPlatON(provider, chainId) {
@@ -146,9 +147,6 @@ module.exports = {
   async queryMessageFromPlatON() {
     const message = await platon.contractCall(platonContract, 'getContext', []);
     return message;
-  },
-  async queryMessageFromEvm(contract) {
-    const message = await platon.contractCall(contract, 'getContext', []);
   },
   async queryMessageFromEthereum(chainName) {
     const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'getContext', []);

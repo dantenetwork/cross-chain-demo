@@ -13,7 +13,7 @@ async function sendGreeting() {
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryMessageFromNear('PLATONEVMDEV');
+    const message = await blockchain.queryMessageFromEthereum('AVALANCHETEST');
     console.log(message);
   }, 40 * 1000);
 }
