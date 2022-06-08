@@ -7,15 +7,15 @@ async function sendGreeting() {
   ///////////////////////////////////////////////
 
   // send greeting to smart contract on PlatON
-  await blockchain.sendMessageFromEthereum('PLATONEVMDEV', 'AVALANCHETEST');
+  let id = await blockchain.sendMessageFromEthereum('PLATONEVMDEV', 'AVALANCHETEST');
 
   // query greeting from smart contract on PlatON
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryMessageFromEthereum('AVALANCHETEST');
+    const message = await blockchain.queryMessageFromEthereum('AVALANCHETEST', id);
     console.log(message);
-  }, 40 * 1000);
+  }, 60 * 1000);
 }
 
 async function sendOCTask(nums) {

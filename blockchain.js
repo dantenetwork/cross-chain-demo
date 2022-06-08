@@ -104,6 +104,8 @@ module.exports = {
   async sendMessageFromEthereum(fromChain, toChain) {
     let sign = "sign";
     await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccountPrivateKey, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate(), sign]]);
+    const message = await ethereum.contractCall(evmGreetingContracts[toChain], 'getContext', []);
+    return message.id;
   },
 
   async sendMessageToPlatON(provider, chainId) {
@@ -148,8 +150,8 @@ module.exports = {
     const message = await platon.contractCall(platonContract, 'getContext', []);
     return message;
   },
-  async queryMessageFromEthereum(chainName) {
-    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'getContext', []);
+  async queryMessageFromEthereum(chainName, id) {
+    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'greetings', [id]);
     return message;
   }
 }
