@@ -1,21 +1,21 @@
 # cross-chain-demo
 
-This `repo` is for demos with the development of Dante Network. 
+This `repo` provides two demos showing common message communication and contracts invocation between multi-chains. 
 This is a "Nightly" branch for development. New features will be published here as soon as we make progresses.
 
 ## Currently
 
-**Demo for interoperation between Near and EVM chains can now be experienced!**
+**Demo for interoperation between EVM chains and WASM chains like NEAR can now be experienced!**
 
-Currently, the demo smart contract to test the `service expression protocol` used for basic communication between different chains, including cross-chain message delivering and cross-chain contract invocations. 
 
 ## Coming soon
-The development of the verification for multi-nodes has just been completed in [Near](https://github.com/dantenetwork/Trustless_Bridge/tree/main/near), and we're testing it now. After we finish our internal test in Near, the `solidity` version will be developed. We will deploy and test this point for ETH, Avalanche, PlatON, or other public chains with EVM soon.
-The Demo of the verification on Near will be published soon(within 4 weeks).
+The development and test of a fully basic functions version has been completed on NEAR. We will publish the test report soon.
 
-The `SQoS` is under development in `solidity`. We will update the demo as soon as we finish it.
+A Demo showing how the router evaluation algorithm works has been published [here](https://github.com/dantenetwork/Routers-Evaluation-Demo).
 
-Besides, we will make `npm packages` for contract developers along with our SDK for `easy cross-chain DApps`'s development.
+A Demo showing how the router selection algorithm works will be published soon. Actually it's like a randomly selection game, and we will make some related community activities based on this algorithm.
+
+The `SQoS` is under development in `solidity`. We have finished some of the SQoS items, and it's under testing.
 
 The test network is planning to be online in early Q3(2022).
 
