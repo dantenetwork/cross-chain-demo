@@ -47,7 +47,7 @@ npm install -d
 
 ## Test script
 
-* Put your private key in `.secret`(see .secret-example)
+* Put your private key(PlatON or Avalanche Testnet) in `.secret`(see .secret-example)
 
 * Send greeting from PlatON to NEAR
 ```
