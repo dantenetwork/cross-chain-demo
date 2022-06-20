@@ -1,8 +1,10 @@
 const blockchain = require('./basic/blockchain.js');
 const { program } = require('commander');
 
-let fromChain = 'RINKEBY';
-let toChain = 'ASTAR';
+// let fromChain = 'RINKEBY';
+// let toChain = 'ASTAR';
+let fromChain = 'PLATONEVMDEV';
+let toChain = 'POLKADOT';
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
