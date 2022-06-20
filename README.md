@@ -1,24 +1,12 @@
-# cross-chain-demo
+# Demos for Multichain Interoperation
 
-This `repo` provides two demos showing common message communication and contracts invocation between multi-chains. 
+This `repo` provides demos showing common message communication and contracts invocation between multi-chains. 
 This is a "Nightly" branch for development. New features will be published here as soon as we make progresses.
 
-## Currently
-Currently, the demo smart contract to test the `service expression protocol` used for basic communication between different chains, including cross-chain message delivering and cross-chain contract invocations. 
-* Demo for interoperation between Near and EVM chains can be tried [here](https://github.com/dantenetwork/cross-chain-demo/tree/demo-video);
-
-**Demo for interoperation between EVM chains and WASM chains like NEAR can now be experienced!**
-
+## Introduction
+The demo smart contract to test basic communication between different chains, including cross-chain message delivering and cross-chain contract invocations. 
 
 ## Coming soon
-The development and test of a fully basic functions version has been completed on NEAR. We will publish the test report soon.
-
-A Demo showing how the router evaluation algorithm works has been published [here](https://github.com/dantenetwork/Routers-Evaluation-Demo).
-
-A Demo showing how the router selection algorithm works will be published soon. Actually it's like a randomly selection game, and we will make some related community activities based on this algorithm.
-
-The `SQoS` is under development in `solidity`. We have finished some of the SQoS items, and it's under testing.
-
 The test network is planning to be online in early Q3(2022).
 
 # Current Work flow
@@ -41,27 +29,46 @@ The test network is planning to be online in early Q3(2022).
 * DANTE cross-chain service sync the result information from chain B to chain A.
 * User α query the result on chain A.
 
+## Usage
 
-## Install
+### Install
 ```
 npm install -d
 ```
 
-## Test script
+### Test script
 
-Send greeting from PlatON to NEAR
+#### Interoperation between Polkadot parachain and EVM compatible chains
+Send greeting from `rinkeby` to `AStar Testnet`
 ```
-node platONEVMToNear.js --greet
-```
-
-Send greeting from Avalanche to NEAR
-```
-node avalancheToNear.js --greet
+node rinkebyToAstar.js --greet
 ```
 
-Send outsourcing computing task from PlatON to NEAR
+(TODO)from Polkadot parachain to  EVM compatible chains
+(operate with polkadot.js/app)
+(contract address and metadata.json)
+
+####
+Send greeting from Moonbeam to NEAR
 ```
-node platONEVMToNear.js --compute 9,9,8
+node MoonbeamToNear.js --greet
 ```
 
-## You can find the [source code](https://github.com/dantenetwork/solidity-contract-template/blob/demo-video/contracts/Greetings.sol) of greeting smart contract here.
+Send outsourcing computing task from Moonbeam to NEAR
+```
+node MoonbeamToNear.js --compute 9,9,8
+```
+
+Send greeting from NEAR to Moonbeam
+```
+node NearToMoonbeam.js --greet
+```
+
+Send outsourcing computing task from NEAR to Moonbeam 
+```
+node NearToMoonbeam.js --compute 9,9,8
+```
+
+### Other Demos
+* Demo for interoperation between Near and EVM chains is [here](https://github.com/dantenetwork/cross-chain-demo/tree/demo-video);
+* Demo for interoperation between EVM chains is [here](https://github.com/dantenetwork/cross-chain-demo/tree/demo-video)
