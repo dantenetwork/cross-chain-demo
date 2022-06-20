@@ -2,9 +2,9 @@ const Web3 = require('web3');
 const fs = require('fs');
 const path = require('path');
 const homedir = require("os").homedir();
-const platon = require('./deploy/platon');
-const near = require('./deploy/near');
-const ethereum = require('./deploy/ethereum');
+const platon = require('./basic/platon');
+const near = require('./near');
+const ethereum = require('./ethereum');
 const utils = require('./utils');
 
 const platONWeb3 = new Web3('http://35.247.155.162:6789');
@@ -70,21 +70,7 @@ function getCurrentDate() {
   return ret;
 }
 
-module.exports = {
-  async sendMessageToAvalanche() {
-    // Cross-chain message delivering from `PlatON` to `Avalanche`. Send greeting to smart contract of `Avalanche`. 
-    await platon.sendTransaction(platonContract, 'sendGreeting', testAccountPrivateKey, ['AVALANCHE', ['PlatONEVMDEV', 'Greetings', 'Greeting from PlatON', getCurrentDate()]]);
-  },
-  
-  async sendMessageFromNearToAvalance() {
-    await near.sendTransaction(nearContractId, nearSender, callGreetingPrivateKey, "send_greeting", {to_chain: 'AVALANCHE', title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
-  },
-
-  async sendOCTaskFromNearToAvalanche(nums) {
-    // Cross-chain call delivering from `PlatON` to `Avalanche`.
-    await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: 'AVALANCHE', params_vector: nums});
-  },
-
+module.exports = {  
   async sendMessageFromNearToEthereum(chainName) {
     await near.sendTransaction(nearContractId, nearSender, callGreetingPrivateKey, "send_greeting", {to_chain: chainName, title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
   },
@@ -93,6 +79,20 @@ module.exports = {
     // Cross-chain call delivering from `PlatON` to `Avalanche`.
     return await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: chainName, params_vector: nums});
   },
+  
+  async queryMessageFromNear(chainName) {
+    const message = await near.contractCall(nearContractId, "get_greeting", { "from_chain": chainName });
+    return message;
+  },
+  
+  async queryOCResultFromNear(id) {
+    const message = await near.contractCall(nearSumContractId, 'get_compute_task', {id: id});
+    return message;
+  },
+
+  async sendMessageFromEthereum(fromChain, toChain) {
+    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccountPrivateKey, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
+  },
 
   async sendOCTaskFromEthereum(fromChain, toChain, nums) {
     await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmComputeContracts[fromChain], 'sendComputeTask', testAccountPrivateKey, [toChain, nums]);
@@ -100,58 +100,14 @@ module.exports = {
     let id = await ethereum.contractCall(evmComputeContracts[fromChain], 'currentId', []);
     return id;
   },
-
-  async sendMessageFromEthereum(fromChain, toChain) {
-    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccountPrivateKey, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
-  },
-
-  async sendMessageToPlatON(provider, chainId) {
-    // Cross-chain message delivering from `Avalanche` to `PlatON`. Send greeting to smart contract of `PlatON`
-    await evm.sendTransaction(provider, chainId, avalancheContract, 'sendGreeting', testAccountPrivateKey, ['PlatONEVMDEV', ['AVALANCHE', 'Greetings', 'Greeting from Avalanche', getCurrentDate()]]);
-  },
-
-  async sendOCTaskToAvalanche(nums) {
-    // Cross-chain call delivering from `PlatON` to `Avalanche`.
-    await platon.sendTransaction(platonContract, 'sendComputeTask', testAccountPrivateKey, ['AVALANCHE', nums]);
-  },
-
-  async sendOCTaskToPlatON(nums) {
-    // Cross-chain call delivering from `Avalanche` to `PlatON`.
-    await evm.sendTransaction(provider, chainId, avalancheContract, 'sendComputeTask', testAccountPrivateKey, ['PlatONEVMDEV', nums]);
-  },
-  async queryOCResultFromAvalanche() {
-    const message = await evm.contractCall(avalancheContract, 'ocResult', []);
+  
+  async queryMessageFromEthereum(chainName) {
+    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'getContext', []);
     return message;
   },
-  async queryOCResultFromNear(id) {
-    const message = await near.contractCall(nearSumContractId, 'get_compute_task', {id: id});
-    return message;
-  },
-  async queryOCResultFromPlatON() {
-    const message = await platon.contractCall(platonContract, 'ocResult', []);
-    return message;
-  },
+  
   async queryOCResultFromEthereum(chainName, id) {
     const message = await ethereum.contractCall(evmComputeContracts[chainName], 'ocResult', [id]);
     return message;
   },
-  async queryMessageFromAvalanche() {
-    const message = await evm.contractCall(avalancheContract, 'getContext', []);
-    return message;
-  },
-  async queryMessageFromNear(chainName) {
-    const message = await near.contractCall(nearContractId, "get_greeting", { "from_chain": chainName });
-    return message;
-  },
-  async queryMessageFromPlatON() {
-    const message = await platon.contractCall(platonContract, 'getContext', []);
-    return message;
-  },
-  async queryMessageFromEvm(contract) {
-    const message = await platon.contractCall(contract, 'getContext', []);
-  },
-  async queryMessageFromEthereum(chainName) {
-    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'getContext', []);
-    return message;
-  }
 }
