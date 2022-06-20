@@ -3,19 +3,19 @@ const { program } = require('commander');
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
-  ///////    PlatON To Avalanche     ////////////
+  ///////     NEAR To Avalanche      ////////////
   ///////////////////////////////////////////////
 
   // send greeting to smart contract on Avalanche
-  await blockchain.sendMessageToAvalanche();
+  await blockchain.sendMessageFromNearToAvalance();
 
   // query greeting from smart contract on Avalanche
-  console.log('Wait for the message to be synchronized.');
+  // console.log('Wait for the message to be synchronized.');
 
-  setTimeout(async () => {
-    const message = await blockchain.queryMessageFromAvalanche();
-    console.log(message);
-  }, 60 * 1000);
+  // setTimeout(async () => {
+  //   const message = await blockchain.queryMessageFromAvalanche();
+  //   console.log(message);
+  // }, 60 * 1000);
 };
 
 async function sendOCTask(nums) {
@@ -24,20 +24,26 @@ async function sendOCTask(nums) {
   ///////////////////////////////////////////////
 
   // send outsourcing computing task to smart contract from PlatON to Avalanche
-  await blockchain.sendOCTaskToAvalanche(nums);
+  await blockchain.sendOCTaskFromNearToAvalanche(nums);
 
   // query greeting from smart contract on PlatON
-  console.log('Wait for the message to be synchronized.');
+  // console.log('Wait for the message to be synchronized.');
 
-  setTimeout(async () => {
-    const message = await blockchain.queryOCResultFromPlatON();
-    console.log(message);
-  }, 60 * 1000);
+  // setTimeout(async () => {
+  //   const message = await blockchain.queryOCResultFromPlatON();
+  //   console.log(message);
+  // }, 60 * 1000);
 };
 
 (async function() {
-	function list(val) {
-		return val.split(',')
+  function list(val) {
+    // val.split(',').map(function (val) {
+    //   return Number(val);
+    // })
+    let nums = val.split(',').map(function (val) {
+      return Number(val);
+    });
+    return nums;
 	}
 
   program

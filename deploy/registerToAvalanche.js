@@ -1,16 +1,17 @@
 const Web3 = require('web3');
 const fs = require('fs');
-const avalanche = require('./avalanche');
+const ethereum = require('./ethereum');
 
 const web3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
+const CHAIN_ID = 43113;
 
 // test account
-let testAccountPrivateKey = fs.readFileSync('.secret');
-testAccountPrivateKey = JSON.parse(testAccountPrivateKey).key;
+let testAccountPrivateKey = fs.readFileSync('.secret').toString();
 
-const avalancheGreetingContractAddress = '0x49766f787b1E184c5EeAEA36d1eC090Cf25BD72e';
-const platonGreetingContractAddress = '0x9b50fA3A1f4C5efbbCCceCC906b153aeFFe98cAF';
-const crossChainContractAddress = '0x27ED6b8E928Fb7d393EBE4C1ddBc353424a5F3ae';
+const avalancheGreetingContractAddress = '0xE08e58eC8d78Bf4e68Eea4131F4a305002926EC3';
+const platonGreetingContractAddress = '0xF31562eF36Ffa449CEbdD1eC97c94aFa9D2C6862';
+const nearGreetingContractAddress = 'greeting.datlocker.testnet';
+const crossChainContractAddress = '0xe0d1951E527190C446821DeA9ce774a3Bc7E443A';
 
 const greetingRawData = fs.readFileSync('./deploy/Greetings.json');
 const greetingAbi = JSON.parse(greetingRawData).abi;
@@ -21,29 +22,37 @@ const crossChainAbi = JSON.parse(crossChainRawData).abi;
 const crossChainContract = new web3.eth.Contract(crossChainAbi, crossChainContractAddress);
 
 async function init() {
-  // await avalanche.sendTransaction(crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['PlatONEVMDEV']);
+  await avalanche.sendTransaction(web3, CHAIN_ID, crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['NEAR']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, crossChainContract, 'clearCrossChainMessage', testAccountPrivateKey, ['PlatONEVMDEV']);
 
   // register porters
-  await avalanche.sendTransaction(crossChainContract, 'changePortersAndRequirement', testAccountPrivateKey, [['0x30ad2981E83615001fe698b6fBa1bbCb52C19Dfa'], 1]);
+  // await ethereum.sendTransaction(web3, CHAIN_ID, crossChainContract, 'changePortersAndRequirement', testAccountPrivateKey, [['0x30ad2981E83615001fe698b6fBa1bbCb52C19Dfa'], 1]);
 
-  // register verify
-  await avalanche.sendTransaction(greetingContract, 'registerSourceSender', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveGreeting']);
-  await avalanche.sendTransaction(greetingContract, 'registerSourceSender', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeResult']);
-  await avalanche.sendTransaction(greetingContract, 'registerSourceSender', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeTask']);
-  // set cross chain contract
-  await avalanche.sendTransaction(greetingContract, 'setCrossChainContract', testAccountPrivateKey, [crossChainContractAddress]);
-  // register target
-  await avalanche.sendTransaction(greetingContract, 'registerTarget', testAccountPrivateKey, ['receiveGreeting', 'string,string,string,string', 'fromChain,title,content,date', '']);
-  await avalanche.sendTransaction(greetingContract, 'registerTarget', testAccountPrivateKey, ['receiveComputeResult', 'uint256', 'result', '']);
-  await avalanche.sendTransaction(greetingContract, 'registerTarget', testAccountPrivateKey, ['receiveComputeTask', 'uint256[]', 'nums', '']);
-  // register interface
-  await avalanche.sendTransaction(greetingContract, 'registerInterface', testAccountPrivateKey, ['receiveGreeting', '{"inputs":[{"name":"fromChain","type":"string"},{"name":"title","type":"string"},{"name":"content","type":"string"},{"name":"date","type":"string"}],"name":"receiveGreeting","type":"function"}']);
-  await avalanche.sendTransaction(greetingContract, 'registerInterface', testAccountPrivateKey, ['receiveComputeResult', '{"inputs":[{"internalType":"uint256","name":"result","type":"uint256"}],"name":"receiveComputeResult","outputs":[],"stateMutability":"nonpayable","type":"function"}']);
-  await avalanche.sendTransaction(greetingContract, 'registerInterface', testAccountPrivateKey, ['receiveComputeTask', '{"inputs":[{"internalType":"uint256[]","name":"nums","type":"uint256[]"}],"name":"receiveComputeTask","outputs":[],"stateMutability":"nonpayable","type":"function"}']);
-  // register method
-  await avalanche.sendTransaction(greetingContract, 'registerDestinationMethod', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveGreeting', 'receiveGreeting']);
-  await avalanche.sendTransaction(greetingContract, 'registerDestinationMethod', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeResult', 'receiveComputeResult']);
-  await avalanche.sendTransaction(greetingContract, 'registerDestinationMethod', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeTask', 'receiveComputeTask']);
+  // // register verify
+  // await ethereum.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerPermittedContract', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveGreeting']);
+  // await ethereum.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerPermittedContract', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeResult']);
+  // await ethereum.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerPermittedContract', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeTask']);
+  // await ethereum.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerPermittedContract', testAccountPrivateKey, ['NEAR', nearGreetingContractAddress, 'receiveGreeting']);
+  // await ethereum.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerPermittedContract', testAccountPrivateKey, ['NEAR', nearGreetingContractAddress, 'receiveComputeResult']);
+  // await ethereum.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerPermittedContract', testAccountPrivateKey, ['NEAR', 'sum.datlocker.testnet', 'receiveComputeTask']);
+  // // set cross chain contract
+  // await ethereum.sendTransaction(web3, CHAIN_ID, greetingContract, 'setCrossChainContract', testAccountPrivateKey, [crossChainContractAddress]);
+  // // register message abi
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerMessageABI', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveGreeting', 'tuple(string,string,string,string)', 'greeting']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerMessageABI', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeResult', 'uint256', 'result']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerMessageABI', testAccountPrivateKey, ['PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeTask', 'uint256[]', 'nums']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerMessageABI', testAccountPrivateKey, ['NEAR', nearGreetingContractAddress, 'receive_greeting', 'tuple(string,string,string,string)', 'greeting']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerMessageABI', testAccountPrivateKey, ['NEAR', 'sum.datlocker.testnet', 'cross_chain_vc_sum_callback', 'uint256', 'result']);
+  // // register contract abi
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerContractABI', testAccountPrivateKey, ['receiveGreeting', '{"inputs":[{"components":[{"internalType":"string","name":"fromChain","type":"string"},{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"content","type":"string"},{"internalType":"string","name":"date","type":"string"}],"internalType":"struct Greeting","name":"greeting","type":"tuple"}],"name":"receiveGreeting","outputs":[],"stateMutability":"nonpayable","type":"function"}']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerContractABI', testAccountPrivateKey, ['receiveComputeResult', '{"inputs":[{"internalType":"uint256","name":"result","type":"uint256"}],"name":"receiveComputeResult","outputs":[],"stateMutability":"nonpayable","type":"function"}']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerContractABI', testAccountPrivateKey, ['receiveComputeTask', '{"inputs":[{"internalType":"uint256[]","name":"nums","type":"uint256[]"}],"name":"receiveComputeTask","outputs":[],"stateMutability":"nonpayable","type":"function"}']);
+  // // register destination contract
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerDestnContract', testAccountPrivateKey, ['receiveGreeting', 'PlatONEVMDEV', platonGreetingContractAddress, 'receiveGreeting']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerDestnContract', testAccountPrivateKey, ['receiveComputeResult', 'PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeResult']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerDestnContract', testAccountPrivateKey, ['receiveComputeTask', 'PlatONEVMDEV', platonGreetingContractAddress, 'receiveComputeTask']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerDestnContract', testAccountPrivateKey, ['receiveGreeting', 'NEAR', nearGreetingContractAddress, 'receive_greeting']);
+  // await avalanche.sendTransaction(web3, CHAIN_ID, greetingContract, 'registerDestnContract', testAccountPrivateKey, ['receiveComputeResult', 'NEAR', 'sum.datlocker.testnet', 'cross_chain_vc_sum_callback']);
 
 }
 

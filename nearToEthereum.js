@@ -3,17 +3,17 @@ const { program } = require('commander');
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
-  ///////    PlatON To Avalanche     ////////////
+  ///////     NEAR To Avalanche      ////////////
   ///////////////////////////////////////////////
 
   // send greeting to smart contract on Avalanche
-  await blockchain.sendMessageToAvalanche();
+  await blockchain.sendMessageFromNearToEthereum('RINKEBY');
 
   // query greeting from smart contract on Avalanche
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryMessageFromAvalanche();
+    const message = await blockchain.queryMessageFromEthereum('RINKEBY');
     console.log(message);
   }, 60 * 1000);
 };
@@ -24,20 +24,26 @@ async function sendOCTask(nums) {
   ///////////////////////////////////////////////
 
   // send outsourcing computing task to smart contract from PlatON to Avalanche
-  await blockchain.sendOCTaskToAvalanche(nums);
+  await blockchain.sendOCTaskFromNearToEthereum('RINKEBY', nums);
 
   // query greeting from smart contract on PlatON
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryOCResultFromPlatON();
+    const message = await blockchain.queryOCResultFromNear();
     console.log(message);
   }, 60 * 1000);
 };
 
 (async function() {
-	function list(val) {
-		return val.split(',')
+  function list(val) {
+    // val.split(',').map(function (val) {
+    //   return Number(val);
+    // })
+    let nums = val.split(',').map(function (val) {
+      return Number(val);
+    });
+    return nums;
 	}
 
   program

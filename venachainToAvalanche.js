@@ -7,15 +7,15 @@ async function sendGreeting() {
   ///////////////////////////////////////////////
 
   // send greeting to smart contract on PlatON
-  await blockchain.sendMessageToPlatON();
+  await blockchain.sendMessageFromEthereum('VENACHAIN', 'AVALANCHETEST');
 
   // query greeting from smart contract on PlatON
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryMessageFromPlatON();
+    const message = await blockchain.queryMessageFromEthereum('AVALANCHETEST');
     console.log(message);
-  }, 30 * 1000);
+  }, 40 * 1000);
 }
 
 async function sendOCTask(nums) {
@@ -24,15 +24,15 @@ async function sendOCTask(nums) {
   ///////////////////////////////////////////////
 
   // send outsourcing computing task to smart contract from Avalanche to PlatON
-  await blockchain.sendOCTaskToPlatON(nums);
+  let id = await blockchain.sendOCTaskFromEthereum('VENACHAIN', 'AVALANCHETEST', nums);
 
   // query greeting from smart contract on Avalanche
-  console.log('Wait for the message to be synchronized.');
+  console.log('Wait for the message to be synchronized.', id);
 
   setTimeout(async () => {
-    const message = await blockchain.queryOCResultFromAvalanche();
+    const message = await blockchain.queryOCResultFromEthereum('VENACHAIN', id);
     console.log(message);
-  }, 60 * 1000);
+  }, 75 * 1000);
 }
 
 (async function() {
