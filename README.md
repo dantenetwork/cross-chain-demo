@@ -69,7 +69,7 @@ node rinkebyToAstar.js --query <ID>
 
 Send computing task from `AStar Testnet` to `Rinkeby`
 
-![9b54019b6b71e19ee7ed207deb6ec824_](https://user-images.githubusercontent.com/83757490/174797649-6f26b229-bff4-4c16-9fc7-d19f84c81011.jpg)
+![4ca97ecdafe83429a74d653a369ce07](https://user-images.githubusercontent.com/83757490/174798862-b8a90758-5013-492f-aa36-588887d3ee4e.jpg)
 
 Query result on `Astar Testnet`
 
