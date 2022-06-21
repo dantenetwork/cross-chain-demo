@@ -12,7 +12,7 @@ let evmComputeContracts = {};
 let evmProviders = {};
 
 evmProviders['RINKEBY'] = [ethereumWeb3, 4];
-evmProviders['MOONBASEALPHA'] = [moonbeamWeb3, 1287];
+evmProviders['MOONBEAM'] = [moonbeamWeb3, 1287];
 
 // Test account
 let testAccountPrivateKey = fs.readFileSync('.secret').toString();
@@ -31,11 +31,11 @@ let greetingAbiAdvanced = JSON.parse(greetingRawDataAdvanced).abi;
 // Moonbeam contracts
 let moonbeamGreetingContractAddress = '0x4744A2bD04ED29CCf5A3747e3516595fa33330ae';
 let moonbeamGreetingContract = new moonbeamWeb3.eth.Contract(greetingAbi, moonbeamGreetingContractAddress);
-evmGreetingContracts['MOONBASEALPHA'] = moonbeamGreetingContract;
+evmGreetingContracts['MOONBEAM'] = moonbeamGreetingContract;
 
 let moonbeamComputeContractAddress = '0xA2f022E9777fa9c413f1c48312C2fF9A36Cf4940';
 let moonbeamComputeContract = new moonbeamWeb3.eth.Contract(ocComputeAbi, moonbeamComputeContractAddress);
-evmComputeContracts['MOONBASEALPHA'] = moonbeamComputeContract;
+evmComputeContracts['MOONBEAM'] = moonbeamComputeContract;
 
 // Rinkeby contracts
 let rinkebyGreetingContractAddress = '0x1F5f615336763f61c617a0D8254C7e7eaA9326A7';

@@ -1,4 +1,4 @@
-const blockchain = require('./blockchain.js');
+const blockchain = require('./basic/blockchain.js');
 const { program } = require('commander');
 
 async function sendGreeting() {
