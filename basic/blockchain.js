@@ -5,14 +5,14 @@ const ethereum = require('./ethereum');
 const utils = require('./utils');
 
 const ethereumWeb3 = new Web3('https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161');
-const platONEvmWeb3 = new Web3('wss://devnetopenapi2.platon.network/ws');
-platONEvmWeb3.eth.handleRevert = true;
+const moonbeamWeb3 = new Web3('https://moonbase-alpha.public.blastapi.io');
 
 let evmGreetingContracts = {};
 let evmComputeContracts = {};
 let evmProviders = {};
 
 evmProviders['RINKEBY'] = [ethereumWeb3, 4];
+evmProviders['MOONBASEALPHA'] = [moonbeamWeb3, 1287];
 
 // Test account
 let testAccountPrivateKey = fs.readFileSync('.secret').toString();
@@ -28,11 +28,19 @@ let ocComputeAbi = JSON.parse(ocComputeRawData).abi;
 let greetingRawDataAdvanced = fs.readFileSync('./res/GreetingsAdvanced.json');
 let greetingAbiAdvanced = JSON.parse(greetingRawDataAdvanced).abi;
 
+// Moonbeam contracts
+let moonbeamGreetingContractAddress = '0x4744A2bD04ED29CCf5A3747e3516595fa33330ae';
+let moonbeamGreetingContract = new moonbeamWeb3.eth.Contract(greetingAbi, moonbeamGreetingContractAddress);
+evmGreetingContracts['MOONBASEALPHA'] = moonbeamGreetingContract;
+
+let moonbeamComputeContractAddress = '0xA2f022E9777fa9c413f1c48312C2fF9A36Cf4940';
+let moonbeamComputeContract = new moonbeamWeb3.eth.Contract(ocComputeAbi, moonbeamComputeContractAddress);
+evmComputeContracts['MOONBASEALPHA'] = moonbeamComputeContract;
+
 // Rinkeby contracts
 let rinkebyGreetingContractAddress = '0x1F5f615336763f61c617a0D8254C7e7eaA9326A7';
 let rinkebyGreetingContract = new ethereumWeb3.eth.Contract(greetingAbiAdvanced, rinkebyGreetingContractAddress);
 evmGreetingContracts['RINKEBY'] = rinkebyGreetingContract;
-
 
 // NEAR contract
 let nearContractId = '9f9350eb575cae7aac7f85a8c62b08d94dcac70a84e3c765464ff87c669fa4e5';
@@ -60,8 +68,7 @@ module.exports = {
   },
 
   async sendOCTaskFromNearToEthereum(chainName, nums) {
-    // Cross-chain call delivering from `PlatON` to `Avalanche`.
-    return await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: chainName, params_vector: nums});
+    return near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'send_compute_task', {to_chain: chainName, nums: nums});
   },
   
   async queryMessageFromNear(chainName) {
