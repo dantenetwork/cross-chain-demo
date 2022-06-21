@@ -25,13 +25,16 @@ async function sendOCTask(nums) {
 
   // send outsourcing computing task to smart contract from NEAR to MOONBEAM
   let id = await blockchain.sendOCTaskFromEthereum('MOONBEAM', 'NEAR', nums);
-  //  let id = 9;
   // query greeting from smart contract on NEAR
   console.log('Wait for the message to be synchronized.', id);
 
-  setTimeout(async () => {
+  let interval = setInterval(async() => {
     const message = await blockchain.queryOCResultFromEthereum('MOONBEAM', id);
-    console.log(message);
+    if (message.used) {
+      clearInterval(interval);
+      console.log(message);
+      return;
+    }
   }, 5 * 1000);
 }
 
