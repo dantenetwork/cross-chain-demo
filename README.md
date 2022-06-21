@@ -39,14 +39,41 @@ npm install -d
 ### Test script
 
 #### Interoperation between Polkadot parachain and EVM compatible chains
-Send greeting from `rinkeby` to `AStar Testnet`
+
+**Prepare**
+- Open Polkadot Apps: https://polkadot.js.org/apps
+- Load deployed contracts with (contract address and metadata.json)
+
+![image](https://user-images.githubusercontent.com/83757490/174795732-3c83f06d-938c-4510-915c-1d0642af4009.png)
+
+
+Send greeting from `Rinkeby` to `Astar Testnet`
 ```
 node rinkebyToAstar.js --greet
 ```
 
-(TODO)from Polkadot parachain to  EVM compatible chains
-(operate with polkadot.js/app)
-(contract address and metadata.json)
+Query result on `Astar Testnet`
+
+![b8d1d5cf5ec4bd3bf647c95a2fc3be0f_](https://user-images.githubusercontent.com/83757490/174796925-a974c507-5637-472d-af15-4f3c445e7169.jpg)
+
+Send greeting from `AStar Testnet` to `Rinkeby`
+
+<img width="894" alt="d64abeea609b7ef20fa29ecbe22f4e75_" src="https://user-images.githubusercontent.com/83757490/174797223-ccde17ab-cd0d-437f-b47b-8ca371b4b0b3.png">
+
+Query result on `Rinkeby`
+```
+node rinkebyToAstar.js --query <ID>
+```
+
+`<ID>` is the id of the message sent from `Astar Testnet`
+
+Send computing task from `AStar Testnet` to `Rinkeby`
+
+![9b54019b6b71e19ee7ed207deb6ec824_](https://user-images.githubusercontent.com/83757490/174797649-6f26b229-bff4-4c16-9fc7-d19f84c81011.jpg)
+
+Query result on `Astar Testnet`
+
+![59c7213e1cdd7535e3d43c8779231a8d_](https://user-images.githubusercontent.com/83757490/174797727-982feea8-89cd-4020-9d47-496a55b31706.jpg)
 
 ####
 Send greeting from Moonbeam to NEAR
