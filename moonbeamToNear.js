@@ -3,34 +3,34 @@ const { program } = require('commander');
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
-  ///////    MOONBASEALPHA To NEAR     ////////////
+  ///////      MOONBEAM To NEAR      ////////////
   ///////////////////////////////////////////////
 
-  // send greeting to smart contract on PlatON
-  await blockchain.sendMessageFromEthereum('MOONBASEALPHA', 'NEAR');
+  // send greeting to smart contract
+  await blockchain.sendMessageFromEthereum('MOONBEAM', 'NEAR');
 
-  // query greeting from smart contract on PlatON
+  // query greeting from smart contract
   console.log('Wait for the message to be synchronized.');
 
   setTimeout(async () => {
-    const message = await blockchain.queryMessageFromNear('MOONBASEALPHA');
+    const message = await blockchain.queryMessageFromNear('MOONBEAM');
     console.log(message);
   }, 40 * 1000);
 }
 
 async function sendOCTask(nums) {
   ///////////////////////////////////////////////
-  ///////    MOONBASEALPHA To NEAR     ////////////
+  ///////      MOONBEAM To NEAR      ////////////
   ///////////////////////////////////////////////
 
-  // send outsourcing computing task to smart contract from Avalanche to PlatON
-  // let id = await blockchain.sendOCTaskFromEthereum('MOONBASEALPHA', 'NEAR', nums);
+  // send outsourcing computing task to smart contract from NEAR to MOONBEAM
+  // let id = await blockchain.sendOCTaskFromEthereum('MOONBEAM', 'NEAR', nums);
    let id = 9;
-  // query greeting from smart contract on Avalanche
+  // query greeting from smart contract on NEAR
   console.log('Wait for the message to be synchronized.', id);
 
   setTimeout(async () => {
-    const message = await blockchain.queryOCResultFromEthereum('MOONBASEALPHA', id);
+    const message = await blockchain.queryOCResultFromEthereum('MOONBEAM', id);
     console.log(message);
   }, 5 * 1000);
 }
@@ -42,8 +42,8 @@ async function sendOCTask(nums) {
 
   program
 	  .version('0.1.0')
-	  .option('-g, --greet', 'send greeting to PlatON')
-	  .option('-c, --compute <num1, ..., numn>', 'send outsourcing computing task to PlatON', list)
+	  .option('-g, --greet', 'send greeting to MOONBEAM')
+	  .option('-c, --compute <num1, ..., numn>', 'send outsourcing computing task to MOONBEAM', list)
 	  .parse(process.argv);
 
   if (program.opts().greet) {

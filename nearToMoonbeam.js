@@ -3,28 +3,28 @@ const { program } = require('commander');
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
-  ///////     NEAR To Avalanche      ////////////
+  ///////      NEAR To MOONBEAM      ////////////
   ///////////////////////////////////////////////
 
-  // send greeting to smart contract on Avalanche
-  await blockchain.sendMessageFromNearToEthereum('MOONBASEALPHA');
+  // send greeting to smart contract on MOONBEAM
+  await blockchain.sendMessageFromNearToEthereum('MOONBEAM');
 
-  // query greeting from smart contract on Avalanche
+  // query greeting from smart contract on MOONBEAM
   console.log('Wait for the message to be synchronized.');
 
   // setTimeout(async () => {
-  //   const message = await blockchain.queryMessageFromEthereum('MOONBASEALPHA');
+  //   const message = await blockchain.queryMessageFromEthereum('MOONBEAM');
   //   console.log(message);
   // }, 60 * 1000);
 };
 
 async function sendOCTask(nums) {
   ///////////////////////////////////////////////
-  ///////    PlatON To Avalanche     ////////////
+  ///////     PlatON To MOONBEAM     ////////////
   ///////////////////////////////////////////////
 
-  // send outsourcing computing task to smart contract from PlatON to Avalanche
-  let id = await blockchain.sendOCTaskFromNearToEthereum('MOONBASEALPHA', nums);
+  // send outsourcing computing task to smart contract from PlatON to MOONBEAM
+  let id = await blockchain.sendOCTaskFromNearToEthereum('MOONBEAM', nums);
   // query greeting from smart contract on PlatON
   console.log('Wait for the message to be synchronized.');
   console.log(id);
@@ -52,8 +52,8 @@ async function sendOCTask(nums) {
 
   program
 	  .version('0.1.0')
-	  .option('-g, --greet', 'send greeting to Avalanche')
-	  .option('-c, --compute <num1, ..., numn>', 'send outsourcing computing task to Avalanche', list)
+	  .option('-g, --greet', 'send greeting to MOONBEAM')
+	  .option('-c, --compute <num1, ..., numn>', 'send outsourcing computing task to MOONBEAM', list)
 	  .parse(process.argv);
 
   if (program.opts().greet) {
