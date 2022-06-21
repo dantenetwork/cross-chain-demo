@@ -11,6 +11,7 @@ const platONWeb3 = new Web3('http://35.247.155.162:6789');
 const ethereumWeb3 = new Web3('https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161');
 const platONEvmWeb3 = new Web3('wss://devnetopenapi2.platon.network/ws');
 const avalancheWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
+const moonbeamWeb3 = new Web3('https://moonbase-alpha.public.blastapi.io');
 
 let evmGreetingContracts = {};
 let evmComputeContracts = {};
@@ -19,6 +20,7 @@ let evmProviders = {};
 evmProviders['RINKEBY'] = [ethereumWeb3, 4];
 evmProviders['PLATONEVMDEV'] = [platONEvmWeb3, 2203181];
 evmProviders['AVALANCHETEST'] = [avalancheWeb3, 43113];
+evmProviders['MOONBASEALPHA'] = [moonbeamWeb3, 1287];
 
 // Test account
 let testAccountPrivateKey = fs.readFileSync('.secret').toString();
@@ -48,6 +50,15 @@ evmGreetingContracts['PLATONEVMDEV'] = platonGreetingContract;
 let platonComputeContractAddress = '0xCA466a2BA01733F8FC8bE9A076037a9a0b3f9bfC';
 let platonComputeContract = new platONWeb3.eth.Contract(ocComputeAbi, platonComputeContractAddress);
 evmComputeContracts['PLATONEVMDEV'] = platonComputeContract;
+
+// Moonbeam contracts
+let moonbeamGreetingContractAddress = '0x4744A2bD04ED29CCf5A3747e3516595fa33330ae';
+let moonbeamGreetingContract = new moonbeamWeb3.eth.Contract(greetingAbi, moonbeamGreetingContractAddress);
+evmGreetingContracts['MOONBASEALPHA'] = moonbeamGreetingContract;
+
+let moonbeamComputeContractAddress = '0xA2f022E9777fa9c413f1c48312C2fF9A36Cf4940';
+let moonbeamComputeContract = new moonbeamWeb3.eth.Contract(ocComputeAbi, moonbeamComputeContractAddress);
+evmComputeContracts['MOONBASEALPHA'] = moonbeamComputeContract;
 
 
 // NEAR contract
@@ -91,7 +102,7 @@ module.exports = {
 
   async sendOCTaskFromNearToEthereum(chainName, nums) {
     // Cross-chain call delivering from `PlatON` to `Avalanche`.
-    return await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: chainName, params_vector: nums});
+    return near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'send_compute_task', {to_chain: chainName, nums: nums});
   },
 
   async sendOCTaskFromEthereum(fromChain, toChain, nums) {
