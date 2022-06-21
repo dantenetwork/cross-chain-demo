@@ -1,10 +1,8 @@
 const blockchain = require('./basic/blockchain.js');
 const { program } = require('commander');
 
-// let fromChain = 'RINKEBY';
-// let toChain = 'ASTAR';
-let fromChain = 'PLATONEVMDEV';
-let toChain = 'POLKADOT';
+let fromChain = 'RINKEBY';
+let toChain = 'ASTAR';
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
@@ -22,7 +20,7 @@ async function sendGreeting() {
 
   program
 	  .version('0.1.0')
-	  .option('-g, --greet', 'send greeting to PlatON')
+	  .option('-g, --greet', 'send greeting to ASTAR')
 	  .parse(process.argv);
 
   if (program.opts().greet) {
