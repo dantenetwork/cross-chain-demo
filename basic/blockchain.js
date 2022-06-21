@@ -38,7 +38,7 @@ let moonbeamComputeContract = new moonbeamWeb3.eth.Contract(ocComputeAbi, moonbe
 evmComputeContracts['MOONBEAM'] = moonbeamComputeContract;
 
 // Rinkeby contracts
-let rinkebyGreetingContractAddress = '0x1F5f615336763f61c617a0D8254C7e7eaA9326A7';
+let rinkebyGreetingContractAddress = '0x32272DA543c8B7f394B2c0d578bc76A0e7F25Ffe';
 let rinkebyGreetingContract = new ethereumWeb3.eth.Contract(greetingAbiAdvanced, rinkebyGreetingContractAddress);
 evmGreetingContracts['RINKEBY'] = rinkebyGreetingContract;
 
