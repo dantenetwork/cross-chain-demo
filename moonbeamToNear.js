@@ -24,8 +24,7 @@ async function sendOCTask(nums) {
   ///////////////////////////////////////////////
 
   // send outsourcing computing task to smart contract from Avalanche to PlatON
-  // let id = await blockchain.sendOCTaskFromEthereum('MOONBASEALPHA', 'NEAR', nums);
-   let id = 9;
+  let id = await blockchain.sendOCTaskFromEthereum('MOONBASEALPHA', 'NEAR', nums);
   // query greeting from smart contract on Avalanche
   console.log('Wait for the message to be synchronized.', id);
 
