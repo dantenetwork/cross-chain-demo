@@ -1,26 +1,18 @@
 const Web3 = require('web3');
 const fs = require('fs');
-const path = require('path');
-const homedir = require("os").homedir();
 const near = require('./near');
 const ethereum = require('./ethereum');
 const utils = require('./utils');
 
-const platONWeb3 = new Web3('http://35.247.155.162:6789');
 const ethereumWeb3 = new Web3('https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161');
 const platONEvmWeb3 = new Web3('wss://devnetopenapi2.platon.network/ws');
 platONEvmWeb3.eth.handleRevert = true;
-const avalancheWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
-const astarWeb3 = new Web3('wss://devnetopenapi2.platon.network/ws');
 
 let evmGreetingContracts = {};
 let evmComputeContracts = {};
 let evmProviders = {};
 
 evmProviders['RINKEBY'] = [ethereumWeb3, 4];
-evmProviders['PLATONEVMDEV'] = [platONEvmWeb3, 2203181];
-evmProviders['AVALANCHETEST'] = [avalancheWeb3, 43113];
-// evmProviders['AVALANCHETEST'] = [avalancheWeb3, 43113];
 
 // Test account
 let testAccountPrivateKey = fs.readFileSync('.secret').toString();
@@ -38,8 +30,8 @@ let greetingAbiAdvanced = JSON.parse(greetingRawDataAdvanced).abi;
 
 // Rinkeby contracts
 let rinkebyGreetingContractAddress = '0x1F5f615336763f61c617a0D8254C7e7eaA9326A7';
-let rinkebyGreetingContract = new platONWeb3.eth.Contract(greetingAbiAdvanced, rinkebyGreetingContractAddress);
-evmGreetingContracts['PLATONEVMDEV'] = rinkebyGreetingContract;
+let rinkebyGreetingContract = new ethereumWeb3.eth.Contract(greetingAbiAdvanced, rinkebyGreetingContractAddress);
+evmGreetingContracts['RINKEBY'] = rinkebyGreetingContract;
 
 
 // NEAR contract
