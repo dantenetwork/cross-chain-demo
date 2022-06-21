@@ -69,6 +69,7 @@ module.exports = {
       console.log(
         "--------------------------------------------------------------------------------------------"
       );
+      return providers.getTransactionLastResult(result);
     } catch (error) {
       console.log(error);
     }

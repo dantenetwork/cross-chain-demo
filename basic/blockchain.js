@@ -64,7 +64,7 @@ function getCurrentDate() {
 
 module.exports = {  
   async sendMessageFromNearToEthereum(chainName) {
-    await near.sendTransaction(nearContractId, nearSender, callGreetingPrivateKey, "send_greeting", {to_chain: chainName, title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
+    return near.sendTransaction(nearContractId, nearSender, callGreetingPrivateKey, "send_greeting", {to_chain: chainName, title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
   },
 
   async sendOCTaskFromNearToEthereum(chainName, nums) {
@@ -92,8 +92,8 @@ module.exports = {
     return id;
   },
   
-  async queryMessageFromEthereum(chainName) {
-    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'getContext', []);
+  async queryMessageFromEthereum(chainName, id) {
+    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'greetings', [id]);
     return message;
   },
   
