@@ -49,8 +49,8 @@ let nearNetworkId = "testnet";
 //   `./.near-credentials/${nearNetworkId}/${nearSender}.json`
 // );
 // const keyFile = require(keyFilePath);
-const SenderPrivateKey = "ed25519:2ujXoT1SktY2tspiAMimY5ZEji1MNdP1fRCUPqzrpdzkkQ7JkPVDg9nS5BV5Yefb2GgHqaE8anC1KfhGLJmmU3Af";
-
+const callGreetingPrivateKey = "ed25519:2ujXoT1SktY2tspiAMimY5ZEji1MNdP1fRCUPqzrpdzkkQ7JkPVDg9nS5BV5Yefb2GgHqaE8anC1KfhGLJmmU3Af";
+const callSumPrivateKey = "ed25519:4RPNB4FkrqtEMAm6obq184R5dPrkjRqHBRNuzm1qM1qHMcaxNgbfMcuHyvSVx3HWjxF2hwkrqaGVKMVV5hYj1jV3";
 // Get current date
 function getCurrentDate() {
   var today = new Date();
@@ -67,21 +67,21 @@ module.exports = {
   },
   
   async sendMessageFromNearToAvalance() {
-    await near.sendTransaction(nearContractId, nearSender, SenderPrivateKey, "send_greeting", {to_chain: 'AVALANCHE', title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
+    await near.sendTransaction(nearContractId, nearSender, callGreetingPrivateKey, "send_greeting", {to_chain: 'AVALANCHE', title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
   },
 
   async sendOCTaskFromNearToAvalanche(nums) {
     // Cross-chain call delivering from `PlatON` to `Avalanche`.
-    await near.sendTransaction(nearSumContractId, nearSender, SenderPrivateKey, 'sum', {to_chain: 'AVALANCHE', params_vector: nums});
+    await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: 'AVALANCHE', params_vector: nums});
   },
 
   async sendMessageFromNearToEthereum(chainName) {
-    await near.sendTransaction(nearContractId, nearSender, SenderPrivateKey, "send_greeting", {to_chain: chainName, title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
+    await near.sendTransaction(nearContractId, nearSender, callGreetingPrivateKey, "send_greeting", {to_chain: chainName, title: 'Greetings', content: 'Greeting from NEAR', date: getCurrentDate()})
   },
 
   async sendOCTaskFromNearToEthereum(chainName, nums) {
     // Cross-chain call delivering from `PlatON` to `Avalanche`.
-    await near.sendTransaction(nearSumContractId, nearSender, SenderPrivateKey, 'sum', {to_chain: chainName, params_vector: nums});
+    await near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'sum', {to_chain: chainName, params_vector: nums});
   },
 
   async sendMessageFromEthereumToNear(chainName) {
