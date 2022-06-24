@@ -45,6 +45,17 @@ The test network is planning to be online in early Q3(2022).
 npm install -d
 ```
 
+## Prepare private key
+The private key is used to sign transations which will be sent to Rinkeby and Moonbeam.  
+You can use the default private key file `.secret`. If the amount is not enough to pay gas fee, you can get token from faucet listed below.  
+
+**If you do not want to use default private key file, you can create it yourself**
+- Create a evm-compatible account(private key is neccessary), MetaMask will be ok
+- Paste private key into the file `.secret`
+- Get token for test, faucets are shown below
+  - Avalanche: https://faucet.avax.network/
+  - Rinkeby: https://rinkebyfaucet.com/
+
 ## Test script
 
 Send greeting from Ethereum to NEAR
