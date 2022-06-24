@@ -32,7 +32,7 @@ async function sendOCTask(nums) {
   setTimeout(async () => {
     const message = await blockchain.queryOCResultFromNear();
     console.log(message);
-  }, 60 * 1000);
+  }, 75 * 1000);
 };
 
 (async function() {

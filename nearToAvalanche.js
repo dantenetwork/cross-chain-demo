@@ -10,12 +10,12 @@ async function sendGreeting() {
   await blockchain.sendMessageFromNearToAvalance();
 
   // query greeting from smart contract on Avalanche
-  // console.log('Wait for the message to be synchronized.');
+  console.log('Wait for the message to be synchronized.');
 
-  // setTimeout(async () => {
-  //   const message = await blockchain.queryMessageFromAvalanche();
-  //   console.log(message);
-  // }, 60 * 1000);
+  setTimeout(async () => {
+    const message = await blockchain.queryMessageFromAvalanche();
+    console.log(message);
+  }, 60 * 1000);
 };
 
 async function sendOCTask(nums) {
@@ -27,12 +27,12 @@ async function sendOCTask(nums) {
   await blockchain.sendOCTaskFromNearToAvalanche(nums);
 
   // query greeting from smart contract on PlatON
-  // console.log('Wait for the message to be synchronized.');
+  console.log('Wait for the message to be synchronized.');
 
-  // setTimeout(async () => {
-  //   const message = await blockchain.queryOCResultFromPlatON();
-  //   console.log(message);
-  // }, 60 * 1000);
+  setTimeout(async () => {
+    const message = await blockchain.queryOCResultFromNear();
+    console.log(message);
+  }, 60 * 1000);
 };
 
 (async function() {
