@@ -1,12 +1,12 @@
 const blockchain = require('./basic/blockchain.js');
 const { program } = require('commander');
 
-let fromChain = 'RINKEBY';
+let fromChain = 'AVALANCHE';
 let toChain = 'ASTAR';
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
-  ///////      RINKEBY To ASTAR      ////////////
+  ///////      AVALANCHE To ASTAR      ////////////
   ///////////////////////////////////////////////
 
   // send greeting to smart contract
@@ -17,7 +17,7 @@ async function queryGreeting(id) {
   console.log('Wait for the message to be synchronized.', id);
 
   let interval = setInterval(async() => {
-    const message = await blockchain.queryMessageFromEthereum('RINKEBY', id);
+    const message = await blockchain.queryMessageFromEthereum(fromChain, id);
     if (message.title != '') {
       clearInterval(interval);
       console.log(message);
@@ -34,7 +34,7 @@ async function queryGreeting(id) {
   program
 	  .version('0.1.0')
 	  .option('-g, --greet', 'send greeting to ASTAR')
-	  .option('-q, --query <id>', 'query greeting from RINKEBY')
+	  .option('-q, --query <id>', 'query greeting from AVALANCHE')
 	  .parse(process.argv);
 
   if (program.opts().greet) {

@@ -6,6 +6,7 @@ const utils = require('./utils');
 
 const ethereumWeb3 = new Web3('https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161');
 const moonbeamWeb3 = new Web3('https://moonbase-alpha.public.blastapi.io');
+const fujiWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
 
 let evmGreetingContracts = {};
 let evmComputeContracts = {};
@@ -13,6 +14,7 @@ let evmProviders = {};
 
 evmProviders['RINKEBY'] = [ethereumWeb3, 4];
 evmProviders['MOONBEAM'] = [moonbeamWeb3, 1287];
+evmProviders['FUJI'] = [fujiWeb3, 43113];
 
 // Test account
 let testAccountPrivateKey = fs.readFileSync('.secret').toString();
@@ -24,27 +26,29 @@ let greetingAbi = JSON.parse(greetingRawData).abi;
 let ocComputeRawData = fs.readFileSync('./res/OCComputing.json');
 let ocComputeAbi = JSON.parse(ocComputeRawData).abi;
 
-// Load advanced smart contract abi
-let greetingRawDataAdvanced = fs.readFileSync('./res/GreetingsAdvanced.json');
-let greetingAbiAdvanced = JSON.parse(greetingRawDataAdvanced).abi;
-
 // Moonbeam contracts
-let moonbeamGreetingContractAddress = '0x4744A2bD04ED29CCf5A3747e3516595fa33330ae';
+let moonbeamGreetingContractAddress = '0xC0F1706106D2d7208C6586d1C8Aec520d99E9F14';
 let moonbeamGreetingContract = new moonbeamWeb3.eth.Contract(greetingAbi, moonbeamGreetingContractAddress);
 evmGreetingContracts['MOONBEAM'] = moonbeamGreetingContract;
 
-let moonbeamComputeContractAddress = '0xA2f022E9777fa9c413f1c48312C2fF9A36Cf4940';
+let moonbeamComputeContractAddress = '0x711cb9B41Ae7862b5961a134703Cd6B5f16dAdF5';
 let moonbeamComputeContract = new moonbeamWeb3.eth.Contract(ocComputeAbi, moonbeamComputeContractAddress);
 evmComputeContracts['MOONBEAM'] = moonbeamComputeContract;
 
+// Fuji contracts
+let fujiGreetingContractAddress = '0x1723f39e05Ca8b14ACaf244bAFFBd79801d42A63';
+let fujiGreetingContract = new moonbeamWeb3.eth.Contract(greetingAbi, fujiGreetingContractAddress);
+evmGreetingContracts['FUJI'] = fujiGreetingContract;
+
+let fujiComputeContractAddress = '0x7F5b6F5F7a786F63383E8681Da7ACCEed76Ab209';
+let fujiComputeContract = new moonbeamWeb3.eth.Contract(ocComputeAbi, fujiComputeContractAddress);
+evmComputeContracts['FUJI'] = fujiComputeContract;
+
 // Rinkeby contracts
-let rinkebyGreetingContractAddress = '0x32272DA543c8B7f394B2c0d578bc76A0e7F25Ffe';
-let rinkebyGreetingContract = new ethereumWeb3.eth.Contract(greetingAbiAdvanced, rinkebyGreetingContractAddress);
-evmGreetingContracts['RINKEBY'] = rinkebyGreetingContract;
 
 // NEAR contract
-let nearContractId = '9f9350eb575cae7aac7f85a8c62b08d94dcac70a84e3c765464ff87c669fa4e5';
-let nearSumContractId = "a7d1736372266477e0d0295d34ae47622ba50d007031a009976348f954e681fe";
+let nearContractId = '99ff32da92227f302056389ce208d77e12f88a6ffd2cee1b238586cc4cc20bd7';
+let nearSumContractId = "f738bf496d14e9c2d4b734be2905a319253a7cc5775511434991b9f212224aab";
 let nearSender = "shanks.testnet";
 let nearNetworkId = "testnet";
 // const keyFilePath = path.resolve(
