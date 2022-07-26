@@ -13,7 +13,7 @@ let evmComputeContracts = {};
 let evmProviders = {};
 
 evmProviders['RINKEBY'] = [ethereumWeb3, 4];
-evmProviders['MOONBEAM'] = [moonbeamWeb3, 1287];
+evmProviders['MOONBASEALPHA'] = [moonbeamWeb3, 1287];
 evmProviders['FUJI'] = [fujiWeb3, 43113];
 
 // Test account
@@ -27,13 +27,13 @@ let ocComputeRawData = fs.readFileSync('./res/OCComputing.json');
 let ocComputeAbi = JSON.parse(ocComputeRawData).abi;
 
 // Moonbeam contracts
-let moonbeamGreetingContractAddress = '0xC0F1706106D2d7208C6586d1C8Aec520d99E9F14';
+let moonbeamGreetingContractAddress = '0x49bC1f09474993103ECa96d96f4C3f7000B5fB7b';
 let moonbeamGreetingContract = new moonbeamWeb3.eth.Contract(greetingAbi, moonbeamGreetingContractAddress);
-evmGreetingContracts['MOONBEAM'] = moonbeamGreetingContract;
+evmGreetingContracts['MOONBASEALPHA'] = moonbeamGreetingContract;
 
-let moonbeamComputeContractAddress = '0x711cb9B41Ae7862b5961a134703Cd6B5f16dAdF5';
+let moonbeamComputeContractAddress = '0x8c5d8Df81C670b5154fe27930C0289289e94a52f';
 let moonbeamComputeContract = new moonbeamWeb3.eth.Contract(ocComputeAbi, moonbeamComputeContractAddress);
-evmComputeContracts['MOONBEAM'] = moonbeamComputeContract;
+evmComputeContracts['MOONBASEALPHA'] = moonbeamComputeContract;
 
 // Fuji contracts
 let fujiGreetingContractAddress = '0x1723f39e05Ca8b14ACaf244bAFFBd79801d42A63';
@@ -75,8 +75,8 @@ module.exports = {
     return near.sendTransaction(nearSumContractId, nearSender, callSumPrivateKey, 'send_compute_task', {to_chain: chainName, nums: nums});
   },
   
-  async queryMessageFromNear(chainName) {
-    const message = await near.contractCall(nearContractId, "get_greeting", { "from_chain": chainName });
+  async queryMessageFromNear(chainName, id) {
+    const message = await near.contractCall(nearContractId, "get_greeting", { "from_chain": chainName, "id": id });
     return message;
   },
   
@@ -87,6 +87,9 @@ module.exports = {
 
   async sendMessageFromEthereum(fromChain, toChain) {
     await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccountPrivateKey, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
+    await utils.sleep(5);
+    let id = await ethereum.contractCall(evmGreetingContracts[fromChain], 'currentId', []);
+    return id;
   },
 
   async sendOCTaskFromEthereum(fromChain, toChain, nums) {
@@ -101,8 +104,8 @@ module.exports = {
     return message;
   },
   
-  async queryOCResultFromEthereum(chainName, id) {
-    const message = await ethereum.contractCall(evmComputeContracts[chainName], 'ocResult', [id]);
+  async queryOCResultFromEthereum(chainName, fromChain, id) {
+    const message = await ethereum.contractCall(evmComputeContracts[chainName], 'ocResult', [fromChain, id]);
     return message;
   },
 }

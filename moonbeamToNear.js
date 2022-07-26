@@ -1,21 +1,28 @@
 const blockchain = require('./basic/blockchain.js');
 const { program } = require('commander');
 
+let fromChain = 'MOONBASEALPHA';
+let toChain = 'NEARTEST';
+
 async function sendGreeting() {
   ///////////////////////////////////////////////
   ///////      MOONBEAM To NEAR      ////////////
   ///////////////////////////////////////////////
 
   // send greeting to smart contract
-  await blockchain.sendMessageFromEthereum('MOONBEAM', 'NEAR');
+  let id = await blockchain.sendMessageFromEthereum(fromChain, toChain);
 
   // query greeting from smart contract
-  console.log('Wait for the message to be synchronized.');
+  console.log('Wait for the message to be synchronized.', id);
 
-  setTimeout(async () => {
-    const message = await blockchain.queryMessageFromNear('MOONBEAM');
-    console.log(message);
-  }, 40 * 1000);
+  let interval = setInterval(async() => {
+    const message = await blockchain.queryMessageFromNear(fromChain, parseInt(id));
+    if (message) {
+      clearInterval(interval);
+      console.log(message);
+      return;
+    }
+  }, 5 * 1000);
 }
 
 async function sendOCTask(nums) {
@@ -24,12 +31,12 @@ async function sendOCTask(nums) {
   ///////////////////////////////////////////////
 
   // send outsourcing computing task to smart contract from NEAR to MOONBEAM
-  let id = await blockchain.sendOCTaskFromEthereum('MOONBEAM', 'NEAR', nums);
+  let id = await blockchain.sendOCTaskFromEthereum(fromChain, toChain, nums);
   // query greeting from smart contract on NEAR
   console.log('Wait for the message to be synchronized.', id);
 
   let interval = setInterval(async() => {
-    const message = await blockchain.queryOCResultFromEthereum('MOONBEAM', id);
+    const message = await blockchain.queryOCResultFromEthereum(fromChain, toChain, id);
     if (message.used) {
       clearInterval(interval);
       console.log(message);

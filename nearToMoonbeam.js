@@ -1,19 +1,22 @@
 const blockchain = require('./basic/blockchain.js');
 const { program } = require('commander');
 
+let fromChain = 'NEARTEST';
+let toChain = 'MOONBASEALPHA';
+
 async function sendGreeting() {
   ///////////////////////////////////////////////
   ///////      NEAR To MOONBEAM      ////////////
   ///////////////////////////////////////////////
 
   // send greeting to smart contract on MOONBEAM
-  let id = await blockchain.sendMessageFromNearToEthereum('MOONBEAM');
+  let id = await blockchain.sendMessageFromNearToEthereum(toChain);
 
   // query greeting from smart contract on MOONBEAM
   console.log('Wait for the message to be synchronized.', id);
 
   let interval = setInterval(async() => {
-    const message = await blockchain.queryMessageFromEthereum('MOONBEAM', id);
+    const message = await blockchain.queryMessageFromEthereum(toChain, fromChain, id);
     if (message.title != '') {
       clearInterval(interval);
       console.log(message);
@@ -28,7 +31,7 @@ async function sendOCTask(nums) {
   ///////////////////////////////////////////////
 
   // send outsourcing computing task to smart contract from NEAR to MOONBEAM
-  let id = await blockchain.sendOCTaskFromNearToEthereum('MOONBEAM', nums);
+  let id = await blockchain.sendOCTaskFromNearToEthereum(toChain, nums);
   // query greeting from smart contract on NEAR
   console.log('Wait for the message to be synchronized.', id);
 
