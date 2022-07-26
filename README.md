@@ -48,13 +48,13 @@ You can use the default private key file `.secret`. If the amount is not enough 
 - We have deployed these smart contracts on `Contracts on Rococo`:
     - `cross_chain.contract`: 
         - Address: `YoF56GBPEGKKeokDzLxwsZyYsmCaWYPQ7eiiqdGtAZRswdd`
-        - Related [metadata](./res/ink/cross_chain.metadata)
+        - Related [metadata](./res/ink/cross-chain.json)
     - `greeting.contract`:          
         - Address: `a1mydsZDKLQJh8mwB1NZ86XVJ8ApiyNVWikMrhoLwoGfZex`
-        - Related [metadata](./res/ink/greeting.metadata)
+        - Related [metadata](./res/ink/greeting.json)
     - `oscomputing.contract`:
         - Address: `ZakeYTFPNkC9Cgceui2aBZ6G23nA6ieB3KVWfmdNDv6UfM1`
-        - Related [metadata](./res/ink/computing.metadata)
+        - Related [metadata](./res/ink/computing.json)
 - Prepare an test account:
     - Click `Add account` on `Accounts` page, and finish creating an account
     - Get token from [faucet](https://portal.astar.network/#/assets)
