@@ -1,0 +1,1496 @@
+{
+  "source": {
+    "hash": "0x1d6e7eee471dd8f3d388dbbdd5a9f7a29780aa6ec2822965c8d482ae7da09ea7",
+    "language": "ink! 3.2.0",
+    "compiler": "rustc 1.62.0-nightly"
+  },
+  "contract": {
+    "name": "greeting",
+    "version": "0.1.0",
+    "authors": [
+      "[your_name] <[your_email]>"
+    ]
+  },
+  "V3": {
+    "spec": {
+      "constructors": [
+        {
+          "args": [],
+          "docs": [],
+          "label": "new",
+          "payable": false,
+          "selector": "0x9bae9d5e"
+        }
+      ],
+      "docs": [],
+      "events": [],
+      "messages": [
+        {
+          "args": [
+            {
+              "label": "contract",
+              "type": {
+                "displayName": [
+                  "AccountId"
+                ],
+                "type": 0
+              }
+            }
+          ],
+          "docs": [
+            " Sets cross-chain contract address"
+          ],
+          "label": "set_cross_chain_contract",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 10
+          },
+          "selector": "0x82b64ebd"
+        },
+        {
+          "args": [
+            {
+              "label": "chain_name",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 5
+              }
+            },
+            {
+              "label": "greeting",
+              "type": {
+                "displayName": [
+                  "Vec"
+                ],
+                "type": 12
+              }
+            }
+          ],
+          "docs": [
+            " Sends greeting to another chain "
+          ],
+          "label": "send_greeting",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 13
+          },
+          "selector": "0xdc2090de"
+        },
+        {
+          "args": [
+            {
+              "label": "payload",
+              "type": {
+                "displayName": [
+                  "MessagePayload"
+                ],
+                "type": 15
+              }
+            }
+          ],
+          "docs": [
+            " Receives greeting from another chain "
+          ],
+          "label": "receive_greeting",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "String"
+            ],
+            "type": 5
+          },
+          "selector": "0x0c724dc2"
+        },
+        {
+          "args": [
+            {
+              "label": "key",
+              "type": {
+                "displayName": [],
+                "type": 4
+              }
+            }
+          ],
+          "docs": [
+            " Receives message from another chain "
+          ],
+          "label": "get_ret",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "String"
+            ],
+            "type": 5
+          },
+          "selector": "0xf788434c"
+        },
+        {
+          "args": [],
+          "docs": [
+            " Returns the account id of the current owner"
+          ],
+          "label": "Ownable::owner",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Option"
+            ],
+            "type": 41
+          },
+          "selector": "0x4fa43c8c"
+        },
+        {
+          "args": [],
+          "docs": [
+            " Renounces ownership of the contract"
+          ],
+          "label": "Ownable::renounce_ownership",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 10
+          },
+          "selector": "0x5e228753"
+        },
+        {
+          "args": [
+            {
+              "label": "new_owner",
+              "type": {
+                "displayName": [
+                  "AccountId"
+                ],
+                "type": 0
+              }
+            }
+          ],
+          "docs": [
+            " Transfer ownership to a new account id"
+          ],
+          "label": "Ownable::transfer_ownership",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 10
+          },
+          "selector": "0x11f43efd"
+        },
+        {
+          "args": [
+            {
+              "label": "chain_name",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 5
+              }
+            },
+            {
+              "label": "action",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 5
+              }
+            }
+          ],
+          "docs": [],
+          "label": "MultiDestContracts::get_dest_contract_info",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Option"
+            ],
+            "type": 42
+          },
+          "selector": "0x0316006d"
+        },
+        {
+          "args": [
+            {
+              "label": "chain_name",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 5
+              }
+            },
+            {
+              "label": "action",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 5
+              }
+            },
+            {
+              "label": "contract",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 5
+              }
+            },
+            {
+              "label": "dest_action",
+              "type": {
+                "displayName": [
+                  "String"
+                ],
+                "type": 5
+              }
+            }
+          ],
+          "docs": [],
+          "label": "MultiDestContracts::register_dest_contract",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 10
+          },
+          "selector": "0xa6d99d73"
+        },
+        {
+          "args": [
+            {
+              "label": "sqos_item",
+              "type": {
+                "displayName": [
+                  "ISQoS"
+                ],
+                "type": 43
+              }
+            }
+          ],
+          "docs": [
+            " Inserts one SQoS item.",
+            " If the item exists, it will be replaced."
+          ],
+          "label": "CrossChainSQoS::insert",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 10
+          },
+          "selector": "0x31bc887f"
+        },
+        {
+          "args": [
+            {
+              "label": "sqos_type",
+              "type": {
+                "displayName": [
+                  "ISQoSType"
+                ],
+                "type": 44
+              }
+            }
+          ],
+          "docs": [
+            " Removes one SQoS item."
+          ],
+          "label": "CrossChainSQoS::remove",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 10
+          },
+          "selector": "0xda5e06d0"
+        },
+        {
+          "args": [],
+          "docs": [
+            " Clear all SQoS items."
+          ],
+          "label": "CrossChainSQoS::clear",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 10
+          },
+          "selector": "0xc857c735"
+        },
+        {
+          "args": [
+            {
+              "label": "sqos",
+              "type": {
+                "displayName": [
+                  "Vec"
+                ],
+                "type": 45
+              }
+            }
+          ],
+          "docs": [
+            " Sets SQoS items"
+          ],
+          "label": "CrossChainSQoS::set",
+          "mutates": true,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Result"
+            ],
+            "type": 10
+          },
+          "selector": "0x7aebdd43"
+        },
+        {
+          "args": [],
+          "docs": [
+            " Returns SQoS items"
+          ],
+          "label": "CrossChainSQoS::get",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": [
+              "Vec"
+            ],
+            "type": 45
+          },
+          "selector": "0x4b654380"
+        }
+      ]
+    },
+    "storage": {
+      "struct": {
+        "fields": [
+          {
+            "layout": {
+              "enum": {
+                "dispatchKey": "0x0000000000000000000000000000000000000000000000000000000000000000",
+                "variants": {
+                  "0": {
+                    "fields": [
+                      {
+                        "layout": {
+                          "cell": {
+                            "key": "0x0100000000000000000000000000000000000000000000000000000000000000",
+                            "ty": 0
+                          }
+                        },
+                        "name": null
+                      }
+                    ]
+                  },
+                  "1": {
+                    "fields": []
+                  }
+                }
+              }
+            },
+            "name": "owner"
+          },
+          {
+            "layout": {
+              "enum": {
+                "dispatchKey": "0x0100000000000000000000000000000000000000000000000000000000000000",
+                "variants": {
+                  "0": {
+                    "fields": [
+                      {
+                        "layout": {
+                          "cell": {
+                            "key": "0x0200000000000000000000000000000000000000000000000000000000000000",
+                            "ty": 0
+                          }
+                        },
+                        "name": null
+                      }
+                    ]
+                  },
+                  "1": {
+                    "fields": []
+                  }
+                }
+              }
+            },
+            "name": "cross_chain_contract"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0200000000000000000000000000000000000000000000000000000000000000",
+                "ty": 3
+              }
+            },
+            "name": "ret"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0300000000000000000000000000000000000000000000000000000000000000",
+                "ty": 8
+              }
+            },
+            "name": "dest_contract_map"
+          }
+        ]
+      }
+    },
+    "types": [
+      {
+        "id": 0,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "type": 1,
+                  "typeName": "[u8; 32]"
+                }
+              ]
+            }
+          },
+          "path": [
+            "ink_env",
+            "types",
+            "AccountId"
+          ]
+        }
+      },
+      {
+        "id": 1,
+        "type": {
+          "def": {
+            "array": {
+              "len": 32,
+              "type": 2
+            }
+          }
+        }
+      },
+      {
+        "id": 2,
+        "type": {
+          "def": {
+            "primitive": "u8"
+          }
+        }
+      },
+      {
+        "id": 3,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "name": "offset_key",
+                  "type": 7,
+                  "typeName": "Key"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "K",
+              "type": 4
+            },
+            {
+              "name": "V",
+              "type": 5
+            }
+          ],
+          "path": [
+            "ink_storage",
+            "lazy",
+            "mapping",
+            "Mapping"
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "type": {
+          "def": {
+            "tuple": [
+              5,
+              6
+            ]
+          }
+        }
+      },
+      {
+        "id": 5,
+        "type": {
+          "def": {
+            "primitive": "str"
+          }
+        }
+      },
+      {
+        "id": 6,
+        "type": {
+          "def": {
+            "primitive": "u128"
+          }
+        }
+      },
+      {
+        "id": 7,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "type": 1,
+                  "typeName": "[u8; 32]"
+                }
+              ]
+            }
+          },
+          "path": [
+            "ink_primitives",
+            "Key"
+          ]
+        }
+      },
+      {
+        "id": 8,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "name": "offset_key",
+                  "type": 7,
+                  "typeName": "Key"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "K",
+              "type": 9
+            },
+            {
+              "name": "V",
+              "type": 9
+            }
+          ],
+          "path": [
+            "ink_storage",
+            "lazy",
+            "mapping",
+            "Mapping"
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "type": {
+          "def": {
+            "tuple": [
+              5,
+              5
+            ]
+          }
+        }
+      },
+      {
+        "id": 10,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "fields": [
+                    {
+                      "type": 11
+                    }
+                  ],
+                  "index": 0,
+                  "name": "Ok"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 2
+                    }
+                  ],
+                  "index": 1,
+                  "name": "Err"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "T",
+              "type": 11
+            },
+            {
+              "name": "E",
+              "type": 2
+            }
+          ],
+          "path": [
+            "Result"
+          ]
+        }
+      },
+      {
+        "id": 11,
+        "type": {
+          "def": {
+            "tuple": []
+          }
+        }
+      },
+      {
+        "id": 12,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 5
+            }
+          }
+        }
+      },
+      {
+        "id": 13,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "fields": [
+                    {
+                      "type": 11
+                    }
+                  ],
+                  "index": 0,
+                  "name": "Ok"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 14
+                    }
+                  ],
+                  "index": 1,
+                  "name": "Err"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "T",
+              "type": 11
+            },
+            {
+              "name": "E",
+              "type": 14
+            }
+          ],
+          "path": [
+            "Result"
+          ]
+        }
+      },
+      {
+        "id": 14,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "index": 0,
+                  "name": "MethodNotRegisterd"
+                }
+              ]
+            }
+          },
+          "path": [
+            "greeting",
+            "greeting",
+            "Error"
+          ]
+        }
+      },
+      {
+        "id": 15,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "name": "items",
+                  "type": 16,
+                  "typeName": "Option<ink_prelude::vec::Vec<MessageItem>>"
+                }
+              ]
+            }
+          },
+          "path": [
+            "payload",
+            "message_protocol",
+            "MessagePayload"
+          ]
+        }
+      },
+      {
+        "id": 16,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "index": 0,
+                  "name": "None"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 17
+                    }
+                  ],
+                  "index": 1,
+                  "name": "Some"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "T",
+              "type": 17
+            }
+          ],
+          "path": [
+            "Option"
+          ]
+        }
+      },
+      {
+        "id": 17,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 18
+            }
+          }
+        }
+      },
+      {
+        "id": 18,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "name": "n",
+                  "type": 5,
+                  "typeName": "ink_prelude::string::String"
+                },
+                {
+                  "name": "tv",
+                  "type": 19,
+                  "typeName": "MsgDetail"
+                }
+              ]
+            }
+          },
+          "path": [
+            "payload",
+            "message_protocol",
+            "MessageItem"
+          ]
+        }
+      },
+      {
+        "id": 19,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "fields": [
+                    {
+                      "type": 5
+                    }
+                  ],
+                  "index": 0,
+                  "name": "InkString"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 2
+                    }
+                  ],
+                  "index": 1,
+                  "name": "InkU8"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 20
+                    }
+                  ],
+                  "index": 2,
+                  "name": "InkU16"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 21
+                    }
+                  ],
+                  "index": 3,
+                  "name": "InkU32"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 22
+                    }
+                  ],
+                  "index": 4,
+                  "name": "InkU64"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 6
+                    }
+                  ],
+                  "index": 5,
+                  "name": "InkU128"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 23
+                    }
+                  ],
+                  "index": 6,
+                  "name": "InkI8"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 24
+                    }
+                  ],
+                  "index": 7,
+                  "name": "InkI16"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 25
+                    }
+                  ],
+                  "index": 8,
+                  "name": "InkI32"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 26
+                    }
+                  ],
+                  "index": 9,
+                  "name": "InkI64"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 27
+                    }
+                  ],
+                  "index": 10,
+                  "name": "InkI128"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 12
+                    }
+                  ],
+                  "index": 11,
+                  "name": "InkStringArray"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 28
+                    }
+                  ],
+                  "index": 12,
+                  "name": "InkU8Array"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 29
+                    }
+                  ],
+                  "index": 13,
+                  "name": "InkU16Array"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 30
+                    }
+                  ],
+                  "index": 14,
+                  "name": "InkU32Array"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 31
+                    }
+                  ],
+                  "index": 15,
+                  "name": "InkU64Array"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 32
+                    }
+                  ],
+                  "index": 16,
+                  "name": "InkU128Array"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 33
+                    }
+                  ],
+                  "index": 17,
+                  "name": "InkI8Array"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 34
+                    }
+                  ],
+                  "index": 18,
+                  "name": "InkI16Array"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 35
+                    }
+                  ],
+                  "index": 19,
+                  "name": "InkI32Array"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 36
+                    }
+                  ],
+                  "index": 20,
+                  "name": "InkI64Array"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 37
+                    }
+                  ],
+                  "index": 21,
+                  "name": "InkI128Array"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 38
+                    }
+                  ],
+                  "index": 22,
+                  "name": "InkAddress"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 28
+                    }
+                  ],
+                  "index": 23,
+                  "name": "UserData"
+                }
+              ]
+            }
+          },
+          "path": [
+            "payload",
+            "message_protocol",
+            "MsgDetail"
+          ]
+        }
+      },
+      {
+        "id": 20,
+        "type": {
+          "def": {
+            "primitive": "u16"
+          }
+        }
+      },
+      {
+        "id": 21,
+        "type": {
+          "def": {
+            "primitive": "u32"
+          }
+        }
+      },
+      {
+        "id": 22,
+        "type": {
+          "def": {
+            "primitive": "u64"
+          }
+        }
+      },
+      {
+        "id": 23,
+        "type": {
+          "def": {
+            "primitive": "i8"
+          }
+        }
+      },
+      {
+        "id": 24,
+        "type": {
+          "def": {
+            "primitive": "i16"
+          }
+        }
+      },
+      {
+        "id": 25,
+        "type": {
+          "def": {
+            "primitive": "i32"
+          }
+        }
+      },
+      {
+        "id": 26,
+        "type": {
+          "def": {
+            "primitive": "i64"
+          }
+        }
+      },
+      {
+        "id": 27,
+        "type": {
+          "def": {
+            "primitive": "i128"
+          }
+        }
+      },
+      {
+        "id": 28,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 2
+            }
+          }
+        }
+      },
+      {
+        "id": 29,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 20
+            }
+          }
+        }
+      },
+      {
+        "id": 30,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 21
+            }
+          }
+        }
+      },
+      {
+        "id": 31,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 22
+            }
+          }
+        }
+      },
+      {
+        "id": 32,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 6
+            }
+          }
+        }
+      },
+      {
+        "id": 33,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 23
+            }
+          }
+        }
+      },
+      {
+        "id": 34,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 24
+            }
+          }
+        }
+      },
+      {
+        "id": 35,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 25
+            }
+          }
+        }
+      },
+      {
+        "id": 36,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 26
+            }
+          }
+        }
+      },
+      {
+        "id": 37,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 27
+            }
+          }
+        }
+      },
+      {
+        "id": 38,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "name": "ink_address",
+                  "type": 39,
+                  "typeName": "Option<[u8; 32]>"
+                },
+                {
+                  "name": "general_address",
+                  "type": 40,
+                  "typeName": "Option<ink_prelude::string::String>"
+                },
+                {
+                  "name": "address_type",
+                  "type": 2,
+                  "typeName": "u8"
+                }
+              ]
+            }
+          },
+          "path": [
+            "payload",
+            "message_protocol",
+            "InkAddressData"
+          ]
+        }
+      },
+      {
+        "id": 39,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "index": 0,
+                  "name": "None"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 1
+                    }
+                  ],
+                  "index": 1,
+                  "name": "Some"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "T",
+              "type": 1
+            }
+          ],
+          "path": [
+            "Option"
+          ]
+        }
+      },
+      {
+        "id": 40,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "index": 0,
+                  "name": "None"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 5
+                    }
+                  ],
+                  "index": 1,
+                  "name": "Some"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "T",
+              "type": 5
+            }
+          ],
+          "path": [
+            "Option"
+          ]
+        }
+      },
+      {
+        "id": 41,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "index": 0,
+                  "name": "None"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 0
+                    }
+                  ],
+                  "index": 1,
+                  "name": "Some"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "T",
+              "type": 0
+            }
+          ],
+          "path": [
+            "Option"
+          ]
+        }
+      },
+      {
+        "id": 42,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "index": 0,
+                  "name": "None"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 9
+                    }
+                  ],
+                  "index": 1,
+                  "name": "Some"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "T",
+              "type": 9
+            }
+          ],
+          "path": [
+            "Option"
+          ]
+        }
+      },
+      {
+        "id": 43,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "name": "t",
+                  "type": 44,
+                  "typeName": "ISQoSType"
+                },
+                {
+                  "name": "v",
+                  "type": 40,
+                  "typeName": "Option<String>"
+                }
+              ]
+            }
+          },
+          "path": [
+            "payload",
+            "message_define",
+            "ISQoS"
+          ]
+        }
+      },
+      {
+        "id": 44,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "index": 0,
+                  "name": "Reveal"
+                },
+                {
+                  "index": 1,
+                  "name": "Challenge"
+                },
+                {
+                  "index": 2,
+                  "name": "Threshold"
+                },
+                {
+                  "index": 3,
+                  "name": "Priority"
+                },
+                {
+                  "index": 4,
+                  "name": "ExceptionRollback"
+                },
+                {
+                  "index": 5,
+                  "name": "SelectionDelay"
+                },
+                {
+                  "index": 6,
+                  "name": "Anonymous"
+                },
+                {
+                  "index": 7,
+                  "name": "Identity"
+                },
+                {
+                  "index": 8,
+                  "name": "Isolation"
+                },
+                {
+                  "index": 9,
+                  "name": "CrossVerify"
+                }
+              ]
+            }
+          },
+          "path": [
+            "payload",
+            "message_define",
+            "ISQoSType"
+          ]
+        }
+      },
+      {
+        "id": 45,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 43
+            }
+          }
+        }
+      }
+    ]
+  }
+}
