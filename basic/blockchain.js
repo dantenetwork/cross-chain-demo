@@ -37,11 +37,11 @@ evmComputeContracts['MOONBEAM'] = moonbeamComputeContract;
 
 // Fuji contracts
 let fujiGreetingContractAddress = '0x1723f39e05Ca8b14ACaf244bAFFBd79801d42A63';
-let fujiGreetingContract = new moonbeamWeb3.eth.Contract(greetingAbi, fujiGreetingContractAddress);
+let fujiGreetingContract = new fujiWeb3.eth.Contract(greetingAbi, fujiGreetingContractAddress);
 evmGreetingContracts['FUJI'] = fujiGreetingContract;
 
 let fujiComputeContractAddress = '0x7F5b6F5F7a786F63383E8681Da7ACCEed76Ab209';
-let fujiComputeContract = new moonbeamWeb3.eth.Contract(ocComputeAbi, fujiComputeContractAddress);
+let fujiComputeContract = new fujiWeb3.eth.Contract(ocComputeAbi, fujiComputeContractAddress);
 evmComputeContracts['FUJI'] = fujiComputeContract;
 
 // Rinkeby contracts
@@ -96,8 +96,8 @@ module.exports = {
     return id;
   },
   
-  async queryMessageFromEthereum(chainName, id) {
-    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'greetings', [id]);
+  async queryMessageFromEthereum(chainName, fromChain, id) {
+    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'greetings', [fromChain, id]);
     return message;
   },
   

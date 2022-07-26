@@ -1,8 +1,8 @@
 const blockchain = require('./basic/blockchain.js');
 const { program } = require('commander');
 
-let fromChain = 'AVALANCHE';
-let toChain = 'ASTAR';
+let fromChain = 'FUJI';
+let toChain = 'SHIBUYA';
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
@@ -17,7 +17,7 @@ async function queryGreeting(id) {
   console.log('Wait for the message to be synchronized.', id);
 
   let interval = setInterval(async() => {
-    const message = await blockchain.queryMessageFromEthereum(fromChain, id);
+    const message = await blockchain.queryMessageFromEthereum(fromChain, toChain, id);
     if (message.title != '') {
       clearInterval(interval);
       console.log(message);
