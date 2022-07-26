@@ -29,7 +29,7 @@ npm install -d
 ```
 
 ### Prepare private key
-The private key is used to sign transations which will be sent to Rinkeby and Moonbeam.  
+The private key is used to sign transations which will be sent to Avalanche and Moonbeam.  
 You can use the default private key file `.secret`. If the amount is not enough to pay gas fee, you can get token from faucet listed below.  
 
 **If you do not want to use default private key file, you can create it yourself**
@@ -37,7 +37,7 @@ You can use the default private key file `.secret`. If the amount is not enough 
 - Paste private key into the file `.secret`
 - Get token for test, faucets are shown below
   - Moonbeam: https://docs.moonbeam.network/learn/platform/networks/moonbase/#moonbase-alpha-faucet
-  - Rinkeby: https://rinkebyfaucet.com/
+  - Avalanche: https://testnet.snowtrace.io/
 
 ### Test script
 
@@ -74,19 +74,23 @@ You can use the default private key file `.secret`. If the amount is not enough 
   - Check what happened on [Avalanche greeting smart contract](https://testnet.snowtrace.io/address/0x1723f39e05Ca8b14ACaf244bAFFBd79801d42A63)
   - Query result from **Greeting** contract on `Shibuya Testnet`
 
-  ![image](https://user-images.githubusercontent.com/83757490/174969839-f4733c11-02b7-4c82-942c-5cecbff87e51.png)
+  ![image](https://user-images.githubusercontent.com/83757490/180946266-4254d6d5-6ec3-4421-b332-eb34388b6921.png)
+  
+  The `id` can be got by calling `getReceiveMessageNumber` of cross-chain contract on `Shibuya Testnet`
+  
+  ![image](https://user-images.githubusercontent.com/83757490/180947439-309af156-685a-4620-8f9c-3b44639fe3b8.png)
 
 - Send greeting from `Shibuya Testnet` to `Avalanche`
 
   - Send greeting with **Greeting** contract on `Shibuya Testnet`
 
-  ![image](https://user-images.githubusercontent.com/83757490/174970370-b6cc7bf5-dc77-45c6-b377-7316b2c88529.png)
+  ![image](https://user-images.githubusercontent.com/83757490/180948043-e0ef57d2-fe09-4e9f-aa71-225a7e89834a.png)
 
   - Query message id
   
   After the transaction has been executed successfully, query the id of the message from **Cross Chain** contract on `Shibuya Testnet`. The id is the same as the number of all sent messages.
 
-  ![image](https://user-images.githubusercontent.com/83757490/175046819-1c4adfca-ea46-466d-a0bb-0bb75d68bfd4.png)
+  ![image](https://user-images.githubusercontent.com/83757490/180947910-2ab4835c-e0ea-455d-9080-e90f3d5d52fa.png)
 
   - Query result on `Avalanche` with command
   
@@ -104,19 +108,22 @@ You can use the default private key file `.secret`. If the amount is not enough 
 
   You can query the destination contract and method name with the method `multiDestContracts::getDestContractInfo`.
 
-  ![image](https://user-images.githubusercontent.com/83757490/175050523-834eefc0-f742-4cec-9e3d-ff23a1a24482.png)
+  ![image](https://user-images.githubusercontent.com/83757490/180949681-89885e18-b9b8-4497-826d-a043b702a18b.png)
 
   The prefix "X" is added because the hex string will be handled specially.
 
   - Send computing task with **OSComputing** contract on `Shibuya Testnet`
 
-  ![image](https://user-images.githubusercontent.com/83757490/174970600-bb4855ff-5a7f-4b1f-b744-193d97c297fe.png)
+  ![image](https://user-images.githubusercontent.com/83757490/180949856-edcaa317-279b-4db5-9f93-26fd1ba939f6.png)
 
   You can query the message sent to Avalanche on [Avalanche Scan](https://testnet.snowtrace.io/address/0x8177cBe1c9a0B08B536C55097b569dfaEc5cb520)
 
   - Query result from **OSComputing** contract on `Shibuya Testnet`, it may take 1 minute after the computing task was sent.
 
-  ![image](https://user-images.githubusercontent.com/83757490/174970671-81320a68-4d66-407f-8998-a85aee26fdb9.png)
+  ![image](https://user-images.githubusercontent.com/83757490/180950258-f8d7e477-4f97-4e0e-9d83-ceca6db5a2fe.png)
+  
+  The `id` can be got by calling `getReceiveMessageNumber` of cross-chain contract on `Shibuya Testnet`
+  ![image](https://user-images.githubusercontent.com/83757490/180950105-38b6c98f-5a9c-4875-aeb5-f4e42bdc2b47.png)
 
 #### **Interoperation between `Moonbeam` and `NEAR`**  
 
