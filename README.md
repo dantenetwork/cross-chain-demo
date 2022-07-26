@@ -37,7 +37,7 @@ You can use the default private key file `.secret`. If the amount is not enough 
 - Paste private key into the file `.secret`
 - Get token for test, faucets are shown below
   - Moonbeam: https://docs.moonbeam.network/learn/platform/networks/moonbase/#moonbase-alpha-faucet
-  - Avalanche: https://testnet.snowtrace.io/
+  - Avalanche: https://faucet.avax.network/
 
 ### Test script
 
@@ -45,7 +45,7 @@ You can use the default private key file `.secret`. If the amount is not enough 
 
 **Prepare**
 - Open Polkadot Apps - Shibuya Testnet: [https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fpublic-rpc.pinknode.io%2Fshibuya#/contracts](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fpublic-rpc.pinknode.io%2Fshibuya#/contracts)
-- We have deployed these smart contracts on `Contracts on Rococo`:
+- We have deployed these smart contracts on `Shibuya Testnet`:
     - `cross_chain.contract`: 
         - Address: `YoF56GBPEGKKeokDzLxwsZyYsmCaWYPQ7eiiqdGtAZRswdd`
         - Related [metadata](./res/ink/cross-chain.json)
