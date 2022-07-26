@@ -36,7 +36,7 @@ async function sendOCTask(nums) {
   console.log('Wait for the message to be synchronized.', id);
 
   var interval = setInterval(async() => {
-    const message = await blockchain.queryOCResultFromNear(id);
+    const message = await blockchain.queryOCResultFromNear(toChain, parseInt(id));
     if (message.result) {
       clearInterval(interval);
       console.log(message);
@@ -48,11 +48,8 @@ async function sendOCTask(nums) {
 
 (async function() {
   function list(val) {
-    // val.split(',').map(function (val) {
-    //   return Number(val);
-    // })
     let nums = val.split(',').map(function (val) {
-      return val;
+      return parseInt(val);
     });
     return nums;
 	}

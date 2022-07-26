@@ -80,8 +80,8 @@ module.exports = {
     return message;
   },
   
-  async queryOCResultFromNear(id) {
-    const message = await near.contractCall(nearSumContractId, 'get_compute_task', {id: id});
+  async queryOCResultFromNear(chainName, id) {
+    const message = await near.contractCall(nearSumContractId, 'get_compute_task', {to_chain: chainName, id: id});
     return message;
   },
 
