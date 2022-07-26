@@ -44,64 +44,61 @@ You can use the default private key file `.secret`. If the amount is not enough 
 **Interoperation between Polkadot parachain and EVM compatible chains**
 
 **Prepare**
-- Open Polkadot Apps - Contracts on Rococo: [https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frococo-contracts-rpc.polkadot.io#/contracts](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frococo-contracts-rpc.polkadot.io#/contracts)
+- Open Polkadot Apps - Shibuya Testnet: [https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fpublic-rpc.pinknode.io%2Fshibuya#/contracts](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fpublic-rpc.pinknode.io%2Fshibuya#/contracts)
 - We have deployed these smart contracts on `Contracts on Rococo`:
     - `cross_chain.contract`: 
-        - Address: `5FyenLDubA4si9vyCGtW3VJkTW16i7thxAXNsoyVSCq59uTD`
-        - Related [metadata](../../src/ink!/core-contract/bin/)
+        - Address: `YoF56GBPEGKKeokDzLxwsZyYsmCaWYPQ7eiiqdGtAZRswdd`
+        - Related [metadata](./res/ink/cross_chain.metadata)
     - `greeting.contract`:          
-        - Address: `5CqHgtxcuqhng95pxXvS25hBCPXNv9wKhvSktK7SgtDPjBTd`
-        - Related [metadata](../../src/ink!/usage-contract/greeting/bin/)
+        - Address: `a1mydsZDKLQJh8mwB1NZ86XVJ8ApiyNVWikMrhoLwoGfZex`
+        - Related [metadata](./res/ink/greeting.metadata)
     - `oscomputing.contract`:
-        - Address: `5D6gvY4fsUsjkQcPnHtxRTy72CxC12RzFzXHknaZDts2sX2T`
-        - Related [metadata](../../src/ink!/usage-contract/oscomputing/bin/)
+        - Address: `ZakeYTFPNkC9Cgceui2aBZ6G23nA6ieB3KVWfmdNDv6UfM1`
+        - Related [metadata](./res/ink/computing.metadata)
 - Prepare an test account:
     - Click `Add account` on `Accounts` page, and finish creating an account
-    - Get token from faucet in `Element`, channel link is [https://matrix.to/#/#rococo-faucet:matrix.org](https://matrix.to/#/#rococo-faucet:matrix.org)
-    - Input !drip (Address):1002. Replace (Address) with the created account address.
+    - Get token from [faucet](https://portal.astar.network/#/assets)
     - Test with this account
 
-![image](https://user-images.githubusercontent.com/83757490/174969528-b880803b-1e27-47d0-80cb-d4bed375cf1d.png)
+![image](https://user-images.githubusercontent.com/83757490/180929676-fa41e851-d3de-4d68-9298-8ab370cf7cf6.png)
 
-#### **Interoperation between `Contracts on Rococo` and `Rinkeby`**
+#### **Interoperation between `Shibuya Testnet` and `Avalanche`**
 
-- Send greeting from `Rinkeby` to `Contracts on Rococo`. 
+- Send greeting from `Avalanche` to `Shibuya Testnet`. 
 
-  We replaced the `Testnet of AStar(Shibuya)` with `Rococo Contracts` as `Shibuya` is unavailable currently. But the following script still works.
-
-  - Send greeting from `Rinkeby` with command
+  - Send greeting from `Avalanche` with command
   
   ```
-  node rinkebyToAstar.js --greet
+  node avalancheToAstar.js --greet
   ```
-  - Check what happened on [Rinkeby greeting smart contract](https://rinkeby.etherscan.io/address/0x32272DA543c8B7f394B2c0d578bc76A0e7F25Ffe)
-  - Query result from **Greeting** contract on `Contracts on Rococo`
+  - Check what happened on [Avalanche greeting smart contract](https://testnet.snowtrace.io/address/0x1723f39e05Ca8b14ACaf244bAFFBd79801d42A63)
+  - Query result from **Greeting** contract on `Shibuya Testnet`
 
   ![image](https://user-images.githubusercontent.com/83757490/174969839-f4733c11-02b7-4c82-942c-5cecbff87e51.png)
 
-- Send greeting from `Contracts on Rococo` to `Rinkeby`
+- Send greeting from `Shibuya Testnet` to `Avalanche`
 
-  - Send greeting with **Greeting** contract on `Contracts on Rococo`
+  - Send greeting with **Greeting** contract on `Shibuya Testnet`
 
   ![image](https://user-images.githubusercontent.com/83757490/174970370-b6cc7bf5-dc77-45c6-b377-7316b2c88529.png)
 
   - Query message id
   
-  After the transaction has been executed successfully, query the id of the message from **Cross Chain** contract on `Contracts on Rococo`. The id is the same as the number of all sent messages.
+  After the transaction has been executed successfully, query the id of the message from **Cross Chain** contract on `Shibuya Testnet`. The id is the same as the number of all sent messages.
 
   ![image](https://user-images.githubusercontent.com/83757490/175046819-1c4adfca-ea46-466d-a0bb-0bb75d68bfd4.png)
 
-  - Query result on `Rinkeby` with command
+  - Query result on `Avalanche` with command
   
   ```
-  node rinkebyToAstar.js --query <ID>
+  node avalancheToAstar.js --query <ID>
   ```
   `<ID>` is the id queryed above. 
   
-  - Check related transaction in [Rinkeby Scan](https://rinkeby.etherscan.io/address/0x359d5510405093f7Ea15408a0A3F52c52730A77e)
+  - Check related transaction in [Avalanche Scan](https://testnet.snowtrace.io/address/0x8177cBe1c9a0B08B536C55097b569dfaEc5cb520)
 
 
-- Send computing task from `Contracts on Rococo` to `Rinkeby`
+- Send computing task from `Shibuya Testnet` to `Avalanche`
 
   Here, we have registered the destination chain contract address and method name to the **OSComputing** contract with the method `multiDestContracts::registerDestContract`, so the method `sendComputingTask` just needs the destination chain name and numbers to be computed as parameters.
 
@@ -111,13 +108,13 @@ You can use the default private key file `.secret`. If the amount is not enough 
 
   The prefix "X" is added because the hex string will be handled specially.
 
-  - Send computing task with **OSComputing** contract on `Contracts on Rococo`
+  - Send computing task with **OSComputing** contract on `Shibuya Testnet`
 
   ![image](https://user-images.githubusercontent.com/83757490/174970600-bb4855ff-5a7f-4b1f-b744-193d97c297fe.png)
 
-  You can query the message sent to Rinkeby on [Rinkeby Scan](https://rinkeby.etherscan.io/address/0x359d5510405093f7Ea15408a0A3F52c52730A77e)
+  You can query the message sent to Avalanche on [Avalanche Scan](https://testnet.snowtrace.io/address/0x8177cBe1c9a0B08B536C55097b569dfaEc5cb520)
 
-  - Query result from **OSComputing** contract on `Contracts on Rococo`, it may take 1 minute after the computing task was sent.
+  - Query result from **OSComputing** contract on `Shibuya Testnet`, it may take 1 minute after the computing task was sent.
 
   ![image](https://user-images.githubusercontent.com/83757490/174970671-81320a68-4d66-407f-8998-a85aee26fdb9.png)
 
