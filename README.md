@@ -72,17 +72,21 @@ You can use the default private key file `.secret`. If the amount is not enough 
   node avalancheToAstar.js --greet
   ```
   - Check what happened on [Avalanche greeting smart contract](https://testnet.snowtrace.io/address/0x1723f39e05Ca8b14ACaf244bAFFBd79801d42A63)
+  - Query id from **Cross Chain** contract by calling the method `getReceiveMessageNumber` on `Shibuya Testnet`
+  
+  ![image](https://user-images.githubusercontent.com/83757490/180947439-309af156-685a-4620-8f9c-3b44639fe3b8.png)
+  
   - Query result from **Greeting** contract on `Shibuya Testnet`
 
   ![image](https://user-images.githubusercontent.com/83757490/180946266-4254d6d5-6ec3-4421-b332-eb34388b6921.png)
   
-  The `id` can be got by calling `getReceiveMessageNumber` of cross-chain contract on `Shibuya Testnet`
-  
-  ![image](https://user-images.githubusercontent.com/83757490/180947439-309af156-685a-4620-8f9c-3b44639fe3b8.png)
+  The **id** is got in the previous step.
 
 - Send greeting from `Shibuya Testnet` to `Avalanche`
 
   - Send greeting with **Greeting** contract on `Shibuya Testnet`
+  
+  **Note: there must be 4 arguments sent to the method, because the greeting contract is designed so**.
 
   ![image](https://user-images.githubusercontent.com/83757490/180948043-e0ef57d2-fe09-4e9f-aa71-225a7e89834a.png)
 
