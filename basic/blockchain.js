@@ -88,8 +88,10 @@ module.exports = {
   async sendMessageFromEthereum(fromChain, toChain) {
     await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccountPrivateKey, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
     await utils.sleep(5);
-    let id = await ethereum.contractCall(evmGreetingContracts[fromChain], 'currentId', []);
-    return id;
+    if (fromChain != 'FUJI') {
+      let id = await ethereum.contractCall(evmGreetingContracts[fromChain], 'currentId', []);
+      return id;
+    };
   },
 
   async sendOCTaskFromEthereum(fromChain, toChain, nums) {
