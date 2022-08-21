@@ -80,7 +80,7 @@ You can use the default private key file `.secret`. If the amount is not enough 
 
   ![image](https://user-images.githubusercontent.com/83757490/180946266-4254d6d5-6ec3-4421-b332-eb34388b6921.png)
   
-  The **id** is got in the previous step.
+  The **id** 4 is got in the previous step.
 
 - Send greeting from `Shibuya Testnet` to `Avalanche`
 
@@ -121,13 +121,16 @@ You can use the default private key file `.secret`. If the amount is not enough 
   ![image](https://user-images.githubusercontent.com/83757490/180949856-edcaa317-279b-4db5-9f93-26fd1ba939f6.png)
 
   You can query the message sent to Avalanche on [Avalanche Scan](https://testnet.snowtrace.io/address/0x8177cBe1c9a0B08B536C55097b569dfaEc5cb520)
+  
+  - Query `id` by calling the method  `getReceiveMessageNumber` of cross-chain contract on `Shibuya Testnet`.
+  
+  ![image](https://user-images.githubusercontent.com/83757490/180950105-38b6c98f-5a9c-4875-aeb5-f4e42bdc2b47.png)
 
   - Query result from **OSComputing** contract on `Shibuya Testnet`, it may take 1 minute after the computing task was sent.
 
   ![image](https://user-images.githubusercontent.com/83757490/180950258-f8d7e477-4f97-4e0e-9d83-ceca6db5a2fe.png)
   
-  The `id` can be got by calling `getReceiveMessageNumber` of cross-chain contract on `Shibuya Testnet`
-  ![image](https://user-images.githubusercontent.com/83757490/180950105-38b6c98f-5a9c-4875-aeb5-f4e42bdc2b47.png)
+  The **id** 5 is got in the previous step.
 
 #### **Interoperation between `Moonbeam` and `NEAR`**  
 
