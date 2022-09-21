@@ -82,9 +82,28 @@ You can use the default private key file `.secret`. If the amount is not enough 
   - Wait for result
 
 - Send outsourcing computing task from `Flow Testnet` to `Rinkeby`. 
+  
 ```
-node flowToRinkeby.js --compute 9,9,8
+  cd exampleApp/computation 
+ 
+  flow transactions send ./transactions/CallOut.cdc "RINKEBY" "[106,168,156,101,73,7,68,90,53,218,17,9,197,253,122,117,241,84,110,246]" "[71, 229, 10, 66]" '[1, 2, 3, 4, 5]' -n testnet --signer testnet-operator
+  
 ```
+![avatar](./flow-demo/img/send.jpg)
+
+  Check related transaction in [FlowTestnet Scan](https://testnet.flowscan.org/transaction/42a49c80f897b604c8e90d7f5e3bd69347f2deaa7b656423c4c4aa6698836f2d)
+  
+
+- Checkout result
+  
+```
+ cd exampleApp/computation
+ 
+ flow scripts execute ./scripts/getComputeResults.cdc 0xc133efc4b43676a0 -n testnet
+```
+![avatar](./flow-demo/img/result.jpg)
+
+
 
 ### Other Demos
 * Check more demo shows based on Dante protocol stack [here](https://github.com/dantenetwork/Demo-Show)
