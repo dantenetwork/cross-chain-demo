@@ -43,6 +43,8 @@ You can use the default private key file `.secret`. If the amount is not enough 
 
 #### **Interoperation between `Flow Testnet` and `Rinkeby`**
 
+ [Install the Flow CLI](hhttps://developers.flow.com/tools/flow-cli/install)
+ 
 - Send greeting from `Rinkeby` to `Flow Testnet`. 
 
   - Send greeting from `Rinkeby` with command
@@ -100,7 +102,7 @@ node rinkebyToFlow.js --compute 9,9,8
 ```
 ![avatar](./flow-demo/img/result.jpg)
 
-
+  
 
 ### Other Demos
 * Check more demo shows based on Dante protocol stack [here](https://github.com/dantenetwork/Demo-Show)
