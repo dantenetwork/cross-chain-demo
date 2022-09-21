@@ -4,7 +4,7 @@ const near = require('./near');
 const ethereum = require('./ethereum');
 const utils = require('./utils');
 
-const ethereumWeb3 = new Web3('https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161');
+const rinkebyWeb3 = new Web3('https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161');
 const moonbeamWeb3 = new Web3('https://moonbase-alpha.public.blastapi.io');
 const fujiWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
 
@@ -12,12 +12,12 @@ let evmGreetingContracts = {};
 let evmComputeContracts = {};
 let evmProviders = {};
 
-evmProviders['RINKEBY'] = [ethereumWeb3, 4];
+evmProviders['RINKEBY'] = [rinkebyWeb3, 4];
 evmProviders['MOONBASEALPHA'] = [moonbeamWeb3, 1287];
 evmProviders['FUJI'] = [fujiWeb3, 43113];
 
 // Test account
-let testAccountPrivateKey = fs.readFileSync('.secret').toString();
+let testAccount = '0x8408925fD39071270Ed1AcA5d618e1c79be08B27';
 
 // Load smart contract abi
 let greetingRawData = fs.readFileSync('./res/Greetings.json');
@@ -45,6 +45,13 @@ let fujiComputeContract = new fujiWeb3.eth.Contract(ocComputeAbi, fujiComputeCon
 evmComputeContracts['FUJI'] = fujiComputeContract;
 
 // Rinkeby contracts
+let rinkebyGreetingContractAddress = '0x49bC1f09474993103ECa96d96f4C3f7000B5fB7b';
+let rinkebyGreetingContract = new rinkebyWeb3.eth.Contract(greetingAbi, rinkebyGreetingContractAddress);
+evmGreetingContracts['RINKEBY'] = rinkebyGreetingContract;
+
+let rinkebyComputeContractAddress = '0x8c5d8Df81C670b5154fe27930C0289289e94a52f';
+let rinkebyComputeContract = new rinkebyWeb3.eth.Contract(ocComputeAbi, rinkebyComputeContractAddress);
+evmComputeContracts['RINKEBY'] = rinkebyComputeContract;
 
 // NEAR contract
 let nearContractId = '99ff32da92227f302056389ce208d77e12f88a6ffd2cee1b238586cc4cc20bd7';
@@ -86,7 +93,7 @@ module.exports = {
   },
 
   async sendMessageFromEthereum(fromChain, toChain) {
-    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccountPrivateKey, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
+    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccount, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
     await utils.sleep(5);
     if (fromChain != 'FUJI') {
       let id = await ethereum.contractCall(evmGreetingContracts[fromChain], 'currentId', []);
@@ -95,7 +102,7 @@ module.exports = {
   },
 
   async sendOCTaskFromEthereum(fromChain, toChain, nums) {
-    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmComputeContracts[fromChain], 'sendComputeTask', testAccountPrivateKey, [toChain, nums]);
+    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmComputeContracts[fromChain], 'sendComputeTask', testAccount, [toChain, nums]);
     await utils.sleep(5);
     let id = await ethereum.contractCall(evmComputeContracts[fromChain], 'currentId', []);
     return id;

@@ -74,9 +74,12 @@ You can use the default private key file `.secret`. If the amount is not enough 
   - Check related transaction in [Rinkeby Scan](https://testnet.snowtrace.io/address/0x71375852616ef7196B07bA3f16805B512e21813E)
 
 - Send outsourcing computing task from `Rinkeby` to `Flow Testnet`. 
-```
-node rinkebyToFlow.js --compute 9,9,8
-```
+  - Send message from `Rinkeby` with command
+  ```
+  node rinkebyToFlow.js --compute 9,9,8
+  ```
+
+  - Wait for result
 
 - Send outsourcing computing task from `Flow Testnet` to `Rinkeby`. 
 ```
