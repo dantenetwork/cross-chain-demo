@@ -34,14 +34,11 @@ If you are using Ubuntu OS, execute the following command to install
 sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"
 ```
 
-Go to [Developer Docs](https://developers.flow.com/tools/flow-cli/install) for guides on other OS.
+Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install) for guides on other OS.
 
 ### Test script
 
-#### **Interoperation between `Flow Testnet` and `Rinkeby`**
-
- [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
- 
+#### **Interoperation between `Flow Testnet` and `Rinkeby`** 
  
 - Send greeting from `Rinkeby` to `Flow Testnet`. 
 
@@ -52,7 +49,7 @@ Go to [Developer Docs](https://developers.flow.com/tools/flow-cli/install) for g
   ```
   The session id will be printed to the console.
 
-  - Check what happened on [Rinkeby greeting smart contract](https://testnet.snowtrace.io/address/0x71375852616ef7196B07bA3f16805B512e21813E)
+  - Check what happened on [Rinkeby greeting smart contract](https://rinkeby.etherscan.io/address/0x71375852616ef7196B07bA3f16805B512e21813E)
   
   - Query result from **Greeting** contract on `Flow Testnet`
 
@@ -68,42 +65,43 @@ Go to [Developer Docs](https://developers.flow.com/tools/flow-cli/install) for g
   node flowToRinkeby.js --query <ID>
   ```
   `<ID>` is the id queryed above. 
-  
-  - Check related transaction in [Rinkeby Scan](https://testnet.snowtrace.io/address/0x71375852616ef7196B07bA3f16805B512e21813E)
 
 - Send outsourcing computing task from `Rinkeby` to `Flow Testnet`. 
   - Send message from `Rinkeby` with command
   ```
   node rinkebyToFlow.js --compute 9,9,8
   ```
+  
+  - Check what happened on [Rinkeby occomputing smart contract](https://rinkeby.etherscan.io/address/0x6Aa89C654907445a35Da1109C5fD7A75F1546Ef6)
+  ![image](https://user-images.githubusercontent.com/83757490/191472314-2681a3ed-e14d-4e70-b6ce-20f1c8f65e64.png)
 
   - Wait for result
   ![image](https://user-images.githubusercontent.com/83757490/191458250-7cbb4a36-6015-409f-b3d3-b101ae77c866.png)
-  
-  Check what happened on [Rinkeby occomputing smart contract](https://testnet.snowtrace.io/address/0x6Aa89C654907445a35Da1109C5fD7A75F1546Ef6)
 
 
 - Send outsourcing computing task from `Flow Testnet` to `Rinkeby`. 
+  - Send message from `Flow Testnet` with command
   
-```
-  cd flow-demo/exampleApp/computation 
- 
-  flow transactions send ./transactions/CallOut.cdc "RINKEBY" "[106,168,156,101,73,7,68,90,53,218,17,9,197,253,122,117,241,84,110,246]" "[71, 229, 10, 66]" '[1, 2, 3, 4, 5]' -n testnet --signer testnet-operator
-  
-```
-![avatar](./flow-demo/img/send.jpg)
+  ```
+    cd flow-demo/exampleApp/computation 
 
-  Check related transaction in [FlowTestnet Scan](https://testnet.flowscan.org/transaction/42a49c80f897b604c8e90d7f5e3bd69347f2deaa7b656423c4c4aa6698836f2d)
+    flow transactions send ./transactions/CallOut.cdc "RINKEBY" "[106,168,156,101,73,7,68,90,53,218,17,9,197,253,122,117,241,84,110,246]" "[71, 229, 10, 66]" '[1, 2, 3, 4, 5]' -n testnet --signer testnet-operator
+
+  ```
+  ![avatar](./flow-demo/img/send.jpg)
+
+  - Check related transaction on [FlowTestnet Scan](https://testnet.flowscan.org/transaction/42a49c80f897b604c8e90d7f5e3bd69347f2deaa7b656423c4c4aa6698836f2d)
+  ![image](https://user-images.githubusercontent.com/83757490/191471329-e1dc70ba-ca4a-48dd-901b-4c61806e43db.png)
   
 
-- Checkout result
+  - Checkout result
   
-```
- cd flow-demo/exampleApp/computation
- 
- flow scripts execute ./scripts/getComputeResults.cdc 0xc133efc4b43676a0 -n testnet
-```
-![avatar](./flow-demo/img/result.jpg)
+  ```
+   cd flow-demo/exampleApp/computation
+
+   flow scripts execute ./scripts/getComputeResults.cdc 0xc133efc4b43676a0 -n testnet
+  ```
+  ![avatar](./flow-demo/img/result.jpg)
 
   
 
