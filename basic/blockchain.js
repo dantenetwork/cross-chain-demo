@@ -45,11 +45,11 @@ let fujiComputeContract = new fujiWeb3.eth.Contract(ocComputeAbi, fujiComputeCon
 evmComputeContracts['FUJI'] = fujiComputeContract;
 
 // Rinkeby contracts
-let rinkebyGreetingContractAddress = '0x49bC1f09474993103ECa96d96f4C3f7000B5fB7b';
+let rinkebyGreetingContractAddress = '0x71375852616ef7196B07bA3f16805B512e21813E';
 let rinkebyGreetingContract = new rinkebyWeb3.eth.Contract(greetingAbi, rinkebyGreetingContractAddress);
 evmGreetingContracts['RINKEBY'] = rinkebyGreetingContract;
 
-let rinkebyComputeContractAddress = '0x8c5d8Df81C670b5154fe27930C0289289e94a52f';
+let rinkebyComputeContractAddress = '0x6Aa89C654907445a35Da1109C5fD7A75F1546Ef6';
 let rinkebyComputeContract = new rinkebyWeb3.eth.Contract(ocComputeAbi, rinkebyComputeContractAddress);
 evmComputeContracts['RINKEBY'] = rinkebyComputeContract;
 
@@ -93,7 +93,7 @@ module.exports = {
   },
 
   async sendMessageFromEthereum(fromChain, toChain) {
-    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccount, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
+    await ethereum.sendTransaction(fromChain, evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccount, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
     await utils.sleep(5);
     if (fromChain != 'FUJI') {
       let id = await ethereum.contractCall(evmGreetingContracts[fromChain], 'currentId', []);
@@ -102,10 +102,10 @@ module.exports = {
   },
 
   async sendOCTaskFromEthereum(fromChain, toChain, nums) {
-    await ethereum.sendTransaction(evmProviders[fromChain][0], evmProviders[fromChain][1], evmComputeContracts[fromChain], 'sendComputeTask', testAccount, [toChain, nums]);
+    await ethereum.sendTransaction(fromChain, evmProviders[fromChain][0], evmProviders[fromChain][1], evmComputeContracts[fromChain], 'sendComputeTask', testAccount, [toChain, nums]);
     await utils.sleep(5);
-    let id = await ethereum.contractCall(evmComputeContracts[fromChain], 'currentId', []);
-    return id;
+    let messages = await ethereum.contractCall(evmComputeContracts[fromChain], 'getResults', [toChain]);
+    return messages[messages.length - 1].session;
   },
   
   async queryMessageFromEthereum(chainName, fromChain, id) {
@@ -113,11 +113,11 @@ module.exports = {
     return message;
   },
   
-  async queryOCResultFromEthereum(chainName, fromChain, id) {
-    const message = await ethereum.contractCall(evmComputeContracts[chainName], 'getResults', [fromChain]);
+  async queryOCResultFromEthereum(chainName, toChain, id) {
+    const message = await ethereum.contractCall(evmComputeContracts[chainName], 'getResults', [toChain]);
     let ret = null;
     for (let i = 0; i < message.length; i++) {
-      if (message[i].session == id) {
+      if (message[i].session == id && message[i].used == true) {
         ret = message[i];
       }
     }

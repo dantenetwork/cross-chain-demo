@@ -2,7 +2,7 @@ const blockchain = require('./basic/blockchain.js');
 const { program } = require('commander');
 
 let fromChain = 'RINKEBY';
-let toChain = 'FLOW';
+let toChain = 'FLOWTEST';
 
 async function sendGreeting() {
   ///////////////////////////////////////////////
