@@ -43,7 +43,8 @@ You can use the default private key file `.secret`. If the amount is not enough 
 
 #### **Interoperation between `Flow Testnet` and `Rinkeby`**
 
- [Install the Flow CLI](hhttps://developers.flow.com/tools/flow-cli/install)
+ [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
+ 
  
 - Send greeting from `Rinkeby` to `Flow Testnet`. 
 
