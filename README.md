@@ -94,9 +94,12 @@ node rinkebyToFlow.js --compute 9,9,8
 - Checkout result
   
 ```
-flow scripts execute ./scripts/getComputeResults.cdc 0x01cf0e2f2f715450 -n testnet
-
+ cd exampleApp/computation
+ 
+ flow scripts execute ./scripts/getComputeResults.cdc 0xc133efc4b43676a0 -n testnet
 ```
+![avatar](./flow-demo/img/result.jpg)
+
 
 
 ### Other Demos
