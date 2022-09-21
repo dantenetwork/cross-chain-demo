@@ -32,12 +32,14 @@ async function sendOCTask(nums) {
 
   // send outsourcing computing task to smart contract from FLOW to RINKEBY
   let id = await blockchain.sendOCTaskFromEthereum(fromChain, toChain, nums);
+  const message = await blockchain.queryOCResultFromEthereum(fromChain, toChain, id);
+  console.log('Computing task cached in contract', message);
   // query greeting from smart contract on FLOW
   console.log('Wait for the message to be synchronized.', id);
 
   let interval = setInterval(async() => {
     const message = await blockchain.queryOCResultFromEthereum(fromChain, toChain, id);
-    if (message) {
+    if (message && message.used) {
       clearInterval(interval);
       console.log(message);
       return;

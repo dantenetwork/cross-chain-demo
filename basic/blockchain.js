@@ -121,7 +121,7 @@ module.exports = {
     const message = await ethereum.contractCall(evmComputeContracts[chainName], 'getResults', [toChain]);
     let ret = null;
     for (let i = 0; i < message.length; i++) {
-      if (message[i].session == id && message[i].used == true) {
+      if (message[i].session == id) {
         ret = message[i];
       }
     }
