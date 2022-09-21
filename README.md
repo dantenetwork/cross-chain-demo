@@ -36,17 +36,6 @@ sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"
 
 Go to [Developer Docs](https://developers.flow.com/tools/flow-cli/install) for guides on other OS.
 
-### Prepare private key
-The private key is used to sign transations which will be sent to Avalanche and Moonbeam.  
-You can use the default private key file `.secret`. If the amount is not enough to pay gas fee, you can get token from faucet listed below.  
-
-**If you do not want to use default private key file, you can create it yourself**
-- Create a evm-compatible account(private key is neccessary), MetaMask will be ok
-- Paste private key into the file `.secret`
-- Get token for test, faucets are shown below
-  - Moonbeam: https://docs.moonbeam.network/learn/platform/networks/moonbase/#moonbase-alpha-faucet
-  - Avalanche: https://faucet.avax.network/
-
 ### Test script
 
 #### **Interoperation between `Flow Testnet` and `Rinkeby`**
