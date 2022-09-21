@@ -28,6 +28,14 @@ We provide two situations:
 npm install -d
 ```
 
+### Install Flow CLI
+If you are using Ubuntu OS, execute the following command to install
+```
+sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"
+```
+
+Go to [Developer Docs](https://developers.flow.com/tools/flow-cli/install) for guides on other OS.
+
 ### Prepare private key
 The private key is used to sign transations which will be sent to Avalanche and Moonbeam.  
 You can use the default private key file `.secret`. If the amount is not enough to pay gas fee, you can get token from faucet listed below.  
@@ -86,7 +94,7 @@ You can use the default private key file `.secret`. If the amount is not enough 
 - Send outsourcing computing task from `Flow Testnet` to `Rinkeby`. 
   
 ```
-  cd exampleApp/computation 
+  cd flow-demo/exampleApp/computation 
  
   flow transactions send ./transactions/CallOut.cdc "RINKEBY" "[106,168,156,101,73,7,68,90,53,218,17,9,197,253,122,117,241,84,110,246]" "[71, 229, 10, 66]" '[1, 2, 3, 4, 5]' -n testnet --signer testnet-operator
   
@@ -99,7 +107,7 @@ You can use the default private key file `.secret`. If the amount is not enough 
 - Checkout result
   
 ```
- cd exampleApp/computation
+ cd flow-demo/exampleApp/computation
  
  flow scripts execute ./scripts/getComputeResults.cdc 0xc133efc4b43676a0 -n testnet
 ```

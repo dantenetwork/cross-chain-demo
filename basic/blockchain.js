@@ -95,10 +95,8 @@ module.exports = {
   async sendMessageFromEthereum(fromChain, toChain) {
     await ethereum.sendTransaction(fromChain, evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccount, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
     await utils.sleep(5);
-    if (fromChain != 'FUJI') {
-      let id = await ethereum.contractCall(evmGreetingContracts[fromChain], 'currentId', []);
-      return id;
-    };
+    let messages = await ethereum.contractCall(evmGreetingContracts[fromChain], 'getGreetings', [toChain]);
+    return messages[messages.length - 1].session;
   },
 
   async sendOCTaskFromEthereum(fromChain, toChain, nums) {
@@ -109,8 +107,14 @@ module.exports = {
   },
   
   async queryMessageFromEthereum(chainName, fromChain, id) {
-    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'greetings', [fromChain, id]);
-    return message;
+    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'getGreetings', [fromChain]);
+    let ret = null;
+    for (let i = 0; i < message.length; i++) {
+      if (message[i].session == id) {
+        ret = message[i];
+      }
+    }
+    return ret;
   },
   
   async queryOCResultFromEthereum(chainName, toChain, id) {
