@@ -107,7 +107,13 @@ module.exports = {
   },
   
   async queryOCResultFromEthereum(chainName, fromChain, id) {
-    const message = await ethereum.contractCall(evmComputeContracts[chainName], 'ocResult', [fromChain, id]);
-    return message;
+    const message = await ethereum.contractCall(evmComputeContracts[chainName], 'getResults', [fromChain]);
+    let ret = null;
+    for (let i = 0; i < message.length; i++) {
+      if (message[i].session == id) {
+        ret = message[i];
+      }
+    }
+    return ret;
   },
 }
