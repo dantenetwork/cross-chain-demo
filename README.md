@@ -50,7 +50,7 @@ You can use the default private key file `.secret`. If the amount is not enough 
   ```
   node rinkebyToFlow.js --greet
   ```
-  The id will be printed to the console.
+  The session id will be printed to the console.
 
   - Check what happened on [Rinkeby greeting smart contract](https://testnet.snowtrace.io/address/0x71375852616ef7196B07bA3f16805B512e21813E)
   
@@ -61,10 +61,8 @@ You can use the default private key file `.secret`. If the amount is not enough 
   - Send greeting with **Greeting** contract on `Flow Testnet`
 
   - Query message id
-  
-  After the transaction has been executed successfully, query the id of the message from **Cross Chain** contract on `Shibuya Testnet`. The id is the same as the number of all sent messages.
 
-  - Query result on `Avalanche` with command
+  - Query result on `Rinkeby` with command
   
   ```
   node flowToRinkeby.js --query <ID>
@@ -80,6 +78,10 @@ You can use the default private key file `.secret`. If the amount is not enough 
   ```
 
   - Wait for result
+  ![image](https://user-images.githubusercontent.com/83757490/191458250-7cbb4a36-6015-409f-b3d3-b101ae77c866.png)
+  
+  Check what happened on [Rinkeby occomputing smart contract](https://testnet.snowtrace.io/address/0x6Aa89C654907445a35Da1109C5fD7A75F1546Ef6)
+
 
 - Send outsourcing computing task from `Flow Testnet` to `Rinkeby`. 
   
