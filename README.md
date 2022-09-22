@@ -47,7 +47,6 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   ```
   node rinkebyToFlow.js --greet
   ```
-  The session id will be printed to the console.
   
   ![image](https://user-images.githubusercontent.com/83757490/191677140-e00e0d97-5048-42d8-b0f6-8ebcdeb145e1.png)
 
