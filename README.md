@@ -57,6 +57,7 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
 
   
   - Query result on `Flow Testnet` with command
+  
   **Perhaps you must wait for one minute for message synchronization**
   
   ```
@@ -84,6 +85,7 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
 
 
   - Query result on `Rinkeby` with command
+  
   **Perhaps you must wait for one minute for message synchronization**
   ```
   node flowToRinkeby.js --query
