@@ -4,15 +4,9 @@ const { program } = require('commander');
 let fromChain = 'FLOWTEST';
 let toChain = 'RINKEBY';
 
-async function queryGreetings(id) {
-  let interval = setInterval(async() => {
-    let message = await blockchain.queryMessageFromEthereum(toChain, fromChain, id);
-    if (message) {
-      clearInterval(interval);
-      console.log(message);
-      return;
-    }
-  }, 5 * 1000);
+async function queryGreetings() {
+  let message = await blockchain.queryMessageFromEthereum(toChain, fromChain);
+  console.log(message);
 }
 
 (async function() {
@@ -22,7 +16,7 @@ async function queryGreetings(id) {
 
   program
 	  .version('0.1.0')
-	  .option('-q, --query <ID>', 'get greeting message from RINKEBY')
+	  .option('-q, --query', 'get greeting message from RINKEBY')
 	  .parse(process.argv);
 
   if (program.opts().query) {

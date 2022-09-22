@@ -108,6 +108,9 @@ module.exports = {
   
   async queryMessageFromEthereum(chainName, fromChain, id) {
     const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'getGreetings', [fromChain]);
+    if (id == null) {
+      return message;
+    }
     let ret = null;
     for (let i = 0; i < message.length; i++) {
       if (message[i].session == id) {
