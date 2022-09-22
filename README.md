@@ -48,10 +48,16 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   node rinkebyToFlow.js --greet
   ```
   The session id will be printed to the console.
+  
+  ![image](https://user-images.githubusercontent.com/83757490/191677140-e00e0d97-5048-42d8-b0f6-8ebcdeb145e1.png)
+
 
   - Check what happened on [Rinkeby greeting smart contract](https://rinkeby.etherscan.io/address/0x71375852616ef7196B07bA3f16805B512e21813E)
+  ![image](https://user-images.githubusercontent.com/83757490/191677291-1417bd68-183b-4eab-97eb-bea84421ebbe.png)
+
   
   - Query result from **Greeting** contract on `Flow Testnet`
+  
 
 - Send greeting from `Flow Testnet` to `Rinkeby`
 
