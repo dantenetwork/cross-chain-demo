@@ -127,6 +127,8 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
 
   - Checkout result
   
+  **Perhaps you must wait for one minute for message synchronization**
+  
   ```
    cd flow-demo/exampleApp/computation
    flow scripts execute ./scripts/getComputeResults.cdc 0xc133efc4b43676a0 -n testnet
