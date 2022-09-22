@@ -53,10 +53,19 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
 
 
   - Check what happened on [Rinkeby greeting smart contract](https://rinkeby.etherscan.io/address/0x71375852616ef7196B07bA3f16805B512e21813E)
+  
   ![image](https://user-images.githubusercontent.com/83757490/191677291-1417bd68-183b-4eab-97eb-bea84421ebbe.png)
 
   
-  - Query result from **Greeting** contract on `Flow Testnet`
+  - Query result on `Flow Testnet` with command
+  **Perhaps you must wait for one minute for message synchronization**
+  
+  ```
+  cd flow-demo/exampleApp/greetings 
+  flow scripts execute ./scripts/getRecvedGreetings.cdc -n testnet
+  ```
+
+  ![avatar](./flow-demo/img/greetings_res.jpg)
   
 
 - Send greeting from `Flow Testnet` to `Rinkeby`
@@ -65,25 +74,23 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
 
   ```
   cd flow-demo/exampleApp/greetings 
-
   flow transactions send ./transactions/sendMessageOut.cdc "RINKEBY" "[113,55,88,82,97,110,247,25,107,7,186,63,22,128,91,81,46,33,129,62]" "[45,67,104,34]" 0x86fc6f40cd9f9c66 -n testnet --signer testnet-account
-
   ```
 
-    ![avatar](./flow-demo/img/greetings_send.jpg)
+  ![avatar](./flow-demo/img/greetings_send.jpg)
     
-    - Check related transaction on [FlowTestnet Scan](https://testnet.flowscan.org/transaction/00c67f44d2ff7e7545280fb1c09c935b6c4ab80a9815cff9e1f3592c10bd25b7)
-
-  - Query result with command
+  - Check related transaction on [FlowTestnet Scan](https://testnet.flowscan.org/transaction/00c67f44d2ff7e7545280fb1c09c935b6c4ab80a9815cff9e1f3592c10bd25b7)
   
-  ```
-  cd flow-demo/exampleApp/greetings 
+  ![image](https://user-images.githubusercontent.com/83757490/191683147-919a0f97-6a20-4098-a7e1-954e80906489.png)
 
-  flow scripts execute ./scripts/getRecvedGreetings.cdc -n testnet
-  
-  ```
 
-  ![avatar](./flow-demo/img/greetings_res.jpg)
+  - Query result on `Rinkeby` with command
+  **Perhaps you must wait for one minute for message synchronization**
+  ```
+  node flowToRinkeby.js --query
+  ```
+  ![image](https://user-images.githubusercontent.com/83757490/191683829-ff249290-2758-47c0-bc10-b891d2fd9620.png)
+
 
 
 - Send outsourcing computing task from `Rinkeby` to `Flow Testnet`. 
@@ -104,7 +111,6 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   
   ```
     cd flow-demo/exampleApp/computation 
-
     flow transactions send ./transactions/CallOut.cdc "RINKEBY" "[106,168,156,101,73,7,68,90,53,218,17,9,197,253,122,117,241,84,110,246]" "[71, 229, 10, 66]" '[1, 2, 3, 4, 5]' -n testnet --signer testnet-operator
 
   ```
@@ -118,7 +124,6 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   
   ```
    cd flow-demo/exampleApp/computation
-
    flow scripts execute ./scripts/getComputeResults.cdc 0xc133efc4b43676a0 -n testnet
   ```
   ![avatar](./flow-demo/img/result.jpg)
