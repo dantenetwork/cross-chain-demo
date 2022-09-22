@@ -63,14 +63,28 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
 
   - Send greeting with **Greeting** contract on `Flow Testnet`
 
-  - Query message id
+  ```
+  cd flow-demo/exampleApp/greetings 
 
-  - Query result on `Rinkeby` with command
+  flow transactions send ./transactions/sendMessageOut.cdc "RINKEBY" "[113,55,88,82,97,110,247,25,107,7,186,63,22,128,91,81,46,33,129,62]" "[45,67,104,34]" 0x86fc6f40cd9f9c66 -n testnet --signer testnet-account
+
+  ```
+
+    ![avatar](./flow-demo/img/greetings_send.jpg)
+    
+    - Check related transaction on [FlowTestnet Scan](https://testnet.flowscan.org/transaction/00c67f44d2ff7e7545280fb1c09c935b6c4ab80a9815cff9e1f3592c10bd25b7)
+
+  - Query result with command
   
   ```
-  node flowToRinkeby.js --query <ID>
+  cd flow-demo/exampleApp/greetings 
+
+  flow scripts execute ./scripts/getRecvedGreetings.cdc -n testnet
+  
   ```
-  `<ID>` is the id queryed above. 
+
+  ![avatar](./flow-demo/img/greetings_res.jpg)
+
 
 - Send outsourcing computing task from `Rinkeby` to `Flow Testnet`. 
   - Send message from `Rinkeby` with command
