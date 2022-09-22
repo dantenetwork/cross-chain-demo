@@ -88,6 +88,7 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   ```
   node flowToRinkeby.js --query
   ```
+  
   ![image](https://user-images.githubusercontent.com/83757490/191683829-ff249290-2758-47c0-bc10-b891d2fd9620.png)
 
 
@@ -99,9 +100,11 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   ```
   
   - Check what happened on [Rinkeby occomputing smart contract](https://rinkeby.etherscan.io/address/0x6Aa89C654907445a35Da1109C5fD7A75F1546Ef6)
+  
   ![image](https://user-images.githubusercontent.com/83757490/191472314-2681a3ed-e14d-4e70-b6ce-20f1c8f65e64.png)
 
   - Wait for result
+  
   ![image](https://user-images.githubusercontent.com/83757490/191458250-7cbb4a36-6015-409f-b3d3-b101ae77c866.png)
 
 
@@ -116,6 +119,7 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   ![avatar](./flow-demo/img/send.jpg)
 
   - Check related transaction on [FlowTestnet Scan](https://testnet.flowscan.org/transaction/42a49c80f897b604c8e90d7f5e3bd69347f2deaa7b656423c4c4aa6698836f2d)
+  
   ![image](https://user-images.githubusercontent.com/83757490/191471329-e1dc70ba-ca4a-48dd-901b-4c61806e43db.png)
   
 
