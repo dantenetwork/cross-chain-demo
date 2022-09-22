@@ -1,8 +1,8 @@
-# Demos for Multichain Interoperation
+# Demos for Omniverse Interoperation
 
-This `repo` provides demos showing common message communication and contracts invocation between multi-chains.  
+This `repo` provides demos showing common message communication and contracts invocation between Flow Testnet and other chains(Currently Rinkeby is ready).  
 This is a "Nightly" branch for development. New features will be published here as soon as we make progresses.  
-The test network is planned to be online in early Q3(2022).
+The Testnet for omniverse dApp developers is ready now.
 
 # Current Work flow
 We provide two situations:
