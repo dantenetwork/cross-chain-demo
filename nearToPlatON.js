@@ -17,7 +17,7 @@ async function sendGreeting() {
 
   let interval = setInterval(async() => {
     const message = await blockchain.queryMessageFromEthereum(toChain, fromChain, id);
-    if (message.title != '') {
+    if (message) {
       clearInterval(interval);
       console.log(message);
       return;
@@ -36,7 +36,7 @@ async function sendOCTask(nums) {
   console.log('Wait for the message to be synchronized.', id);
 
   var interval = setInterval(async() => {
-    const message = await blockchain.queryOCResultFromNear(toChain, parseInt(id));
+    const message = await blockchain.queryOCResultFromNear(toChain, id);
     if (message.result) {
       clearInterval(interval);
       console.log(message);

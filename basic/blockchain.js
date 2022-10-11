@@ -4,7 +4,7 @@ const near = require('./near');
 const ethereum = require('./ethereum');
 const utils = require('./utils');
 
-const rinkebyWeb3 = new Web3('https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161');
+const rinkebyWeb3 = new Web3('https://rpc.ankr.com/eth_rinkeby');
 const moonbeamWeb3 = new Web3('https://moonbase-alpha.public.blastapi.io');
 const fujiWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
 const platonWeb3 = new Web3('https://openapi.platon.network/rpc');
@@ -68,7 +68,7 @@ let platonGreetingContractAddress = '0xbd2c1e271A60281AAeD8F42A91613fbD3ae18B65'
 let platonGreetingContract = new platonWeb3.eth.Contract(greetingAbi, platonGreetingContractAddress);
 evmGreetingContracts['PLATONEVM'] = platonGreetingContract;
 
-let platonComputeContractAddress = '0xD756Dcfc5F37D545496DbE12256b290e49B8Bfe3';
+let platonComputeContractAddress = '0x73D01079F4833D4Bcea07e87C47f818189F5EF3a';
 let platonComputeContract = new platonWeb3.eth.Contract(ocComputeAbi, platonComputeContractAddress);
 evmComputeContracts['PLATONEVM'] = platonComputeContract;
 

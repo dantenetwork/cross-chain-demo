@@ -16,7 +16,7 @@ async function sendGreeting() {
   console.log('Wait for the message to be synchronized.', id);
 
   let interval = setInterval(async() => {
-    const message = await blockchain.queryMessageFromNear(fromChain, parseInt(id));
+    const message = await blockchain.queryMessageFromNear(fromChain, id);
     if (message) {
       clearInterval(interval);
       console.log(message);
