@@ -36,6 +36,32 @@ sh -ci "$(curl -fsSL https://storage.googleapis.com/flow-cli/install.sh)"
 
 Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install) for guides on other OS.
 
+### Contract information
+
+#### Flow
+- Network: https://rest-testnet.onflow.org
+- Contracts:
+  - Greeting: 0x86fc6f40cd9f9c66
+  - Computing: 0xc133efc4b43676a0
+
+#### PlatON
+- Network: https://openapi.platon.network/rpc
+- Contracts:
+  - Greeting: 0xbd2c1e271A60281AAeD8F42A91613fbD3ae18B65
+  - Computing: 0x73D01079F4833D4Bcea07e87C47f818189F5EF3a
+
+#### Near
+- Network: https://rpc.testnet.near.org
+- Contracts:
+  - Greeting: 0x64386165376135313365656161333661346336613432313237353837646266306632616462626461303635323363306662613461313662643237353038396639(utf8 hex string for `d8ae7a513eeaa36a4c6a42127587dbf0f2adbbda06523c0fba4a16bd275089f9`)
+  - Computing: 0x34646336316237376566313333366362303838376234613366313434343766323439336362643239656534626234346362373033373265366664333134326336(utf8 hex string for `4dc61b77ef1336cb0887b4a3f14447f2493cbd29ee4bb44cb70372e6fd3142c6`)
+
+#### Shibuya
+- Network: wss://public-rpc.pinknode.io/shibuya
+- Contracts:
+  - Greeting: 0x8aee7ff290d07e8f75901e360b8dd84dd169d0a12df9d1bf0cdbbd56b4a00975(32-byte address for `Z5TkVA34AHjc4oRfFeMEpxuctbFRVfaCjftjy7JLPgw62UH`)
+  - Computing: 0x53e46958440e1c874f84ec3740ce1e96bc8af898cfa808a6cd138dce43718f4c(32-byte address for `XqJ7v8UFL841jo4peEPiGAXxwY5Ei3vjdUFL6tCxXnpTKgz`)
+
 ### Test script
 
 #### **Interoperation between `Flow Testnet` and `Rinkeby`** 
