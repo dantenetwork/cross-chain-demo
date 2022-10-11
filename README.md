@@ -238,6 +238,8 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
 
 #### **Interoperation between `Shibuya Testnet` and `PlatON`**
 
+The metadata files which you can use to add existing contracts on [`Shibuya Testnet`](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fpublic-rpc.pinknode.io%2Fshibuya#/contracts) is [here](./res/ink/).
+
 A similar tutorial for interoperation between `Shibuya Testnet` and `Avalanche` has been writen [here](https://github.com/dantenetwork/cross-chain-demo/blob/main/README.md#interoperation-between-shibuya-testnet-and-avalanche).
 
 ### Other Demos

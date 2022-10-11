@@ -1,0 +1,3025 @@
+{
+  "source": {
+    "hash": "0xe7d4052f2008fd9976c714dd694492a179af6d79bb5f31b74e9644cb44a080dd",
+    "language": "ink! 4.0.0-alpha.3",
+    "compiler": "rustc 1.64.0"
+  },
+  "contract": {
+    "name": "cross_chain",
+    "version": "0.1.0",
+    "authors": [
+      "[your_name] <[your_email]>"
+    ]
+  },
+  "spec": {
+    "constructors": [
+      {
+        "args": [
+          {
+            "label": "chain_name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "docs": [
+          "Constructor that initializes `chain_name`."
+        ],
+        "label": "new_default",
+        "payable": false,
+        "selector": "0x61ef7e3e"
+      },
+      {
+        "args": [
+          {
+            "label": "chain_name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "threshold",
+            "type": {
+              "displayName": [
+                "Threshold"
+              ],
+              "type": 26
+            }
+          },
+          {
+            "label": "credibility_selection_ratio",
+            "type": {
+              "displayName": [
+                "CredibilitySelectionRatio"
+              ],
+              "type": 27
+            }
+          },
+          {
+            "label": "evaluation_coefficient",
+            "type": {
+              "displayName": [
+                "EvaluationCoefficient"
+              ],
+              "type": 28
+            }
+          },
+          {
+            "label": "initial_credibility_value",
+            "type": {
+              "displayName": [
+                "u32"
+              ],
+              "type": 18
+            }
+          },
+          {
+            "label": "selected_number",
+            "type": {
+              "displayName": [
+                "u8"
+              ],
+              "type": 2
+            }
+          }
+        ],
+        "docs": [],
+        "label": "new",
+        "payable": false,
+        "selector": "0x9bae9d5e"
+      }
+    ],
+    "docs": [],
+    "events": [],
+    "messages": [
+      {
+        "args": [
+          {
+            "label": "sqos",
+            "type": {
+              "displayName": [
+                "Vec"
+              ],
+              "type": 29
+            }
+          }
+        ],
+        "docs": [
+          "Registers SQoS"
+        ],
+        "label": "set_sqos",
+        "mutates": true,
+        "payable": false,
+        "returnType": null,
+        "selector": "0xc1e9bcda"
+      },
+      {
+        "args": [],
+        "docs": [
+          "Returns SQoS"
+        ],
+        "label": "get_sqos",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Vec"
+          ],
+          "type": 29
+        },
+        "selector": "0x8de909d7"
+      },
+      {
+        "args": [],
+        "docs": [],
+        "label": "get_evaluation",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Evaluation"
+          ],
+          "type": 32
+        },
+        "selector": "0x395c6273"
+      },
+      {
+        "args": [
+          {
+            "label": "chain_name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "router",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [],
+        "label": "get_msg_porting_task",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "u128"
+          ],
+          "type": 4
+        },
+        "selector": "0x53b91172"
+      },
+      {
+        "args": [
+          {
+            "label": "router",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [],
+        "label": "is_selected",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "bool"
+          ],
+          "type": 19
+        },
+        "selector": "0x2e4163bd"
+      },
+      {
+        "args": [],
+        "docs": [],
+        "label": "get_current_routers",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Vec"
+          ],
+          "type": 16
+        },
+        "selector": "0xf13f4a35"
+      },
+      {
+        "args": [
+          {
+            "label": "chain_name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "docs": [],
+        "label": "clear_messages",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0x6a902407"
+      },
+      {
+        "args": [],
+        "docs": [],
+        "label": "get_chain_name",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "String"
+          ],
+          "type": 3
+        },
+        "selector": "0xd2c0a7f1"
+      },
+      {
+        "args": [
+          {
+            "label": "routers",
+            "type": {
+              "displayName": [
+                "Vec"
+              ],
+              "type": 16
+            }
+          },
+          {
+            "label": "initial_credibility_value",
+            "type": {
+              "displayName": [
+                "u32"
+              ],
+              "type": 18
+            }
+          }
+        ],
+        "docs": [],
+        "label": "register_routers",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0xba0e0c41"
+      },
+      {
+        "args": [],
+        "docs": [],
+        "label": "unregister_routers",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0xe1318b83"
+      },
+      {
+        "args": [],
+        "docs": [
+          "Returns the account id of the current owner"
+        ],
+        "label": "Ownable::owner",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Option"
+          ],
+          "type": 36
+        },
+        "selector": "0x4fa43c8c"
+      },
+      {
+        "args": [],
+        "docs": [
+          "Renounces ownership of the contract"
+        ],
+        "label": "Ownable::renounce_ownership",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0x5e228753"
+      },
+      {
+        "args": [
+          {
+            "label": "new_owner",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [
+          "Transfer ownership to a new account id"
+        ],
+        "label": "Ownable::transfer_ownership",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0x11f43efd"
+      },
+      {
+        "args": [
+          {
+            "label": "_token",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [
+          "Sets DAT token contract address"
+        ],
+        "label": "CrossChainBase::set_token_contract",
+        "mutates": true,
+        "payable": false,
+        "returnType": null,
+        "selector": "0x3cc9da7f"
+      },
+      {
+        "args": [
+          {
+            "label": "message",
+            "type": {
+              "displayName": [
+                "ISentMessage"
+              ],
+              "type": 37
+            }
+          }
+        ],
+        "docs": [
+          "Cross-chain calls method `action` of contract `contract` on chain",
+          "`to_chain` with data `data`"
+        ],
+        "label": "CrossChainBase::send_message",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "u128"
+          ],
+          "type": 4
+        },
+        "selector": "0x27267917"
+      },
+      {
+        "args": [
+          {
+            "label": "message",
+            "type": {
+              "displayName": [
+                "IReceivedMessage"
+              ],
+              "type": 40
+            }
+          }
+        ],
+        "docs": [
+          "Cross-chain receives message from chain `from_chain`, the message",
+          "will be handled by method `action` of contract `to` with data `data`"
+        ],
+        "label": "CrossChainBase::receive_message",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0x5f6a1d89"
+      },
+      {
+        "args": [
+          {
+            "label": "from_chain",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "id",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "label": "error_code",
+            "type": {
+              "displayName": [
+                "u16"
+              ],
+              "type": 15
+            }
+          }
+        ],
+        "docs": [
+          "Cross-chain abandons message from chain `from_chain`, the message will be skipped and not be executed"
+        ],
+        "label": "CrossChainBase::abandon_message",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0xe44187d7"
+      },
+      {
+        "args": [
+          {
+            "label": "chain_names",
+            "type": {
+              "displayName": [
+                "Vec"
+              ],
+              "type": 41
+            }
+          }
+        ],
+        "docs": [
+          "Returns messages that sent from chains `chain_names` and can be executed."
+        ],
+        "label": "CrossChainBase::get_executable_messages",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Vec"
+          ],
+          "type": 20
+        },
+        "selector": "0x27fb739a"
+      },
+      {
+        "args": [
+          {
+            "label": "chain_name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "id",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "docs": [
+          "Triggers execution of a message sent from chain `chain_name` with id `id`"
+        ],
+        "label": "CrossChainBase::execute_message",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 42
+        },
+        "selector": "0xe80932f8"
+      },
+      {
+        "args": [],
+        "docs": [
+          "Returns the simplified message, this message is reset every time when a contract is called"
+        ],
+        "label": "CrossChainBase::get_context",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Option"
+          ],
+          "type": 43
+        },
+        "selector": "0xeee9c1b3"
+      },
+      {
+        "args": [
+          {
+            "label": "chain_name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "docs": [
+          "Returns the number of messages sent to chain `chain_name`"
+        ],
+        "label": "CrossChainBase::get_sent_message_number",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "u128"
+          ],
+          "type": 4
+        },
+        "selector": "0xf0c1c5e3"
+      },
+      {
+        "args": [
+          {
+            "label": "chain_name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "docs": [
+          "Returns the number of messages received from chain `chain_name`"
+        ],
+        "label": "CrossChainBase::get_received_message_number",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "u128"
+          ],
+          "type": 4
+        },
+        "selector": "0x6544b363"
+      },
+      {
+        "args": [
+          {
+            "label": "chain_name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "id",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "docs": [
+          "Returns the message with id `id` sent to chain `chain_name`"
+        ],
+        "label": "CrossChainBase::get_sent_message",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 45
+        },
+        "selector": "0x2f8e34c8"
+      },
+      {
+        "args": [
+          {
+            "label": "chain_name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "id",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "docs": [
+          "Returns the message with id `id` received from chain `chain_name`"
+        ],
+        "label": "CrossChainBase::get_received_message",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 48
+        },
+        "selector": "0x385a9e17"
+      },
+      {
+        "args": [
+          {
+            "label": "chain_name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "docs": [
+          "Returns the message abandoned from chain `chain_name`"
+        ],
+        "label": "CrossChainBase::get_abandoned_message",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Vec"
+          ],
+          "type": 22
+        },
+        "selector": "0x16898fd0"
+      },
+      {
+        "args": [],
+        "docs": [],
+        "label": "RoutersCore::select_routers",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 50
+        },
+        "selector": "0xd93d20cc"
+      },
+      {
+        "args": [],
+        "docs": [],
+        "label": "RoutersCore::get_routers",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Vec"
+          ],
+          "type": 24
+        },
+        "selector": "0xf5853a6f"
+      },
+      {
+        "args": [
+          {
+            "label": "router",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [],
+        "label": "RoutersCore::register_router",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0xe78c56ab"
+      },
+      {
+        "args": [
+          {
+            "label": "router",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [],
+        "label": "RoutersCore::unregister_router",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0x6ed123a7"
+      },
+      {
+        "args": [
+          {
+            "label": "value",
+            "type": {
+              "displayName": [
+                "u32"
+              ],
+              "type": 18
+            }
+          }
+        ],
+        "docs": [],
+        "label": "RoutersCore::set_initial_credibility",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0x33ceadca"
+      },
+      {
+        "args": [
+          {
+            "label": "number",
+            "type": {
+              "displayName": [
+                "u8"
+              ],
+              "type": 2
+            }
+          }
+        ],
+        "docs": [],
+        "label": "RoutersCore::set_selected_number",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0x3fa9b062"
+      },
+      {
+        "args": [
+          {
+            "label": "threshold",
+            "type": {
+              "displayName": [
+                "Threshold"
+              ],
+              "type": 26
+            }
+          }
+        ],
+        "docs": [],
+        "label": "RoutersCore::set_threshold",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0x287059a9"
+      },
+      {
+        "args": [
+          {
+            "label": "ratio",
+            "type": {
+              "displayName": [
+                "CredibilitySelectionRatio"
+              ],
+              "type": 27
+            }
+          }
+        ],
+        "docs": [],
+        "label": "RoutersCore::set_credibility_selection_ratio",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "Result"
+          ],
+          "type": 33
+        },
+        "selector": "0x569205af"
+      }
+    ]
+  },
+  "storage": {
+    "root": {
+      "layout": {
+        "struct": {
+          "fields": [
+            {
+              "layout": {
+                "enum": {
+                  "dispatchKey": "0x00000000",
+                  "name": "Option",
+                  "variants": {
+                    "0": {
+                      "fields": [],
+                      "name": "None"
+                    },
+                    "1": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x00000000",
+                              "ty": 0
+                            }
+                          },
+                          "name": "0"
+                        }
+                      ],
+                      "name": "Some"
+                    }
+                  }
+                }
+              },
+              "name": "owner"
+            },
+            {
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 3
+                }
+              },
+              "name": "chain_name"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "struct": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x8c475618",
+                              "ty": 4
+                            }
+                          },
+                          "name": "id"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x8c475618",
+                              "ty": 3
+                            }
+                          },
+                          "name": "from_chain"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x8c475618",
+                              "ty": 3
+                            }
+                          },
+                          "name": "to_chain"
+                        },
+                        {
+                          "layout": {
+                            "array": {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x8c475618",
+                                  "ty": 2
+                                }
+                              },
+                              "len": 32,
+                              "offset": "0x8c475618"
+                            }
+                          },
+                          "name": "sender"
+                        },
+                        {
+                          "layout": {
+                            "array": {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x8c475618",
+                                  "ty": 2
+                                }
+                              },
+                              "len": 32,
+                              "offset": "0x8c475618"
+                            }
+                          },
+                          "name": "signer"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x8c475618",
+                              "ty": 5
+                            }
+                          },
+                          "name": "sqos"
+                        },
+                        {
+                          "layout": {
+                            "struct": {
+                              "fields": [
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x8c475618",
+                                      "ty": 8
+                                    }
+                                  },
+                                  "name": "contract"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x8c475618",
+                                      "ty": 8
+                                    }
+                                  },
+                                  "name": "action"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x8c475618",
+                                      "ty": 8
+                                    }
+                                  },
+                                  "name": "data"
+                                }
+                              ],
+                              "name": "Content"
+                            }
+                          },
+                          "name": "content"
+                        },
+                        {
+                          "layout": {
+                            "struct": {
+                              "fields": [
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x8c475618",
+                                      "ty": 4
+                                    }
+                                  },
+                                  "name": "id"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x8c475618",
+                                      "ty": 2
+                                    }
+                                  },
+                                  "name": "session_type"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x8c475618",
+                                      "ty": 8
+                                    }
+                                  },
+                                  "name": "callback"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x8c475618",
+                                      "ty": 8
+                                    }
+                                  },
+                                  "name": "commitment"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x8c475618",
+                                      "ty": 8
+                                    }
+                                  },
+                                  "name": "answer"
+                                }
+                              ],
+                              "name": "Session"
+                            }
+                          },
+                          "name": "session"
+                        }
+                      ],
+                      "name": "SentMessage"
+                    }
+                  },
+                  "root_key": "0x8c475618"
+                }
+              },
+              "name": "sent_message_table"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0xf9a1e4c7",
+                      "ty": 4
+                    }
+                  },
+                  "root_key": "0xf9a1e4c7"
+                }
+              },
+              "name": "latest_sent_message_id"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "struct": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xebd0b14e",
+                              "ty": 9
+                            }
+                          },
+                          "name": "0"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xebd0b14e",
+                              "ty": 19
+                            }
+                          },
+                          "name": "1"
+                        }
+                      ],
+                      "name": "(A, B)"
+                    }
+                  },
+                  "root_key": "0xebd0b14e"
+                }
+              },
+              "name": "received_message_table"
+            },
+            {
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 20
+                }
+              },
+              "name": "pending_message_key"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0xb55086c7",
+                      "ty": 4
+                    }
+                  },
+                  "root_key": "0xb55086c7"
+                }
+              },
+              "name": "latest_message_id"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0xc54d5eec",
+                      "ty": 4
+                    }
+                  },
+                  "root_key": "0xc54d5eec"
+                }
+              },
+              "name": "final_received_message_id"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "array": {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x75241b85",
+                          "ty": 2
+                        }
+                      },
+                      "len": 32,
+                      "offset": "0x75241b85"
+                    }
+                  },
+                  "root_key": "0x75241b85"
+                }
+              },
+              "name": "executable_message_table"
+            },
+            {
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 20
+                }
+              },
+              "name": "executable_key"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0xdf230725",
+                      "ty": 22
+                    }
+                  },
+                  "root_key": "0xdf230725"
+                }
+              },
+              "name": "abandoned_message"
+            },
+            {
+              "layout": {
+                "enum": {
+                  "dispatchKey": "0x00000000",
+                  "name": "Option",
+                  "variants": {
+                    "0": {
+                      "fields": [],
+                      "name": "None"
+                    },
+                    "1": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "struct": {
+                              "fields": [
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x00000000",
+                                      "ty": 4
+                                    }
+                                  },
+                                  "name": "id"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x00000000",
+                                      "ty": 3
+                                    }
+                                  },
+                                  "name": "from_chain"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x00000000",
+                                      "ty": 8
+                                    }
+                                  },
+                                  "name": "sender"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x00000000",
+                                      "ty": 8
+                                    }
+                                  },
+                                  "name": "signer"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x00000000",
+                                      "ty": 5
+                                    }
+                                  },
+                                  "name": "sqos"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0x00000000",
+                                      "ty": 0
+                                    }
+                                  },
+                                  "name": "contract"
+                                },
+                                {
+                                  "layout": {
+                                    "array": {
+                                      "layout": {
+                                        "leaf": {
+                                          "key": "0x00000000",
+                                          "ty": 2
+                                        }
+                                      },
+                                      "len": 4,
+                                      "offset": "0x00000000"
+                                    }
+                                  },
+                                  "name": "action"
+                                },
+                                {
+                                  "layout": {
+                                    "struct": {
+                                      "fields": [
+                                        {
+                                          "layout": {
+                                            "leaf": {
+                                              "key": "0x00000000",
+                                              "ty": 4
+                                            }
+                                          },
+                                          "name": "id"
+                                        },
+                                        {
+                                          "layout": {
+                                            "leaf": {
+                                              "key": "0x00000000",
+                                              "ty": 2
+                                            }
+                                          },
+                                          "name": "session_type"
+                                        },
+                                        {
+                                          "layout": {
+                                            "leaf": {
+                                              "key": "0x00000000",
+                                              "ty": 8
+                                            }
+                                          },
+                                          "name": "callback"
+                                        },
+                                        {
+                                          "layout": {
+                                            "leaf": {
+                                              "key": "0x00000000",
+                                              "ty": 8
+                                            }
+                                          },
+                                          "name": "commitment"
+                                        },
+                                        {
+                                          "layout": {
+                                            "leaf": {
+                                              "key": "0x00000000",
+                                              "ty": 8
+                                            }
+                                          },
+                                          "name": "answer"
+                                        }
+                                      ],
+                                      "name": "Session"
+                                    }
+                                  },
+                                  "name": "session"
+                                }
+                              ],
+                              "name": "Context"
+                            }
+                          },
+                          "name": "0"
+                        }
+                      ],
+                      "name": "Some"
+                    }
+                  }
+                }
+              },
+              "name": "context"
+            },
+            {
+              "layout": {
+                "struct": {
+                  "fields": [
+                    {
+                      "layout": {
+                        "struct": {
+                          "fields": [
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "credibility_weight_threshold"
+                            },
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "min_seleted_threshold"
+                            },
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "trustworthy_threshold"
+                            }
+                          ],
+                          "name": "Threshold"
+                        }
+                      },
+                      "name": "threshold"
+                    },
+                    {
+                      "layout": {
+                        "struct": {
+                          "fields": [
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "upper_limit"
+                            },
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "lower_limit"
+                            }
+                          ],
+                          "name": "CredibilitySelectionRatio"
+                        }
+                      },
+                      "name": "credibility_selection_ratio"
+                    },
+                    {
+                      "layout": {
+                        "struct": {
+                          "fields": [
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "min_credibility"
+                            },
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "max_credibility"
+                            },
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "middle_credibility"
+                            },
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "range_crediblility"
+                            },
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "success_step"
+                            },
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "do_evil_step"
+                            },
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 18
+                                }
+                              },
+                              "name": "exception_step"
+                            }
+                          ],
+                          "name": "EvaluationCoefficient"
+                        }
+                      },
+                      "name": "evaluation_coefficient"
+                    },
+                    {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x00000000",
+                          "ty": 16
+                        }
+                      },
+                      "name": "current_routers"
+                    },
+                    {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x00000000",
+                          "ty": 24
+                        }
+                      },
+                      "name": "routers"
+                    },
+                    {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x00000000",
+                          "ty": 18
+                        }
+                      },
+                      "name": "initial_credibility_value"
+                    },
+                    {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x00000000",
+                          "ty": 2
+                        }
+                      },
+                      "name": "selected_number"
+                    }
+                  ],
+                  "name": "Evaluation"
+                }
+              },
+              "name": "evaluation"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0x055f74b4",
+                      "ty": 5
+                    }
+                  },
+                  "root_key": "0x055f74b4"
+                }
+              },
+              "name": "sqos_table"
+            }
+          ],
+          "name": "CrossChain"
+        }
+      },
+      "root_key": "0x00000000"
+    }
+  },
+  "types": [
+    {
+      "id": 0,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "type": 1,
+                "typeName": "[u8; 32]"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "types",
+          "AccountId"
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "type": {
+        "def": {
+          "array": {
+            "len": 32,
+            "type": 2
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": {
+        "def": {
+          "primitive": "u8"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": {
+        "def": {
+          "primitive": "str"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": {
+        "def": {
+          "primitive": "u128"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 6
+          }
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "t",
+                "type": 7,
+                "typeName": "SQoSType"
+              },
+              {
+                "name": "v",
+                "type": 8,
+                "typeName": "Bytes"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "SQoS"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "Reveal"
+              },
+              {
+                "index": 1,
+                "name": "Challenge"
+              },
+              {
+                "index": 2,
+                "name": "Threshold"
+              },
+              {
+                "index": 3,
+                "name": "Priority"
+              },
+              {
+                "index": 4,
+                "name": "ExceptionRollback"
+              },
+              {
+                "index": 5,
+                "name": "SelectionDelay"
+              },
+              {
+                "index": 6,
+                "name": "Anonymous"
+              },
+              {
+                "index": 7,
+                "name": "Identity"
+              },
+              {
+                "index": 8,
+                "name": "Isolation"
+              },
+              {
+                "index": 9,
+                "name": "CrossVerify"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "SQoSType"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 2
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 10
+          }
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "message_hash",
+                "type": 1,
+                "typeName": "[u8; 32]"
+              },
+              {
+                "name": "message",
+                "type": 11,
+                "typeName": "Message"
+              },
+              {
+                "name": "routers",
+                "type": 16,
+                "typeName": "Vec<AccountId>"
+              },
+              {
+                "name": "group_credibility_value",
+                "type": 17,
+                "typeName": "u64"
+              },
+              {
+                "name": "credibility_weight",
+                "type": 18,
+                "typeName": "u32"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "Group"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "id",
+                "type": 4,
+                "typeName": "u128"
+              },
+              {
+                "name": "from_chain",
+                "type": 3,
+                "typeName": "String"
+              },
+              {
+                "name": "sender",
+                "type": 8,
+                "typeName": "Bytes"
+              },
+              {
+                "name": "signer",
+                "type": 8,
+                "typeName": "Bytes"
+              },
+              {
+                "name": "sqos",
+                "type": 5,
+                "typeName": "Vec<SQoS>"
+              },
+              {
+                "name": "contract",
+                "type": 0,
+                "typeName": "AccountId"
+              },
+              {
+                "name": "action",
+                "type": 12,
+                "typeName": "[u8; 4]"
+              },
+              {
+                "name": "data",
+                "type": 8,
+                "typeName": "Bytes"
+              },
+              {
+                "name": "session",
+                "type": 13,
+                "typeName": "Session"
+              },
+              {
+                "name": "error_code",
+                "type": 14,
+                "typeName": "Option<u16>"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "Message"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": {
+        "def": {
+          "array": {
+            "len": 4,
+            "type": 2
+          }
+        }
+      }
+    },
+    {
+      "id": 13,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "id",
+                "type": 4,
+                "typeName": "u128"
+              },
+              {
+                "name": "session_type",
+                "type": 2,
+                "typeName": "u8"
+              },
+              {
+                "name": "callback",
+                "type": 8,
+                "typeName": "Bytes"
+              },
+              {
+                "name": "commitment",
+                "type": 8,
+                "typeName": "Bytes"
+              },
+              {
+                "name": "answer",
+                "type": 8,
+                "typeName": "Bytes"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "Session"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 15
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 15
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": {
+        "def": {
+          "primitive": "u16"
+        }
+      }
+    },
+    {
+      "id": 16,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 0
+          }
+        }
+      }
+    },
+    {
+      "id": 17,
+      "type": {
+        "def": {
+          "primitive": "u64"
+        }
+      }
+    },
+    {
+      "id": 18,
+      "type": {
+        "def": {
+          "primitive": "u32"
+        }
+      }
+    },
+    {
+      "id": 19,
+      "type": {
+        "def": {
+          "primitive": "bool"
+        }
+      }
+    },
+    {
+      "id": 20,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 21
+          }
+        }
+      }
+    },
+    {
+      "id": 21,
+      "type": {
+        "def": {
+          "tuple": [
+            3,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "id": 22,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 23
+          }
+        }
+      }
+    },
+    {
+      "id": 23,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "id",
+                "type": 4,
+                "typeName": "u128"
+              },
+              {
+                "name": "error_code",
+                "type": 15,
+                "typeName": "u16"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "AbandonedMessage"
+        ]
+      }
+    },
+    {
+      "id": 24,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 25
+          }
+        }
+      }
+    },
+    {
+      "id": 25,
+      "type": {
+        "def": {
+          "tuple": [
+            0,
+            18
+          ]
+        }
+      }
+    },
+    {
+      "id": 26,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "credibility_weight_threshold",
+                "type": 18,
+                "typeName": "u32"
+              },
+              {
+                "name": "min_seleted_threshold",
+                "type": 18,
+                "typeName": "u32"
+              },
+              {
+                "name": "trustworthy_threshold",
+                "type": 18,
+                "typeName": "u32"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "Threshold"
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "upper_limit",
+                "type": 18,
+                "typeName": "u32"
+              },
+              {
+                "name": "lower_limit",
+                "type": 18,
+                "typeName": "u32"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "CredibilitySelectionRatio"
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "min_credibility",
+                "type": 18,
+                "typeName": "u32"
+              },
+              {
+                "name": "max_credibility",
+                "type": 18,
+                "typeName": "u32"
+              },
+              {
+                "name": "middle_credibility",
+                "type": 18,
+                "typeName": "u32"
+              },
+              {
+                "name": "range_crediblility",
+                "type": 18,
+                "typeName": "u32"
+              },
+              {
+                "name": "success_step",
+                "type": 18,
+                "typeName": "u32"
+              },
+              {
+                "name": "do_evil_step",
+                "type": 18,
+                "typeName": "u32"
+              },
+              {
+                "name": "exception_step",
+                "type": 18,
+                "typeName": "u32"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "EvaluationCoefficient"
+        ]
+      }
+    },
+    {
+      "id": 29,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 30
+          }
+        }
+      }
+    },
+    {
+      "id": 30,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "t",
+                "type": 31,
+                "typeName": "ISQoSType"
+              },
+              {
+                "name": "v",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              }
+            ]
+          }
+        },
+        "path": [
+          "payload",
+          "message_define",
+          "ISQoS"
+        ]
+      }
+    },
+    {
+      "id": 31,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "Reveal"
+              },
+              {
+                "index": 1,
+                "name": "Challenge"
+              },
+              {
+                "index": 2,
+                "name": "Threshold"
+              },
+              {
+                "index": 3,
+                "name": "Priority"
+              },
+              {
+                "index": 4,
+                "name": "ExceptionRollback"
+              },
+              {
+                "index": 5,
+                "name": "SelectionDelay"
+              },
+              {
+                "index": 6,
+                "name": "Anonymous"
+              },
+              {
+                "index": 7,
+                "name": "Identity"
+              },
+              {
+                "index": 8,
+                "name": "Isolation"
+              },
+              {
+                "index": 9,
+                "name": "CrossVerify"
+              }
+            ]
+          }
+        },
+        "path": [
+          "payload",
+          "message_define",
+          "ISQoSType"
+        ]
+      }
+    },
+    {
+      "id": 32,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "threshold",
+                "type": 26,
+                "typeName": "Threshold"
+              },
+              {
+                "name": "credibility_selection_ratio",
+                "type": 27,
+                "typeName": "CredibilitySelectionRatio"
+              },
+              {
+                "name": "evaluation_coefficient",
+                "type": 28,
+                "typeName": "EvaluationCoefficient"
+              },
+              {
+                "name": "current_routers",
+                "type": 16,
+                "typeName": "Vec<AccountId>"
+              },
+              {
+                "name": "routers",
+                "type": 24,
+                "typeName": "Vec<(AccountId, u32)>"
+              },
+              {
+                "name": "initial_credibility_value",
+                "type": 18,
+                "typeName": "u32"
+              },
+              {
+                "name": "selected_number",
+                "type": 2,
+                "typeName": "u8"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "Evaluation"
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 34
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 35
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 34
+          },
+          {
+            "name": "E",
+            "type": 35
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 34,
+      "type": {
+        "def": {
+          "tuple": []
+        }
+      }
+    },
+    {
+      "id": 35,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "NotOwner"
+              },
+              {
+                "index": 1,
+                "name": "IdNotMatch"
+              },
+              {
+                "index": 2,
+                "name": "ChainMessageNotFound"
+              },
+              {
+                "index": 3,
+                "name": "IdOutOfBound"
+              },
+              {
+                "index": 4,
+                "name": "NotExecutable"
+              },
+              {
+                "index": 5,
+                "name": "InterfaceNotFound"
+              },
+              {
+                "index": 6,
+                "name": "DecodeDataFailed"
+              },
+              {
+                "index": 7,
+                "name": "CrossContractCallFailed"
+              },
+              {
+                "index": 8,
+                "name": "NotRouter"
+              },
+              {
+                "index": 9,
+                "name": "RouterNotExist"
+              },
+              {
+                "index": 10,
+                "name": "RemoveRouterError"
+              },
+              {
+                "index": 11,
+                "name": "AheadOfId"
+              },
+              {
+                "index": 12,
+                "name": "AlreadReceived"
+              },
+              {
+                "index": 13,
+                "name": "ReceiveCompleted"
+              },
+              {
+                "index": 14,
+                "name": "RouterAlreadyRegisterd"
+              },
+              {
+                "index": 15,
+                "name": "CreditBeyondUpLimit"
+              },
+              {
+                "index": 16,
+                "name": "CreditValueError"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "Error"
+        ]
+      }
+    },
+    {
+      "id": 36,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 0
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 0
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 37,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "to_chain",
+                "type": 3,
+                "typeName": "String"
+              },
+              {
+                "name": "sqos",
+                "type": 29,
+                "typeName": "ink::prelude::vec::Vec<ISQoS>"
+              },
+              {
+                "name": "content",
+                "type": 38,
+                "typeName": "IContent"
+              },
+              {
+                "name": "session",
+                "type": 39,
+                "typeName": "ISession"
+              }
+            ]
+          }
+        },
+        "path": [
+          "payload",
+          "message_define",
+          "ISentMessage"
+        ]
+      }
+    },
+    {
+      "id": 38,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "contract",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              },
+              {
+                "name": "action",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              },
+              {
+                "name": "data",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              }
+            ]
+          }
+        },
+        "path": [
+          "payload",
+          "message_define",
+          "IContent"
+        ]
+      }
+    },
+    {
+      "id": 39,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "id",
+                "type": 4,
+                "typeName": "u128"
+              },
+              {
+                "name": "session_type",
+                "type": 2,
+                "typeName": "u8"
+              },
+              {
+                "name": "callback",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              },
+              {
+                "name": "commitment",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              },
+              {
+                "name": "answer",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              }
+            ]
+          }
+        },
+        "path": [
+          "payload",
+          "message_define",
+          "ISession"
+        ]
+      }
+    },
+    {
+      "id": 40,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "id",
+                "type": 4,
+                "typeName": "u128"
+              },
+              {
+                "name": "from_chain",
+                "type": 3,
+                "typeName": "String"
+              },
+              {
+                "name": "to_chain",
+                "type": 3,
+                "typeName": "String"
+              },
+              {
+                "name": "sender",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              },
+              {
+                "name": "signer",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              },
+              {
+                "name": "sqos",
+                "type": 29,
+                "typeName": "ink::prelude::vec::Vec<ISQoS>"
+              },
+              {
+                "name": "contract",
+                "type": 1,
+                "typeName": "[u8;32]"
+              },
+              {
+                "name": "action",
+                "type": 12,
+                "typeName": "[u8;4]"
+              },
+              {
+                "name": "data",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              },
+              {
+                "name": "session",
+                "type": 39,
+                "typeName": "ISession"
+              }
+            ]
+          }
+        },
+        "path": [
+          "payload",
+          "message_define",
+          "IReceivedMessage"
+        ]
+      }
+    },
+    {
+      "id": 41,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 3
+          }
+        }
+      }
+    },
+    {
+      "id": 42,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 3
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 35
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 3
+          },
+          {
+            "name": "E",
+            "type": 35
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 44
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 44
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 44,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "id",
+                "type": 4,
+                "typeName": "u128"
+              },
+              {
+                "name": "from_chain",
+                "type": 3,
+                "typeName": "String"
+              },
+              {
+                "name": "sender",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              },
+              {
+                "name": "signer",
+                "type": 8,
+                "typeName": "ink::prelude::vec::Vec<u8>"
+              },
+              {
+                "name": "sqos",
+                "type": 29,
+                "typeName": "ink::prelude::vec::Vec<ISQoS>"
+              },
+              {
+                "name": "contract",
+                "type": 1,
+                "typeName": "[u8;32]"
+              },
+              {
+                "name": "action",
+                "type": 12,
+                "typeName": "[u8;4]"
+              },
+              {
+                "name": "session",
+                "type": 39,
+                "typeName": "ISession"
+              }
+            ]
+          }
+        },
+        "path": [
+          "payload",
+          "message_define",
+          "IContext"
+        ]
+      }
+    },
+    {
+      "id": 45,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 46
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 35
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 46
+          },
+          {
+            "name": "E",
+            "type": 35
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 46,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "id",
+                "type": 4,
+                "typeName": "u128"
+              },
+              {
+                "name": "from_chain",
+                "type": 3,
+                "typeName": "String"
+              },
+              {
+                "name": "to_chain",
+                "type": 3,
+                "typeName": "String"
+              },
+              {
+                "name": "sender",
+                "type": 1,
+                "typeName": "[u8; 32]"
+              },
+              {
+                "name": "signer",
+                "type": 1,
+                "typeName": "[u8; 32]"
+              },
+              {
+                "name": "sqos",
+                "type": 5,
+                "typeName": "Vec<SQoS>"
+              },
+              {
+                "name": "content",
+                "type": 47,
+                "typeName": "Content"
+              },
+              {
+                "name": "session",
+                "type": 13,
+                "typeName": "Session"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "SentMessage"
+        ]
+      }
+    },
+    {
+      "id": 47,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "contract",
+                "type": 8,
+                "typeName": "Bytes"
+              },
+              {
+                "name": "action",
+                "type": 8,
+                "typeName": "Bytes"
+              },
+              {
+                "name": "data",
+                "type": 8,
+                "typeName": "Bytes"
+              }
+            ]
+          }
+        },
+        "path": [
+          "cross_chain",
+          "storage_define",
+          "Content"
+        ]
+      }
+    },
+    {
+      "id": 48,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 49
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 35
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 49
+          },
+          {
+            "name": "E",
+            "type": 35
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 49,
+      "type": {
+        "def": {
+          "tuple": [
+            9,
+            19
+          ]
+        }
+      }
+    },
+    {
+      "id": 50,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 16
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 35
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 16
+          },
+          {
+            "name": "E",
+            "type": 35
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    }
+  ],
+  "version": "4"
+}
