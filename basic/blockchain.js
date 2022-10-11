@@ -65,8 +65,8 @@ let platonComputeContract = new platonWeb3.eth.Contract(ocComputeAbi, platonComp
 evmComputeContracts['PLATONEVM'] = platonComputeContract;
 
 // NEAR contract
-let nearContractId = '99ff32da92227f302056389ce208d77e12f88a6ffd2cee1b238586cc4cc20bd7';
-let nearSumContractId = "f738bf496d14e9c2d4b734be2905a319253a7cc5775511434991b9f212224aab";
+let nearContractId = 'd8ae7a513eeaa36a4c6a42127587dbf0f2adbbda06523c0fba4a16bd275089f9';
+let nearSumContractId = "4dc61b77ef1336cb0887b4a3f14447f2493cbd29ee4bb44cb70372e6fd3142c6";
 let nearSender = "shanks.testnet";
 let nearNetworkId = "testnet";
 // const keyFilePath = path.resolve(
