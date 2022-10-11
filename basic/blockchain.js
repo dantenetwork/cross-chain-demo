@@ -7,6 +7,7 @@ const utils = require('./utils');
 const rinkebyWeb3 = new Web3('https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161');
 const moonbeamWeb3 = new Web3('https://moonbase-alpha.public.blastapi.io');
 const fujiWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
+const platonWeb3 = new Web3('https://openapi.platon.network/rpc');
 
 let evmGreetingContracts = {};
 let evmComputeContracts = {};
@@ -15,6 +16,7 @@ let evmProviders = {};
 evmProviders['RINKEBY'] = [rinkebyWeb3, 4];
 evmProviders['MOONBASEALPHA'] = [moonbeamWeb3, 1287];
 evmProviders['FUJI'] = [fujiWeb3, 43113];
+evmProviders['PLATONEVM'] = [platonWeb3, 210425];
 
 // Test account
 let testAccount = '0x8408925fD39071270Ed1AcA5d618e1c79be08B27';
@@ -52,6 +54,15 @@ evmGreetingContracts['RINKEBY'] = rinkebyGreetingContract;
 let rinkebyComputeContractAddress = '0x6Aa89C654907445a35Da1109C5fD7A75F1546Ef6';
 let rinkebyComputeContract = new rinkebyWeb3.eth.Contract(ocComputeAbi, rinkebyComputeContractAddress);
 evmComputeContracts['RINKEBY'] = rinkebyComputeContract;
+
+// PlatON contracts
+let platonGreetingContractAddress = '0xbd2c1e271A60281AAeD8F42A91613fbD3ae18B65';
+let platonGreetingContract = new platonWeb3.eth.Contract(greetingAbi, platonGreetingContractAddress);
+evmGreetingContracts['PLATONEVM'] = platonGreetingContract;
+
+let platonComputeContractAddress = '0xD756Dcfc5F37D545496DbE12256b290e49B8Bfe3';
+let platonComputeContract = new platonWeb3.eth.Contract(ocComputeAbi, platonComputeContractAddress);
+evmComputeContracts['PLATONEVM'] = platonComputeContract;
 
 // NEAR contract
 let nearContractId = '99ff32da92227f302056389ce208d77e12f88a6ffd2cee1b238586cc4cc20bd7';
