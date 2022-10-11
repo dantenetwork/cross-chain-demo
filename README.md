@@ -135,7 +135,43 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   ```
   ![avatar](./flow-demo/img/result.jpg)
 
+#### **Interoperation between `PlatON` and `NEAR`**  
+
+**Check related transaction on [PlatON Scan](https://scan.platon.network/)**  
+**Check related transaction on [Near Scan](https://explorer.testnet.near.org/)**
+
+- Send greeting from `PlatON` to `NEAR`
+  - Send greeting from `PlatON` with command
+  ```
+  node platONToNear.js --greet
+  ```
   
+  ![image](https://user-images.githubusercontent.com/83757490/195003754-357021f5-642a-47c5-b030-6e90d763cd8b.png)
+  
+  - Query transaction on [PlatON Scan](https://scan.platon.network/contract-detail?address=0xbd2c1e271a60281aaed8f42a91613fbd3ae18b65)
+  
+  - Query result
+  
+  A moment later
+
+- Send outsourcing computing task from Moonbeam to NEAR
+  ```
+  node moonbeamToNear.js --compute 9,9,8
+  ```
+
+- Send greeting from NEAR to Moonbeam
+  ```
+  node nearToMoonbeam.js --greet
+  ```
+
+- Send outsourcing computing task from NEAR to Moonbeam 
+  ```
+  node nearToMoonbeam.js --compute 9,9,8
+  ```
+
+#### **Interoperation between `Shibuya Testnet` and `PlatON`**
+
+A similar tutorial for interoperation between `Shibuya Testnet` and `Avalanche` has been writen [here](https://github.com/dantenetwork/cross-chain-demo/blob/main/README.md#interoperation-between-shibuya-testnet-and-avalanche).
 
 ### Other Demos
 * Check more demo shows based on Dante protocol stack [here](https://github.com/dantenetwork/Demo-Show)
