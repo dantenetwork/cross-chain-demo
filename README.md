@@ -158,7 +158,7 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   
   
 
-- Send outsourcing computing task from Moonbeam to NEAR
+- Send outsourcing computing task from `PlatON` to `Near`
   - Send task from `PlatON` with command
   ```
   node platonToNear.js --compute 2,3,6
@@ -191,7 +191,7 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   
   
 
-- Send outsourcing computing task from NEAR to Moonbeam 
+- Send outsourcing computing task from `Near` to `PlatON`
   - Send task from `Near` with command
   ```
   node nearToPlatON.js --compute 9,9,8
