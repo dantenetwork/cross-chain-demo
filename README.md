@@ -152,7 +152,9 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   
   - Query result
   
-  A moment later
+  After a moment, the result queryed from `Near Testnet` will be printed.
+  
+  
 
 - Send outsourcing computing task from Moonbeam to NEAR
   ```
