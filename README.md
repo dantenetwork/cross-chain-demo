@@ -150,8 +150,6 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   
   - Query transaction on [PlatON Scan](https://scan.platon.network/contract-detail?address=0xbd2c1e271a60281aaed8f42a91613fbd3ae18b65)
   
-  ![image](https://user-images.githubusercontent.com/83757490/195019510-c907a2e6-0f9b-4f00-aecd-1bf4a81933f2.png)
-  
   - Query result
   
   After a moment, the result queryed from `Near Testnet` will be printed.
@@ -168,8 +166,6 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   ![image](https://user-images.githubusercontent.com/83757490/195019788-3cb1276c-2da1-4363-b375-608751843c9a.png)
 
   - Query transaction on [PlatON Scan](https://scan.platon.network/contract-detail?address=0x73D01079F4833D4Bcea07e87C47f818189F5EF3a)
-  
-  ![image](https://user-images.githubusercontent.com/83757490/195019900-b43a91f4-6603-4e93-ae29-d19b67c8d75e.png)
   
   - Query result
   
@@ -191,7 +187,7 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   
   - Query result
   
-  After a moment, the result queryed from `Near` will be printed.
+  After a moment, the result queryed from `PlatON` will be printed.
   
   ![image](https://user-images.githubusercontent.com/83757490/195021722-2843ea81-76ba-450f-8129-42729e065747.png)
 
