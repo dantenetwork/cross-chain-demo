@@ -11,6 +11,7 @@ const platonWeb3 = new Web3('https://openapi.platon.network/rpc');
 
 let evmGreetingContracts = {};
 let evmComputeContracts = {};
+let evmCrossChainContracts = {};
 let evmProviders = {};
 
 evmProviders['RINKEBY'] = [rinkebyWeb3, 4];
@@ -27,6 +28,9 @@ let greetingAbi = JSON.parse(greetingRawData).abi;
 
 let ocComputeRawData = fs.readFileSync('./res/OCComputing.json');
 let ocComputeAbi = JSON.parse(ocComputeRawData).abi;
+
+let crossChainRawData = fs.readFileSync('./res/ICrossChain.json');
+let crossChainAbi = JSON.parse(crossChainRawData).abi;
 
 // Moonbeam contracts
 let moonbeamGreetingContractAddress = '0x49bC1f09474993103ECa96d96f4C3f7000B5fB7b';
@@ -55,6 +59,10 @@ let rinkebyComputeContractAddress = '0x6Aa89C654907445a35Da1109C5fD7A75F1546Ef6'
 let rinkebyComputeContract = new rinkebyWeb3.eth.Contract(ocComputeAbi, rinkebyComputeContractAddress);
 evmComputeContracts['RINKEBY'] = rinkebyComputeContract;
 
+let rinkebyCrossChainContractAddress = '0x2999fe13d3CAa63C0bC523E8D5b19A265637dbd2';
+let rinkebyCrossChainContract = new platonWeb3.eth.Contract(crossChainAbi, rinkebyCrossChainContractAddress);
+evmCrossChainContracts['RINKEBY'] = rinkebyCrossChainContract;
+
 // PlatON contracts
 let platonGreetingContractAddress = '0xbd2c1e271A60281AAeD8F42A91613fbD3ae18B65';
 let platonGreetingContract = new platonWeb3.eth.Contract(greetingAbi, platonGreetingContractAddress);
@@ -63,6 +71,10 @@ evmGreetingContracts['PLATONEVM'] = platonGreetingContract;
 let platonComputeContractAddress = '0xD756Dcfc5F37D545496DbE12256b290e49B8Bfe3';
 let platonComputeContract = new platonWeb3.eth.Contract(ocComputeAbi, platonComputeContractAddress);
 evmComputeContracts['PLATONEVM'] = platonComputeContract;
+
+let platonCrossChainContractAddress = '0xf61C4699B99d1988EB235AF06F270029D9Ed3b63';
+let platonCrossChainContract = new platonWeb3.eth.Contract(crossChainAbi, platonCrossChainContractAddress);
+evmCrossChainContracts['PLATONEVM'] = platonCrossChainContract;
 
 // NEAR contract
 let nearContractId = 'd8ae7a513eeaa36a4c6a42127587dbf0f2adbbda06523c0fba4a16bd275089f9';
@@ -106,8 +118,9 @@ module.exports = {
   async sendMessageFromEthereum(fromChain, toChain) {
     await ethereum.sendTransaction(fromChain, evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccount, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
     await utils.sleep(5);
-    let messages = await ethereum.contractCall(evmGreetingContracts[fromChain], 'getGreetings', [toChain]);
-    return messages[messages.length - 1].session;
+    let id = await ethereum.contractCall(evmCrossChainContracts[fromChain], 'getSentMessageNumber', [toChain]);
+    console.log('id', id);
+    return id;
   },
 
   async sendOCTaskFromEthereum(fromChain, toChain, nums) {

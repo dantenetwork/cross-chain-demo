@@ -1,0 +1,2784 @@
+{
+  "contractName": "ICrossChain",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "setTokenContract",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "toChain",
+              "type": "string"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "enum SQoSType",
+                  "name": "t",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "v",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct SQoS[]",
+              "name": "sqos",
+              "type": "tuple[]"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "bytes",
+                  "name": "contractAddress",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "action",
+                  "type": "bytes"
+                },
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "internalType": "string",
+                          "name": "name",
+                          "type": "string"
+                        },
+                        {
+                          "internalType": "enum MsgType",
+                          "name": "msgType",
+                          "type": "uint8"
+                        },
+                        {
+                          "internalType": "bytes",
+                          "name": "value",
+                          "type": "bytes"
+                        }
+                      ],
+                      "internalType": "struct PayloadItem[]",
+                      "name": "items",
+                      "type": "tuple[]"
+                    }
+                  ],
+                  "internalType": "struct Payload",
+                  "name": "data",
+                  "type": "tuple"
+                }
+              ],
+              "internalType": "struct Content",
+              "name": "content",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "id",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "sessionType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "callback",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "commitment",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "answer",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct Session",
+              "name": "session",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct ISentMessage",
+          "name": "_message",
+          "type": "tuple"
+        }
+      ],
+      "name": "sendMessage",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "fromChain",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "toChain",
+              "type": "string"
+            },
+            {
+              "internalType": "bytes",
+              "name": "sender",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signer",
+              "type": "bytes"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "enum SQoSType",
+                  "name": "t",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "v",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct SQoS[]",
+              "name": "sqos",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "address",
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes4",
+              "name": "action",
+              "type": "bytes4"
+            },
+            {
+              "components": [
+                {
+                  "components": [
+                    {
+                      "internalType": "string",
+                      "name": "name",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "enum MsgType",
+                      "name": "msgType",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "bytes",
+                      "name": "value",
+                      "type": "bytes"
+                    }
+                  ],
+                  "internalType": "struct PayloadItem[]",
+                  "name": "items",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct Payload",
+              "name": "data",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "id",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "sessionType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "callback",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "commitment",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "answer",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct Session",
+              "name": "session",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "errorCode",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IReceivedMessage",
+          "name": "_message",
+          "type": "tuple"
+        }
+      ],
+      "name": "receiveMessage",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_chainName",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "executeMessage",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getCurrentMessage",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "fromChain",
+              "type": "string"
+            },
+            {
+              "internalType": "bytes",
+              "name": "sender",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signer",
+              "type": "bytes"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "enum SQoSType",
+                  "name": "t",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "v",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct SQoS[]",
+              "name": "sqos",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "address",
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes4",
+              "name": "action",
+              "type": "bytes4"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "id",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "sessionType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "callback",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "commitment",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "answer",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct Session",
+              "name": "session",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct SimplifiedMessage",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_chainName",
+          "type": "string"
+        }
+      ],
+      "name": "getSentMessageNumber",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_chainName",
+          "type": "string"
+        }
+      ],
+      "name": "getReceivedMessageNumber",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_chainName",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getSentMessage",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "fromChain",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "toChain",
+              "type": "string"
+            },
+            {
+              "internalType": "bytes",
+              "name": "sender",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signer",
+              "type": "bytes"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "enum SQoSType",
+                  "name": "t",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "v",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct SQoS[]",
+              "name": "sqos",
+              "type": "tuple[]"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "bytes",
+                  "name": "contractAddress",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "action",
+                  "type": "bytes"
+                },
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "internalType": "string",
+                          "name": "name",
+                          "type": "string"
+                        },
+                        {
+                          "internalType": "enum MsgType",
+                          "name": "msgType",
+                          "type": "uint8"
+                        },
+                        {
+                          "internalType": "bytes",
+                          "name": "value",
+                          "type": "bytes"
+                        }
+                      ],
+                      "internalType": "struct PayloadItem[]",
+                      "name": "items",
+                      "type": "tuple[]"
+                    }
+                  ],
+                  "internalType": "struct Payload",
+                  "name": "data",
+                  "type": "tuple"
+                }
+              ],
+              "internalType": "struct Content",
+              "name": "content",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "id",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "sessionType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "callback",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "commitment",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "answer",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct Session",
+              "name": "session",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct SentMessage",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_chainName",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getReceivedMessage",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "fromChain",
+              "type": "string"
+            },
+            {
+              "internalType": "bytes",
+              "name": "sender",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signer",
+              "type": "bytes"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "enum SQoSType",
+                  "name": "t",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "v",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct SQoS[]",
+              "name": "sqos",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "address",
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes4",
+              "name": "action",
+              "type": "bytes4"
+            },
+            {
+              "components": [
+                {
+                  "components": [
+                    {
+                      "internalType": "string",
+                      "name": "name",
+                      "type": "string"
+                    },
+                    {
+                      "internalType": "enum MsgType",
+                      "name": "msgType",
+                      "type": "uint8"
+                    },
+                    {
+                      "internalType": "bytes",
+                      "name": "value",
+                      "type": "bytes"
+                    }
+                  ],
+                  "internalType": "struct PayloadItem[]",
+                  "name": "items",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct Payload",
+              "name": "data",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "id",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "sessionType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "callback",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "commitment",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "answer",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct Session",
+              "name": "session",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bool",
+              "name": "executed",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "errorCode",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ReceivedMessage",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_chainName",
+          "type": "string"
+        }
+      ],
+      "name": "getExecutableMessageId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_chainName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"executeMessage\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCurrentMessage\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"fromChain\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"sender\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"signer\",\"type\":\"bytes\"},{\"components\":[{\"internalType\":\"enum SQoSType\",\"name\":\"t\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"v\",\"type\":\"bytes\"}],\"internalType\":\"struct SQoS[]\",\"name\":\"sqos\",\"type\":\"tuple[]\"},{\"internalType\":\"address\",\"name\":\"contractAddress\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"action\",\"type\":\"bytes4\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"sessionType\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"callback\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"commitment\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"answer\",\"type\":\"bytes\"}],\"internalType\":\"struct Session\",\"name\":\"session\",\"type\":\"tuple\"}],\"internalType\":\"struct SimplifiedMessage\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_chainName\",\"type\":\"string\"}],\"name\":\"getExecutableMessageId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_chainName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"getReceivedMessage\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"fromChain\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"sender\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"signer\",\"type\":\"bytes\"},{\"components\":[{\"internalType\":\"enum SQoSType\",\"name\":\"t\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"v\",\"type\":\"bytes\"}],\"internalType\":\"struct SQoS[]\",\"name\":\"sqos\",\"type\":\"tuple[]\"},{\"internalType\":\"address\",\"name\":\"contractAddress\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"action\",\"type\":\"bytes4\"},{\"components\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"enum MsgType\",\"name\":\"msgType\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"value\",\"type\":\"bytes\"}],\"internalType\":\"struct PayloadItem[]\",\"name\":\"items\",\"type\":\"tuple[]\"}],\"internalType\":\"struct Payload\",\"name\":\"data\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"sessionType\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"callback\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"commitment\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"answer\",\"type\":\"bytes\"}],\"internalType\":\"struct Session\",\"name\":\"session\",\"type\":\"tuple\"},{\"internalType\":\"bool\",\"name\":\"executed\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"errorCode\",\"type\":\"uint256\"}],\"internalType\":\"struct ReceivedMessage\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_chainName\",\"type\":\"string\"}],\"name\":\"getReceivedMessageNumber\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_chainName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"getSentMessage\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"fromChain\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"toChain\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"sender\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"signer\",\"type\":\"bytes\"},{\"components\":[{\"internalType\":\"enum SQoSType\",\"name\":\"t\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"v\",\"type\":\"bytes\"}],\"internalType\":\"struct SQoS[]\",\"name\":\"sqos\",\"type\":\"tuple[]\"},{\"components\":[{\"internalType\":\"bytes\",\"name\":\"contractAddress\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"action\",\"type\":\"bytes\"},{\"components\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"enum MsgType\",\"name\":\"msgType\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"value\",\"type\":\"bytes\"}],\"internalType\":\"struct PayloadItem[]\",\"name\":\"items\",\"type\":\"tuple[]\"}],\"internalType\":\"struct Payload\",\"name\":\"data\",\"type\":\"tuple\"}],\"internalType\":\"struct Content\",\"name\":\"content\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"sessionType\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"callback\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"commitment\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"answer\",\"type\":\"bytes\"}],\"internalType\":\"struct Session\",\"name\":\"session\",\"type\":\"tuple\"}],\"internalType\":\"struct SentMessage\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_chainName\",\"type\":\"string\"}],\"name\":\"getSentMessageNumber\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"fromChain\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"toChain\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"sender\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"signer\",\"type\":\"bytes\"},{\"components\":[{\"internalType\":\"enum SQoSType\",\"name\":\"t\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"v\",\"type\":\"bytes\"}],\"internalType\":\"struct SQoS[]\",\"name\":\"sqos\",\"type\":\"tuple[]\"},{\"internalType\":\"address\",\"name\":\"contractAddress\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"action\",\"type\":\"bytes4\"},{\"components\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"enum MsgType\",\"name\":\"msgType\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"value\",\"type\":\"bytes\"}],\"internalType\":\"struct PayloadItem[]\",\"name\":\"items\",\"type\":\"tuple[]\"}],\"internalType\":\"struct Payload\",\"name\":\"data\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"sessionType\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"callback\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"commitment\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"answer\",\"type\":\"bytes\"}],\"internalType\":\"struct Session\",\"name\":\"session\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"errorCode\",\"type\":\"uint256\"}],\"internalType\":\"struct IReceivedMessage\",\"name\":\"_message\",\"type\":\"tuple\"}],\"name\":\"receiveMessage\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"toChain\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"enum SQoSType\",\"name\":\"t\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"v\",\"type\":\"bytes\"}],\"internalType\":\"struct SQoS[]\",\"name\":\"sqos\",\"type\":\"tuple[]\"},{\"components\":[{\"internalType\":\"bytes\",\"name\":\"contractAddress\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"action\",\"type\":\"bytes\"},{\"components\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"enum MsgType\",\"name\":\"msgType\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"value\",\"type\":\"bytes\"}],\"internalType\":\"struct PayloadItem[]\",\"name\":\"items\",\"type\":\"tuple[]\"}],\"internalType\":\"struct Payload\",\"name\":\"data\",\"type\":\"tuple\"}],\"internalType\":\"struct Content\",\"name\":\"content\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"sessionType\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"callback\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"commitment\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"answer\",\"type\":\"bytes\"}],\"internalType\":\"struct Session\",\"name\":\"session\",\"type\":\"tuple\"}],\"internalType\":\"struct ISentMessage\",\"name\":\"_message\",\"type\":\"tuple\"}],\"name\":\"sendMessage\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"setTokenContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the CrossChain.\",\"kind\":\"dev\",\"methods\":{\"executeMessage(string,uint256)\":{\"details\":\"Triggers execution of a message sent from chain `_chainName` with id `_id`.\"},\"getCurrentMessage()\":{\"details\":\"Returns the simplified message, this message is reset every time a third-party contract is called\"},\"getExecutableMessageId(string)\":{\"details\":\"Returns the id of a executable message sent from chain `_chainName`, returns 0 if none.\"},\"getReceivedMessage(string,uint256)\":{\"details\":\"Returns the message with id `_id` received from chain `_chainName`.\"},\"getReceivedMessageNumber(string)\":{\"details\":\"Returns the number of messages received from chain `_chainName`.\"},\"getSentMessage(string,uint256)\":{\"details\":\"Returns the message with id `_id` sent to chain `_chainName`.\"},\"getSentMessageNumber(string)\":{\"details\":\"Returns the number of messages sent to chain `_chainName`.\"},\"receiveMessage((uint256,string,string,bytes,bytes,(uint8,bytes)[],address,bytes4,((string,uint8,bytes)[]),(uint256,uint8,bytes,bytes,bytes),uint256))\":{\"details\":\"Cross-Chain receives message from chain `_fromChain`, the message will be handled by method `_action` of contract `_to`, data is `_data`.\"},\"sendMessage((string,(uint8,bytes)[],(bytes,bytes,((string,uint8,bytes)[])),(uint256,uint8,bytes,bytes,bytes)))\":{\"details\":\"Cross-Chain calls method `_methodName` of contract `_contractAddress` on chain `_toChain`, data is `_data`.\"},\"setTokenContract(address)\":{\"details\":\"Set daten token contract address.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/ICrossChain.sol\":\"ICrossChain\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/MessageDefine.sol\":{\"keccak256\":\"0x28f593dbb4979b59be3d47c9e14203173c12caf491df55da4b5b29d88da884c1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5c97a37c5ef49cee49a366e945ee199f6ecc0a26381253f82d8e3a8631c15bc7\",\"dweb:/ipfs/QmWdzZTrN4Pc6dtJ7nQNe7WzqsfhbJJ9YotMTPBELGGxiP\"]},\"project:/contracts/interfaces/ICrossChain.sol\":{\"keccak256\":\"0x6f61de054dd87f8c4c3b0bdbc0fe650af60a1ff05a15d500ed8eec8e3a590cc1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8ebba8c7c542f1a4e844de3b6716d20d932372c898fe73954596073633050726\",\"dweb:/ipfs/QmfCVWwNkBXmcpViKJfbVLuG7V86oZnfKEPaXQY8qQAneB\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\nimport \"../MessageDefine.sol\";\n\n/**\n * @dev Interface of the CrossChain.\n */\ninterface ICrossChain {\n    /**\n     * @dev Set daten token contract address.\n     */\n    function setTokenContract(address _address) external;\n\n    /**\n     * @dev Cross-Chain calls method `_methodName` of contract `_contractAddress`\n     * on chain `_toChain`, data is `_data`.\n     */\n    function sendMessage(ISentMessage calldata _message) external returns (uint256);\n\n    /**\n     * @dev Cross-Chain receives message from chain `_fromChain`, the message will\n     * be handled by method `_action` of contract `_to`, data is `_data`.\n     */\n    function receiveMessage(IReceivedMessage calldata _message) external;\n\n    /**\n     * @dev Triggers execution of a message sent from chain `_chainName` with id `_id`.\n     */\n    function executeMessage(string calldata _chainName, uint256 _id) external;\n\n    /**\n     * @dev Returns the simplified message, this message is reset every time a third-party contract is called\n     */\n    function getCurrentMessage() view external returns (SimplifiedMessage memory);\n\n    /**\n     * @dev Returns the number of messages sent to chain `_chainName`.\n     */\n    function getSentMessageNumber(string calldata _chainName) view external returns (uint256);\n\n    /**\n     * @dev Returns the number of messages received from chain `_chainName`.\n     */\n    function getReceivedMessageNumber(string calldata _chainName) view external returns (uint256);\n\n    /**\n     * @dev Returns the message with id `_id` sent to chain `_chainName`.\n     */\n    function getSentMessage(string calldata _chainName, uint256 _id) view external returns (SentMessage memory);\n\n    /**\n     * @dev Returns the message with id `_id` received from chain `_chainName`.\n     */\n    function getReceivedMessage(string calldata _chainName, uint256 _id) view external returns (ReceivedMessage memory);\n\n    /**\n     * @dev Returns the id of a executable message sent from chain `_chainName`, returns 0 if none.\n     */\n    function getExecutableMessageId(string calldata _chainName) view external returns (uint256);\n}\n",
+  "sourcePath": "/home/george/program/dante/dante-cross-chain/avalanche/contracts/interfaces/ICrossChain.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/ICrossChain.sol",
+    "exportedSymbols": {
+      "Content": [
+        878
+      ],
+      "ICrossChain": [
+        4156
+      ],
+      "IReceivedMessage": [
+        946
+      ],
+      "ISentMessage": [
+        919
+      ],
+      "MsgType": [
+        1044
+      ],
+      "Payload": [
+        1057
+      ],
+      "PayloadItem": [
+        1052
+      ],
+      "ReceivedMessage": [
+        994
+      ],
+      "SQoS": [
+        895
+      ],
+      "SQoSType": [
+        889
+      ],
+      "SentMessage": [
+        967
+      ],
+      "Session": [
+        906
+      ],
+      "SimplifiedMessage": [
+        1014
+      ],
+      "cachedReceivedMessage": [
+        1020
+      ]
+    },
+    "id": 4157,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4070,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:11"
+      },
+      {
+        "absolutePath": "project:/contracts/MessageDefine.sol",
+        "file": "../MessageDefine.sol",
+        "id": 4071,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 4157,
+        "sourceUnit": 1058,
+        "src": "58:30:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ICrossChain",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 4072,
+          "nodeType": "StructuredDocumentation",
+          "src": "90:44:11",
+          "text": " @dev Interface of the CrossChain."
+        },
+        "fullyImplemented": false,
+        "id": 4156,
+        "linearizedBaseContracts": [
+          4156
+        ],
+        "name": "ICrossChain",
+        "nameLocation": "145:11:11",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 4073,
+              "nodeType": "StructuredDocumentation",
+              "src": "163:57:11",
+              "text": " @dev Set daten token contract address."
+            },
+            "functionSelector": "bbcd5bbe",
+            "id": 4078,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTokenContract",
+            "nameLocation": "234:16:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4076,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4075,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "259:8:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4078,
+                  "src": "251:16:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4074,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "251:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "250:18:11"
+            },
+            "returnParameters": {
+              "id": 4077,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "277:0:11"
+            },
+            "scope": 4156,
+            "src": "225:53:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4079,
+              "nodeType": "StructuredDocumentation",
+              "src": "284:138:11",
+              "text": " @dev Cross-Chain calls method `_methodName` of contract `_contractAddress`\n on chain `_toChain`, data is `_data`."
+            },
+            "functionSelector": "2f260fd7",
+            "id": 4087,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "sendMessage",
+            "nameLocation": "436:11:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4083,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4082,
+                  "mutability": "mutable",
+                  "name": "_message",
+                  "nameLocation": "470:8:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4087,
+                  "src": "448:30:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ISentMessage_$919_calldata_ptr",
+                    "typeString": "struct ISentMessage"
+                  },
+                  "typeName": {
+                    "id": 4081,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4080,
+                      "name": "ISentMessage",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 919,
+                      "src": "448:12:11"
+                    },
+                    "referencedDeclaration": 919,
+                    "src": "448:12:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ISentMessage_$919_storage_ptr",
+                      "typeString": "struct ISentMessage"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "447:32:11"
+            },
+            "returnParameters": {
+              "id": 4086,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4085,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4087,
+                  "src": "498:7:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4084,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "498:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "497:9:11"
+            },
+            "scope": 4156,
+            "src": "427:80:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4088,
+              "nodeType": "StructuredDocumentation",
+              "src": "513:168:11",
+              "text": " @dev Cross-Chain receives message from chain `_fromChain`, the message will\n be handled by method `_action` of contract `_to`, data is `_data`."
+            },
+            "functionSelector": "c8bcd113",
+            "id": 4094,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "receiveMessage",
+            "nameLocation": "695:14:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4092,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4091,
+                  "mutability": "mutable",
+                  "name": "_message",
+                  "nameLocation": "736:8:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4094,
+                  "src": "710:34:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IReceivedMessage_$946_calldata_ptr",
+                    "typeString": "struct IReceivedMessage"
+                  },
+                  "typeName": {
+                    "id": 4090,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4089,
+                      "name": "IReceivedMessage",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 946,
+                      "src": "710:16:11"
+                    },
+                    "referencedDeclaration": 946,
+                    "src": "710:16:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IReceivedMessage_$946_storage_ptr",
+                      "typeString": "struct IReceivedMessage"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "709:36:11"
+            },
+            "returnParameters": {
+              "id": 4093,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "754:0:11"
+            },
+            "scope": 4156,
+            "src": "686:69:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4095,
+              "nodeType": "StructuredDocumentation",
+              "src": "761:99:11",
+              "text": " @dev Triggers execution of a message sent from chain `_chainName` with id `_id`."
+            },
+            "functionSelector": "ce700e80",
+            "id": 4102,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "executeMessage",
+            "nameLocation": "874:14:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4100,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4097,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "905:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4102,
+                  "src": "889:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4096,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "889:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4099,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "925:3:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4102,
+                  "src": "917:11:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4098,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "917:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "888:41:11"
+            },
+            "returnParameters": {
+              "id": 4101,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "938:0:11"
+            },
+            "scope": 4156,
+            "src": "865:74:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4103,
+              "nodeType": "StructuredDocumentation",
+              "src": "945:121:11",
+              "text": " @dev Returns the simplified message, this message is reset every time a third-party contract is called"
+            },
+            "functionSelector": "9af7a48c",
+            "id": 4109,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCurrentMessage",
+            "nameLocation": "1080:17:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4104,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1097:2:11"
+            },
+            "returnParameters": {
+              "id": 4108,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4107,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4109,
+                  "src": "1123:24:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_SimplifiedMessage_$1014_memory_ptr",
+                    "typeString": "struct SimplifiedMessage"
+                  },
+                  "typeName": {
+                    "id": 4106,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4105,
+                      "name": "SimplifiedMessage",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1014,
+                      "src": "1123:17:11"
+                    },
+                    "referencedDeclaration": 1014,
+                    "src": "1123:17:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_SimplifiedMessage_$1014_storage_ptr",
+                      "typeString": "struct SimplifiedMessage"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1122:26:11"
+            },
+            "scope": 4156,
+            "src": "1071:78:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4110,
+              "nodeType": "StructuredDocumentation",
+              "src": "1155:82:11",
+              "text": " @dev Returns the number of messages sent to chain `_chainName`."
+            },
+            "functionSelector": "086615c2",
+            "id": 4117,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSentMessageNumber",
+            "nameLocation": "1251:20:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4113,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4112,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "1288:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4117,
+                  "src": "1272:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4111,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1272:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1271:28:11"
+            },
+            "returnParameters": {
+              "id": 4116,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4115,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4117,
+                  "src": "1323:7:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4114,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1323:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1322:9:11"
+            },
+            "scope": 4156,
+            "src": "1242:90:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4118,
+              "nodeType": "StructuredDocumentation",
+              "src": "1338:88:11",
+              "text": " @dev Returns the number of messages received from chain `_chainName`."
+            },
+            "functionSelector": "debcd46e",
+            "id": 4125,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReceivedMessageNumber",
+            "nameLocation": "1440:24:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4121,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4120,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "1481:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4125,
+                  "src": "1465:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4119,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1465:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1464:28:11"
+            },
+            "returnParameters": {
+              "id": 4124,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4123,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4125,
+                  "src": "1516:7:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4122,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1516:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1515:9:11"
+            },
+            "scope": 4156,
+            "src": "1431:94:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4126,
+              "nodeType": "StructuredDocumentation",
+              "src": "1531:85:11",
+              "text": " @dev Returns the message with id `_id` sent to chain `_chainName`."
+            },
+            "functionSelector": "8e3db313",
+            "id": 4136,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSentMessage",
+            "nameLocation": "1630:14:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4131,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4128,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "1661:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4136,
+                  "src": "1645:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4127,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1645:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4130,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1681:3:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4136,
+                  "src": "1673:11:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4129,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1673:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1644:41:11"
+            },
+            "returnParameters": {
+              "id": 4135,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4134,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4136,
+                  "src": "1709:18:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_SentMessage_$967_memory_ptr",
+                    "typeString": "struct SentMessage"
+                  },
+                  "typeName": {
+                    "id": 4133,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4132,
+                      "name": "SentMessage",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 967,
+                      "src": "1709:11:11"
+                    },
+                    "referencedDeclaration": 967,
+                    "src": "1709:11:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_SentMessage_$967_storage_ptr",
+                      "typeString": "struct SentMessage"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1708:20:11"
+            },
+            "scope": 4156,
+            "src": "1621:108:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4137,
+              "nodeType": "StructuredDocumentation",
+              "src": "1735:91:11",
+              "text": " @dev Returns the message with id `_id` received from chain `_chainName`."
+            },
+            "functionSelector": "c3832214",
+            "id": 4147,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReceivedMessage",
+            "nameLocation": "1840:18:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4139,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "1875:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4147,
+                  "src": "1859:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4138,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1859:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4141,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1895:3:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4147,
+                  "src": "1887:11:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4140,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1887:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1858:41:11"
+            },
+            "returnParameters": {
+              "id": 4146,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4145,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4147,
+                  "src": "1923:22:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ReceivedMessage_$994_memory_ptr",
+                    "typeString": "struct ReceivedMessage"
+                  },
+                  "typeName": {
+                    "id": 4144,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4143,
+                      "name": "ReceivedMessage",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 994,
+                      "src": "1923:15:11"
+                    },
+                    "referencedDeclaration": 994,
+                    "src": "1923:15:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ReceivedMessage_$994_storage_ptr",
+                      "typeString": "struct ReceivedMessage"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1922:24:11"
+            },
+            "scope": 4156,
+            "src": "1831:116:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4148,
+              "nodeType": "StructuredDocumentation",
+              "src": "1953:111:11",
+              "text": " @dev Returns the id of a executable message sent from chain `_chainName`, returns 0 if none."
+            },
+            "functionSelector": "a4b97e39",
+            "id": 4155,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getExecutableMessageId",
+            "nameLocation": "2078:22:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4151,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4150,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "2117:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4155,
+                  "src": "2101:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4149,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2101:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2100:28:11"
+            },
+            "returnParameters": {
+              "id": 4154,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4153,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4155,
+                  "src": "2152:7:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4152,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2152:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2151:9:11"
+            },
+            "scope": 4156,
+            "src": "2069:92:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4157,
+        "src": "135:2028:11",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:2131:11"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/interfaces/ICrossChain.sol",
+    "exportedSymbols": {
+      "Content": [
+        878
+      ],
+      "ICrossChain": [
+        4156
+      ],
+      "IReceivedMessage": [
+        946
+      ],
+      "ISentMessage": [
+        919
+      ],
+      "MsgType": [
+        1044
+      ],
+      "Payload": [
+        1057
+      ],
+      "PayloadItem": [
+        1052
+      ],
+      "ReceivedMessage": [
+        994
+      ],
+      "SQoS": [
+        895
+      ],
+      "SQoSType": [
+        889
+      ],
+      "SentMessage": [
+        967
+      ],
+      "Session": [
+        906
+      ],
+      "SimplifiedMessage": [
+        1014
+      ],
+      "cachedReceivedMessage": [
+        1020
+      ]
+    },
+    "id": 4157,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4070,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:11"
+      },
+      {
+        "absolutePath": "project:/contracts/MessageDefine.sol",
+        "file": "../MessageDefine.sol",
+        "id": 4071,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 4157,
+        "sourceUnit": 1058,
+        "src": "58:30:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ICrossChain",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 4072,
+          "nodeType": "StructuredDocumentation",
+          "src": "90:44:11",
+          "text": " @dev Interface of the CrossChain."
+        },
+        "fullyImplemented": false,
+        "id": 4156,
+        "linearizedBaseContracts": [
+          4156
+        ],
+        "name": "ICrossChain",
+        "nameLocation": "145:11:11",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 4073,
+              "nodeType": "StructuredDocumentation",
+              "src": "163:57:11",
+              "text": " @dev Set daten token contract address."
+            },
+            "functionSelector": "bbcd5bbe",
+            "id": 4078,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setTokenContract",
+            "nameLocation": "234:16:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4076,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4075,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "259:8:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4078,
+                  "src": "251:16:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4074,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "251:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "250:18:11"
+            },
+            "returnParameters": {
+              "id": 4077,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "277:0:11"
+            },
+            "scope": 4156,
+            "src": "225:53:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4079,
+              "nodeType": "StructuredDocumentation",
+              "src": "284:138:11",
+              "text": " @dev Cross-Chain calls method `_methodName` of contract `_contractAddress`\n on chain `_toChain`, data is `_data`."
+            },
+            "functionSelector": "2f260fd7",
+            "id": 4087,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "sendMessage",
+            "nameLocation": "436:11:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4083,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4082,
+                  "mutability": "mutable",
+                  "name": "_message",
+                  "nameLocation": "470:8:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4087,
+                  "src": "448:30:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ISentMessage_$919_calldata_ptr",
+                    "typeString": "struct ISentMessage"
+                  },
+                  "typeName": {
+                    "id": 4081,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4080,
+                      "name": "ISentMessage",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 919,
+                      "src": "448:12:11"
+                    },
+                    "referencedDeclaration": 919,
+                    "src": "448:12:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ISentMessage_$919_storage_ptr",
+                      "typeString": "struct ISentMessage"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "447:32:11"
+            },
+            "returnParameters": {
+              "id": 4086,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4085,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4087,
+                  "src": "498:7:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4084,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "498:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "497:9:11"
+            },
+            "scope": 4156,
+            "src": "427:80:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4088,
+              "nodeType": "StructuredDocumentation",
+              "src": "513:168:11",
+              "text": " @dev Cross-Chain receives message from chain `_fromChain`, the message will\n be handled by method `_action` of contract `_to`, data is `_data`."
+            },
+            "functionSelector": "c8bcd113",
+            "id": 4094,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "receiveMessage",
+            "nameLocation": "695:14:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4092,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4091,
+                  "mutability": "mutable",
+                  "name": "_message",
+                  "nameLocation": "736:8:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4094,
+                  "src": "710:34:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IReceivedMessage_$946_calldata_ptr",
+                    "typeString": "struct IReceivedMessage"
+                  },
+                  "typeName": {
+                    "id": 4090,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4089,
+                      "name": "IReceivedMessage",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 946,
+                      "src": "710:16:11"
+                    },
+                    "referencedDeclaration": 946,
+                    "src": "710:16:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IReceivedMessage_$946_storage_ptr",
+                      "typeString": "struct IReceivedMessage"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "709:36:11"
+            },
+            "returnParameters": {
+              "id": 4093,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "754:0:11"
+            },
+            "scope": 4156,
+            "src": "686:69:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4095,
+              "nodeType": "StructuredDocumentation",
+              "src": "761:99:11",
+              "text": " @dev Triggers execution of a message sent from chain `_chainName` with id `_id`."
+            },
+            "functionSelector": "ce700e80",
+            "id": 4102,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "executeMessage",
+            "nameLocation": "874:14:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4100,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4097,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "905:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4102,
+                  "src": "889:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4096,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "889:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4099,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "925:3:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4102,
+                  "src": "917:11:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4098,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "917:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "888:41:11"
+            },
+            "returnParameters": {
+              "id": 4101,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "938:0:11"
+            },
+            "scope": 4156,
+            "src": "865:74:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4103,
+              "nodeType": "StructuredDocumentation",
+              "src": "945:121:11",
+              "text": " @dev Returns the simplified message, this message is reset every time a third-party contract is called"
+            },
+            "functionSelector": "9af7a48c",
+            "id": 4109,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCurrentMessage",
+            "nameLocation": "1080:17:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4104,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1097:2:11"
+            },
+            "returnParameters": {
+              "id": 4108,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4107,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4109,
+                  "src": "1123:24:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_SimplifiedMessage_$1014_memory_ptr",
+                    "typeString": "struct SimplifiedMessage"
+                  },
+                  "typeName": {
+                    "id": 4106,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4105,
+                      "name": "SimplifiedMessage",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1014,
+                      "src": "1123:17:11"
+                    },
+                    "referencedDeclaration": 1014,
+                    "src": "1123:17:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_SimplifiedMessage_$1014_storage_ptr",
+                      "typeString": "struct SimplifiedMessage"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1122:26:11"
+            },
+            "scope": 4156,
+            "src": "1071:78:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4110,
+              "nodeType": "StructuredDocumentation",
+              "src": "1155:82:11",
+              "text": " @dev Returns the number of messages sent to chain `_chainName`."
+            },
+            "functionSelector": "086615c2",
+            "id": 4117,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSentMessageNumber",
+            "nameLocation": "1251:20:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4113,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4112,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "1288:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4117,
+                  "src": "1272:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4111,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1272:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1271:28:11"
+            },
+            "returnParameters": {
+              "id": 4116,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4115,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4117,
+                  "src": "1323:7:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4114,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1323:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1322:9:11"
+            },
+            "scope": 4156,
+            "src": "1242:90:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4118,
+              "nodeType": "StructuredDocumentation",
+              "src": "1338:88:11",
+              "text": " @dev Returns the number of messages received from chain `_chainName`."
+            },
+            "functionSelector": "debcd46e",
+            "id": 4125,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReceivedMessageNumber",
+            "nameLocation": "1440:24:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4121,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4120,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "1481:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4125,
+                  "src": "1465:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4119,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1465:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1464:28:11"
+            },
+            "returnParameters": {
+              "id": 4124,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4123,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4125,
+                  "src": "1516:7:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4122,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1516:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1515:9:11"
+            },
+            "scope": 4156,
+            "src": "1431:94:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4126,
+              "nodeType": "StructuredDocumentation",
+              "src": "1531:85:11",
+              "text": " @dev Returns the message with id `_id` sent to chain `_chainName`."
+            },
+            "functionSelector": "8e3db313",
+            "id": 4136,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSentMessage",
+            "nameLocation": "1630:14:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4131,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4128,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "1661:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4136,
+                  "src": "1645:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4127,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1645:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4130,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1681:3:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4136,
+                  "src": "1673:11:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4129,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1673:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1644:41:11"
+            },
+            "returnParameters": {
+              "id": 4135,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4134,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4136,
+                  "src": "1709:18:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_SentMessage_$967_memory_ptr",
+                    "typeString": "struct SentMessage"
+                  },
+                  "typeName": {
+                    "id": 4133,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4132,
+                      "name": "SentMessage",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 967,
+                      "src": "1709:11:11"
+                    },
+                    "referencedDeclaration": 967,
+                    "src": "1709:11:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_SentMessage_$967_storage_ptr",
+                      "typeString": "struct SentMessage"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1708:20:11"
+            },
+            "scope": 4156,
+            "src": "1621:108:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4137,
+              "nodeType": "StructuredDocumentation",
+              "src": "1735:91:11",
+              "text": " @dev Returns the message with id `_id` received from chain `_chainName`."
+            },
+            "functionSelector": "c3832214",
+            "id": 4147,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReceivedMessage",
+            "nameLocation": "1840:18:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4139,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "1875:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4147,
+                  "src": "1859:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4138,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1859:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4141,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "1895:3:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4147,
+                  "src": "1887:11:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4140,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1887:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1858:41:11"
+            },
+            "returnParameters": {
+              "id": 4146,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4145,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4147,
+                  "src": "1923:22:11",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ReceivedMessage_$994_memory_ptr",
+                    "typeString": "struct ReceivedMessage"
+                  },
+                  "typeName": {
+                    "id": 4144,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4143,
+                      "name": "ReceivedMessage",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 994,
+                      "src": "1923:15:11"
+                    },
+                    "referencedDeclaration": 994,
+                    "src": "1923:15:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ReceivedMessage_$994_storage_ptr",
+                      "typeString": "struct ReceivedMessage"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1922:24:11"
+            },
+            "scope": 4156,
+            "src": "1831:116:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 4148,
+              "nodeType": "StructuredDocumentation",
+              "src": "1953:111:11",
+              "text": " @dev Returns the id of a executable message sent from chain `_chainName`, returns 0 if none."
+            },
+            "functionSelector": "a4b97e39",
+            "id": 4155,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getExecutableMessageId",
+            "nameLocation": "2078:22:11",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4151,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4150,
+                  "mutability": "mutable",
+                  "name": "_chainName",
+                  "nameLocation": "2117:10:11",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4155,
+                  "src": "2101:26:11",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_calldata_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 4149,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2101:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2100:28:11"
+            },
+            "returnParameters": {
+              "id": 4154,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4153,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4155,
+                  "src": "2152:7:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4152,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2152:7:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2151:9:11"
+            },
+            "scope": 4156,
+            "src": "2069:92:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4157,
+        "src": "135:2028:11",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:2131:11"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.6",
+  "updatedAt": "2022-10-09T02:47:31.144Z",
+  "devdoc": {
+    "details": "Interface of the CrossChain.",
+    "kind": "dev",
+    "methods": {
+      "executeMessage(string,uint256)": {
+        "details": "Triggers execution of a message sent from chain `_chainName` with id `_id`."
+      },
+      "getCurrentMessage()": {
+        "details": "Returns the simplified message, this message is reset every time a third-party contract is called"
+      },
+      "getExecutableMessageId(string)": {
+        "details": "Returns the id of a executable message sent from chain `_chainName`, returns 0 if none."
+      },
+      "getReceivedMessage(string,uint256)": {
+        "details": "Returns the message with id `_id` received from chain `_chainName`."
+      },
+      "getReceivedMessageNumber(string)": {
+        "details": "Returns the number of messages received from chain `_chainName`."
+      },
+      "getSentMessage(string,uint256)": {
+        "details": "Returns the message with id `_id` sent to chain `_chainName`."
+      },
+      "getSentMessageNumber(string)": {
+        "details": "Returns the number of messages sent to chain `_chainName`."
+      },
+      "receiveMessage((uint256,string,string,bytes,bytes,(uint8,bytes)[],address,bytes4,((string,uint8,bytes)[]),(uint256,uint8,bytes,bytes,bytes),uint256))": {
+        "details": "Cross-Chain receives message from chain `_fromChain`, the message will be handled by method `_action` of contract `_to`, data is `_data`."
+      },
+      "sendMessage((string,(uint8,bytes)[],(bytes,bytes,((string,uint8,bytes)[])),(uint256,uint8,bytes,bytes,bytes)))": {
+        "details": "Cross-Chain calls method `_methodName` of contract `_contractAddress` on chain `_toChain`, data is `_data`."
+      },
+      "setTokenContract(address)": {
+        "details": "Set daten token contract address."
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
