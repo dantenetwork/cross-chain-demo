@@ -137,8 +137,8 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
 
 #### **Interoperation between `PlatON` and `NEAR`**  
 
-**Check related transaction on [PlatON Scan](https://scan.platon.network/)**  
-**Check related transaction on [Near Scan](https://explorer.testnet.near.org/)**
+  **Check related transaction on [PlatON Scan](https://scan.platon.network/)**  
+  **Check related transaction on [Near Scan](https://explorer.testnet.near.org/)**
 
 - Send greeting from `PlatON` to `NEAR`
   - Send greeting from `PlatON` with command
@@ -156,7 +156,8 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   
   After a moment, the result queryed from `Near Testnet` will be printed.
   
-  
+  ![image](https://user-images.githubusercontent.com/83757490/195021042-28919aac-8799-472a-9ad8-835b5d957f8a.png)
+
 
 - Send outsourcing computing task from `PlatON` to `Near`
   - Send task from `PlatON` with command
@@ -183,13 +184,17 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   node nearToPlatON.js --greet
   ```
   
-  - Query transaction on [PlatON Scan](https://scan.platon.network/contract-detail?address=0x73D01079F4833D4Bcea07e87C47f818189F5EF3a)
+  ![image](https://user-images.githubusercontent.com/83757490/195021472-2a888bd3-87ef-4d5a-8fda-4ac4682f6f77.png)
+
+  
+  - Query transaction on [Near Scan](https://explorer.testnet.near.org/accounts/shanks.testnet)
   
   - Query result
   
   After a moment, the result queryed from `Near` will be printed.
   
-  
+  ![image](https://user-images.githubusercontent.com/83757490/195021722-2843ea81-76ba-450f-8129-42729e065747.png)
+
 
 - Send outsourcing computing task from `Near` to `PlatON`
   - Send task from `Near` with command
@@ -197,11 +202,17 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   node nearToPlatON.js --compute 9,9,8
   ```
   
-  - Query transaction on [PlatON Scan](https://scan.platon.network/contract-detail?address=0x73D01079F4833D4Bcea07e87C47f818189F5EF3a)
+  ![image](https://user-images.githubusercontent.com/83757490/195022153-81b62b12-58a8-4e9c-91ff-43acb424217f.png)
+
+  
+  - Query transaction on [Near Scan](https://explorer.testnet.near.org/accounts/shanks.testnet)
   
   - Query result
   
   After a moment, the result queryed from `Near` will be printed.
+  
+  ![image](https://user-images.githubusercontent.com/83757490/195022368-2a0d0fb9-6d5e-4cba-893f-068768beb021.png)
+
 
 #### **Interoperation between `Shibuya Testnet` and `PlatON`**
 
