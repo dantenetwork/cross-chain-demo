@@ -135,7 +135,84 @@ Check [Install the Flow CLI](https://developers.flow.com/tools/flow-cli/install)
   ```
   ![avatar](./flow-demo/img/result.jpg)
 
+#### **Interoperation between `PlatON` and `NEAR`**  
+
+  **Check related transaction on [PlatON Scan](https://scan.platon.network/)**  
+  **Check related transaction on [Near Scan](https://explorer.testnet.near.org/)**
+
+- Send greeting from `PlatON` to `NEAR`
+  - Send greeting from `PlatON` with command
+  ```
+  node platONToNear.js --greet
+  ```
   
+  ![image](https://user-images.githubusercontent.com/83757490/195003754-357021f5-642a-47c5-b030-6e90d763cd8b.png)
+  
+  - Query transaction on [PlatON Scan](https://scan.platon.network/contract-detail?address=0xbd2c1e271a60281aaed8f42a91613fbd3ae18b65)
+  
+  - Query result
+  
+  After a moment, the result queryed from `Near Testnet` will be printed.
+  
+  ![image](https://user-images.githubusercontent.com/83757490/195021042-28919aac-8799-472a-9ad8-835b5d957f8a.png)
+
+
+- Send outsourcing computing task from `PlatON` to `Near`
+  - Send task from `PlatON` with command
+  ```
+  node platonToNear.js --compute 2,3,6
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/83757490/195019788-3cb1276c-2da1-4363-b375-608751843c9a.png)
+
+  - Query transaction on [PlatON Scan](https://scan.platon.network/contract-detail?address=0x73D01079F4833D4Bcea07e87C47f818189F5EF3a)
+  
+  - Query result
+  
+  After a moment, the result queryed from `PlatON` will be printed.
+  
+  ![image](https://user-images.githubusercontent.com/83757490/195019652-b0aaa827-9f38-4069-863e-48116546c658.png)
+
+
+- Send greeting from `Near` to `PlatON`
+  - Send greeting from `Near` with command
+  ```
+  node nearToPlatON.js --greet
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/83757490/195021472-2a888bd3-87ef-4d5a-8fda-4ac4682f6f77.png)
+
+  
+  - Query transaction on [Near Scan](https://explorer.testnet.near.org/accounts/shanks.testnet)
+  
+  - Query result
+  
+  After a moment, the result queryed from `PlatON` will be printed.
+  
+  ![image](https://user-images.githubusercontent.com/83757490/195021722-2843ea81-76ba-450f-8129-42729e065747.png)
+
+
+- Send outsourcing computing task from `Near` to `PlatON`
+  - Send task from `Near` with command
+  ```
+  node nearToPlatON.js --compute 9,9,8
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/83757490/195022153-81b62b12-58a8-4e9c-91ff-43acb424217f.png)
+
+  
+  - Query transaction on [Near Scan](https://explorer.testnet.near.org/accounts/shanks.testnet)
+  
+  - Query result
+  
+  After a moment, the result queryed from `Near` will be printed.
+  
+  ![image](https://user-images.githubusercontent.com/83757490/195022368-2a0d0fb9-6d5e-4cba-893f-068768beb021.png)
+
+
+#### **Interoperation between `Shibuya Testnet` and `PlatON`**
+
+A similar tutorial for interoperation between `Shibuya Testnet` and `Avalanche` has been writen [here](https://github.com/dantenetwork/cross-chain-demo/blob/main/README.md#interoperation-between-shibuya-testnet-and-avalanche).
 
 ### Other Demos
 * Check more demo shows based on Dante protocol stack [here](https://github.com/dantenetwork/Demo-Show)
