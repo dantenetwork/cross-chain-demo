@@ -1,0 +1,30 @@
+{
+  "signer": "0x13D0a28DBa0D88fF8739B9e31Db7f8BA7DEE1175",
+  "keyService": "http://127.0.0.1:17788/keyapi/v1/sign_transaction",
+  "networks": {
+    "SEPOLIA": {
+        "nodeAddress": "https://sepolia.infura.io/v3/94ebec44ffc34501898dd5dccf387f81",
+        "crossChainContractAddress": "0xB4b5Bb49c2390A1c059582Ed79571e4D3A76E4eF",
+        "greetingContractAddress": "0xa98E89273263165E0d5c5A23b931d09b896312C6",
+        "computingContractAddress": "0xCA0f056300aF6F282D308451c0e9005Df5127d3E",
+        "compatibleChain": "ethereum",
+        "chainId": 11155111
+    },
+    "BSCTEST": {
+      "nodeAddress": "https://data-seed-prebsc-1-s1.binance.org:8545",
+      "crossChainContractAddress": "0xB4b5Bb49c2390A1c059582Ed79571e4D3A76E4eF",
+      "greetingContractAddress": "0xa98E89273263165E0d5c5A23b931d09b896312C6",
+      "computingContractAddress": "0xCA0f056300aF6F282D308451c0e9005Df5127d3E",
+      "compatibleChain": "ethereum",
+      "chainId": 97
+    },
+    "MUMBAI": {
+      "nodeAddress": "https://polygon-testnet.blastapi.io/38a248ff-baca-4a46-81cb-b188786053ab",
+      "crossChainContractAddress": "0xB4b5Bb49c2390A1c059582Ed79571e4D3A76E4eF",
+      "greetingContractAddress": "0xa98E89273263165E0d5c5A23b931d09b896312C6",
+      "computingContractAddress": "0xCA0f056300aF6F282D308451c0e9005Df5127d3E",
+      "compatibleChain": "ethereum",
+      "chainId": 80001
+    }
+  }
+}

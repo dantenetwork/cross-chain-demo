@@ -3,78 +3,10 @@ const fs = require('fs');
 const near = require('./near');
 const ethereum = require('./ethereum');
 const utils = require('./utils');
-
-const rinkebyWeb3 = new Web3('https://rpc.ankr.com/eth_rinkeby');
-const moonbeamWeb3 = new Web3('https://moonbase-alpha.public.blastapi.io');
-const fujiWeb3 = new Web3('https://api.avax-test.network/ext/bc/C/rpc');
-const platonWeb3 = new Web3('https://openapi.platon.network/rpc');
-
-let evmGreetingContracts = {};
-let evmComputeContracts = {};
-let evmCrossChainContracts = {};
-let evmProviders = {};
-
-evmProviders['RINKEBY'] = [rinkebyWeb3, 4];
-evmProviders['MOONBASEALPHA'] = [moonbeamWeb3, 1287];
-evmProviders['FUJI'] = [fujiWeb3, 43113];
-evmProviders['PLATONEVM'] = [platonWeb3, 210425];
+const config = require('config');
 
 // Test account
-let testAccount = '0x8408925fD39071270Ed1AcA5d618e1c79be08B27';
-
-// Load smart contract abi
-let greetingRawData = fs.readFileSync('./res/Greetings.json');
-let greetingAbi = JSON.parse(greetingRawData).abi;
-
-let ocComputeRawData = fs.readFileSync('./res/OCComputing.json');
-let ocComputeAbi = JSON.parse(ocComputeRawData).abi;
-
-let crossChainRawData = fs.readFileSync('./res/ICrossChain.json');
-let crossChainAbi = JSON.parse(crossChainRawData).abi;
-
-// Moonbeam contracts
-let moonbeamGreetingContractAddress = '0x49bC1f09474993103ECa96d96f4C3f7000B5fB7b';
-let moonbeamGreetingContract = new moonbeamWeb3.eth.Contract(greetingAbi, moonbeamGreetingContractAddress);
-evmGreetingContracts['MOONBASEALPHA'] = moonbeamGreetingContract;
-
-let moonbeamComputeContractAddress = '0x8c5d8Df81C670b5154fe27930C0289289e94a52f';
-let moonbeamComputeContract = new moonbeamWeb3.eth.Contract(ocComputeAbi, moonbeamComputeContractAddress);
-evmComputeContracts['MOONBASEALPHA'] = moonbeamComputeContract;
-
-// Fuji contracts
-let fujiGreetingContractAddress = '0x1723f39e05Ca8b14ACaf244bAFFBd79801d42A63';
-let fujiGreetingContract = new fujiWeb3.eth.Contract(greetingAbi, fujiGreetingContractAddress);
-evmGreetingContracts['FUJI'] = fujiGreetingContract;
-
-let fujiComputeContractAddress = '0x7F5b6F5F7a786F63383E8681Da7ACCEed76Ab209';
-let fujiComputeContract = new fujiWeb3.eth.Contract(ocComputeAbi, fujiComputeContractAddress);
-evmComputeContracts['FUJI'] = fujiComputeContract;
-
-// Rinkeby contracts
-let rinkebyGreetingContractAddress = '0x71375852616ef7196B07bA3f16805B512e21813E';
-let rinkebyGreetingContract = new rinkebyWeb3.eth.Contract(greetingAbi, rinkebyGreetingContractAddress);
-evmGreetingContracts['RINKEBY'] = rinkebyGreetingContract;
-
-let rinkebyComputeContractAddress = '0x6Aa89C654907445a35Da1109C5fD7A75F1546Ef6';
-let rinkebyComputeContract = new rinkebyWeb3.eth.Contract(ocComputeAbi, rinkebyComputeContractAddress);
-evmComputeContracts['RINKEBY'] = rinkebyComputeContract;
-
-let rinkebyCrossChainContractAddress = '0x2999fe13d3CAa63C0bC523E8D5b19A265637dbd2';
-let rinkebyCrossChainContract = new platonWeb3.eth.Contract(crossChainAbi, rinkebyCrossChainContractAddress);
-evmCrossChainContracts['RINKEBY'] = rinkebyCrossChainContract;
-
-// PlatON contracts
-let platonGreetingContractAddress = '0xbd2c1e271A60281AAeD8F42A91613fbD3ae18B65';
-let platonGreetingContract = new platonWeb3.eth.Contract(greetingAbi, platonGreetingContractAddress);
-evmGreetingContracts['PLATONEVM'] = platonGreetingContract;
-
-let platonComputeContractAddress = '0x73D01079F4833D4Bcea07e87C47f818189F5EF3a';
-let platonComputeContract = new platonWeb3.eth.Contract(ocComputeAbi, platonComputeContractAddress);
-evmComputeContracts['PLATONEVM'] = platonComputeContract;
-
-let platonCrossChainContractAddress = '0xf61C4699B99d1988EB235AF06F270029D9Ed3b63';
-let platonCrossChainContract = new platonWeb3.eth.Contract(crossChainAbi, platonCrossChainContractAddress);
-evmCrossChainContracts['PLATONEVM'] = platonCrossChainContract;
+let testAccount = config.get('signer');
 
 // NEAR contract
 let nearContractId = 'd8ae7a513eeaa36a4c6a42127587dbf0f2adbbda06523c0fba4a16bd275089f9';
@@ -94,6 +26,35 @@ function getCurrentDate() {
   let ret = JSON.stringify(today);
   console.log('date', ret);
   return ret;
+}
+
+function loadContract(chainName, key) {
+  let cfg = config.get('networks.' + chainName);
+  if (!cfg) {
+    console.log('Configuration not found for ', chainName);
+    return;
+  }
+
+  const web3 = new Web3(cfg.nodeAddress);
+  web3.eth.handleRevert = true;
+  let contract;
+  if (key == 'GREETING') {
+    let greetingRawData = fs.readFileSync('./res/Greetings.json');
+    let greetingAbi = JSON.parse(greetingRawData).abi;
+    contract = new web3.eth.Contract(greetingAbi, cfg.greetingContractAddress);
+  }
+  else if (key == 'COMPUTING') {
+    let ocComputeRawData = fs.readFileSync('./res/OCComputing.json');
+    let ocComputeAbi = JSON.parse(ocComputeRawData).abi;
+    contract = new web3.eth.Contract(ocComputeAbi, cfg.computingContractAddress);
+  }
+  else if (key == 'CROSSCHAIN') {
+    let crossChainRawData = fs.readFileSync('./res/ICrossChain.json');
+    let crossChainAbi = JSON.parse(crossChainRawData).abi;
+    contract = new web3.eth.Contract(crossChainAbi, cfg.crossChainContractAddress);
+  }
+
+  return [web3, contract, cfg];
 }
 
 module.exports = {  
@@ -116,22 +77,26 @@ module.exports = {
   },
 
   async sendMessageFromEthereum(fromChain, toChain) {
-    await ethereum.sendTransaction(fromChain, evmProviders[fromChain][0], evmProviders[fromChain][1], evmGreetingContracts[fromChain], 'sendGreeting', testAccount, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
+    let contract = loadContract(fromChain, 'GREETING');
+    await ethereum.sendTransaction(fromChain, contract[0], contract[2].chainId, contract[1], 'sendGreeting', testAccount, [toChain, [fromChain, 'Greetings', 'Greeting from ' + fromChain, getCurrentDate()]]);
     await utils.sleep(5);
-    let id = await ethereum.contractCall(evmCrossChainContracts[fromChain], 'getSentMessageNumber', [toChain]);
+    let crossChainContract = loadContract(fromChain, 'CROSSCHAIN');
+    let id = await ethereum.contractCall(crossChainContract[1], 'getSentMessageNumber', [toChain]);
     console.log('id', id);
     return id;
   },
 
   async sendOCTaskFromEthereum(fromChain, toChain, nums) {
-    await ethereum.sendTransaction(fromChain, evmProviders[fromChain][0], evmProviders[fromChain][1], evmComputeContracts[fromChain], 'sendComputeTask', testAccount, [toChain, nums]);
+    let contract = loadContract(fromChain, 'COMPUTING');
+    await ethereum.sendTransaction(fromChain, contract[0], contract[2].chainId, contract[1], 'sendComputeTask', testAccount, [toChain, nums]);
     await utils.sleep(5);
-    let messages = await ethereum.contractCall(evmComputeContracts[fromChain], 'getResults', [toChain]);
+    let messages = await ethereum.contractCall(contract[1], 'getResults', [toChain]);
     return messages[messages.length - 1].session;
   },
   
   async queryMessageFromEthereum(chainName, fromChain, id) {
-    const message = await ethereum.contractCall(evmGreetingContracts[chainName], 'getGreetings', [fromChain]);
+    let contract = loadContract(chainName, 'GREETING');
+    const message = await ethereum.contractCall(contract[1], 'getGreetings', [fromChain]);
     if (id == null) {
       return message;
     }
@@ -145,7 +110,8 @@ module.exports = {
   },
   
   async queryOCResultFromEthereum(chainName, toChain, id) {
-    const message = await ethereum.contractCall(evmComputeContracts[chainName], 'getResults', [toChain]);
+    let contract = loadContract(chainName, 'COMPUTING');
+    const message = await ethereum.contractCall(contract[1], 'getResults', [toChain]);
     let ret = null;
     for (let i = 0; i < message.length; i++) {
       if (message[i].session == id) {

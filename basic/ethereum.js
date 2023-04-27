@@ -1,5 +1,6 @@
 const { request } = require('./utils');
-const keyServiceApi = 'http://47.241.69.26:17788/keyapi/v1/sign_transaction';
+const config = require('config');
+const keyServiceApi = config.get('keyService');
 
 module.exports = {
   // Sign with private key
